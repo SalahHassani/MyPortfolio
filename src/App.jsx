@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Terminal,
   Cpu,
@@ -548,32 +548,33 @@ export default function App() {
     }
   };
 
-  // Filtered Tech Stack
-  const techCategories = ["All", "AI & Deep Learning", "Data Science", "Backend & APIs", "Languages", "Databases & DevOps"];
-  const filteredTech =
-    activeTechTab === "All"
+  // Memoized Filtered Tech Stack (Optimized for instant re-renders)
+  const filteredTech = useMemo(() => {
+    return activeTechTab === "All"
       ? PORTFOLIO_DATA.techStack
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
+  }, [activeTechTab]);
 
-  // Filtered Projects (Category + Search Query)
-  const projectCategories = ["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"];
-  const filteredProjects = PORTFOLIO_DATA.projects.filter((proj) => {
-    const matchesCategory =
-      activeProjectFilter === "All"
-        ? true
-        : activeProjectFilter === "Featured"
-        ? proj.featured
-        : proj.category === activeProjectFilter;
+  // Memoized Filtered Projects (Category + Search Query Optimized)
+  const filteredProjects = useMemo(() => {
+    return PORTFOLIO_DATA.projects.filter((proj) => {
+      const matchesCategory =
+        activeProjectFilter === "All"
+          ? true
+          : activeProjectFilter === "Featured"
+          ? proj.featured
+          : proj.category === activeProjectFilter;
 
-    const query = projectSearchQuery.trim().toLowerCase();
-    const matchesQuery =
-      !query ||
-      proj.title.toLowerCase().includes(query) ||
-      proj.shortDesc.toLowerCase().includes(query) ||
-      proj.tech.some((t) => t.toLowerCase().includes(query));
+      const query = projectSearchQuery.trim().toLowerCase();
+      const matchesQuery =
+        !query ||
+        proj.title.toLowerCase().includes(query) ||
+        proj.shortDesc.toLowerCase().includes(query) ||
+        proj.tech.some((t) => t.toLowerCase().includes(query));
 
-    return matchesCategory && matchesQuery;
-  });
+      return matchesCategory && matchesQuery;
+    });
+  }, [activeProjectFilter, projectSearchQuery]);
 
   const featuredProjects = PORTFOLIO_DATA.projects.filter((p) => p.featured);
 
@@ -1008,7 +1009,7 @@ export default function App() {
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {techCategories.map((category) => (
+              {["All", "AI & Deep Learning", "Data Science", "Backend & APIs", "Languages", "Databases & DevOps"].map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveTechTab(category)}
@@ -1144,7 +1145,7 @@ export default function App() {
 
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex flex-wrap gap-2">
-              {projectCategories.map((cat) => (
+              {["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveProjectFilter(cat)}
