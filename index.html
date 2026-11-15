@@ -9,7 +9,6 @@
       content="Portfolio of Salah Uddin Hassani — M.Sc. Data Science student at Freie Universität Berlin, AI & Machine Learning researcher, and Full-Stack Software Engineer."
     />
     <style>
-      /* Inline critical fallback styles so it renders in < 0.1s without waiting for CSS files */
       #initial-loader {
         display: flex;
         flex-direction: column;
@@ -36,7 +35,6 @@
   </head>
   <body class="bg-[#0a0a0f] text-slate-100 antialiased">
     <div id="root">
-      <!-- Instant visual shell while React loads in the background -->
       <div id="initial-loader">
         <div class="spinner"></div>
         <div style="font-size: 14px; font-weight: 600; letter-spacing: 0.05em; color: #22d3ee;">
@@ -47,6 +45,6 @@
         </div>
       </div>
     </div>
-    <script type="module" src="./src/main.jsx"></script>
+    <!-- DO NOT put a manual script tag here. Vite inserts it automatically during build! -->
   </body>
 </html>
