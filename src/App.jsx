@@ -379,27 +379,34 @@ const PORTFOLIO_DATA = {
 // MAIN APPLICATION COMPONENT
 // ============================================================================
 export default function App() {
+  // Navigation & Mobile Drawer State
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Typing Subtitle Animation State
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedRole, setDisplayedRole] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Tech Stack Filter State
   const [activeTechTab, setActiveTechTab] = useState("All");
 
+  // Projects Filter, Search & Modal State
   const [activeProjectFilter, setActiveProjectFilter] = useState("All");
   const [projectSearchQuery, setProjectSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // CV Modal State
   const [cvModalOpen, setCvModalOpen] = useState(false);
 
+  // Timeline Expandable State (all expanded by default for clarity)
   const [expandedTimelineIds, setExpandedTimelineIds] = useState({
     "edu-msc": true,
     "work-nix": true,
     "edu-bsc": true
   });
 
+  // FastAPI Contact Form State
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -411,12 +418,14 @@ export default function App() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [imgError, setImgError] = useState(false);
 
+  // Handle Navbar Blur & Border on Scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Typewriter Effect for Dynamic Subtitle
   useEffect(() => {
     const currentFullText = PORTFOLIO_DATA.personal.roles[roleIndex];
     const typingSpeed = isDeleting ? 28 : 55;
@@ -437,6 +446,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [displayedRole, isDeleting, roleIndex]);
 
+  // Close Modals on Escape Key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -448,6 +458,7 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Smooth Section Scroll
   const scrollToSection = (sectionId) => {
     setMobileMenuOpen(false);
     const el = document.getElementById(sectionId);
@@ -456,10 +467,12 @@ export default function App() {
     }
   };
 
+  // Toggle Timeline Details
   const toggleTimelineItem = (id) => {
     setExpandedTimelineIds((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  // Copy Email Handler
   const handleCopyEmail = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(PORTFOLIO_DATA.personal.email);
@@ -468,6 +481,7 @@ export default function App() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  // Simulated FastAPI Backend POST Submission
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
@@ -495,7 +509,7 @@ export default function App() {
       setApiResponseToast({
         status: 201,
         endpoint: "POST /api/v1/contact → Email Forwarded",
-        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}.`,
+        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}. (Note: First-time FormSubmit submissions require a one-click activation email in your inbox.)`,
         timestamp: new Date().toISOString()
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
@@ -507,7 +521,7 @@ export default function App() {
       setApiResponseToast({
         status: 200,
         endpoint: "MAILTO FALLBACK",
-        message: `Opened your default mail client addressed to ${PORTFOLIO_DATA.personal.email}!`,
+        message: `Opened your default mail client addressed to ${PORTFOLIO_DATA.personal.email} with your message pre-filled!`,
         timestamp: new Date().toISOString()
       });
     } finally {
@@ -515,14 +529,18 @@ export default function App() {
     }
   };
 
+  // Filtered Tech Stack
   const techCategories = ["All", "AI & Deep Learning", "Data Science", "Backend & APIs", "Languages", "Databases & DevOps"];
   const filteredTech =
     activeTechTab === "All"
       ? PORTFOLIO_DATA.techStack
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
 
+  // Filtered Projects (Excluding the flagship featured build from the main grid to prevent duplication)
+  const nonFlagshipProjects = PORTFOLIO_DATA.projects.filter((p) => p.id !== "ai-coding-tutorial");
+
   const projectCategories = ["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"];
-  const filteredProjects = PORTFOLIO_DATA.projects.filter((proj) => {
+  const filteredProjects = nonFlagshipProjects.filter((proj) => {
     const matchesCategory =
       activeProjectFilter === "All"
         ? true
@@ -540,7 +558,7 @@ export default function App() {
     return matchesCategory && matchesQuery;
   });
 
-  const featuredProjects = PORTFOLIO_DATA.projects.filter((p) => p.featured);
+  const flagshipProject = PORTFOLIO_DATA.projects.find((p) => p.id === "ai-coding-tutorial");
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 font-sans relative overflow-x-hidden">
@@ -592,13 +610,15 @@ export default function App() {
         }
       `}</style>
 
-      {/* Ambient Glows */}
+      {/* Ambient Radial Mesh Glows */}
       <div className="fixed inset-0 bg-grid-pattern pointer-events-none z-0" />
       <div className="fixed -top-40 -left-40 w-96 h-96 bg-cyan-500/15 rounded-full blur-[130px] pointer-events-none z-0" />
       <div className="fixed top-1/3 -right-40 w-[28rem] h-[28rem] bg-violet-600/15 rounded-full blur-[140px] pointer-events-none z-0" />
       <div className="fixed bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
-      {/* NAVBAR */}
+      {/* =====================================================================
+          1. STICKY GLASSMORPHIC NAVBAR
+      ===================================================================== */}
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
           scrolled
@@ -702,7 +722,9 @@ export default function App() {
       </header>
 
       <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HERO SECTION */}
+        {/* =====================================================================
+            2. HERO & PROFILE SECTION
+        ===================================================================== */}
         <section id="about" className="pt-32 pb-20 md:pt-40 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
             <div className="lg:col-span-7 space-y-6">
@@ -838,7 +860,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right Column: GitHub & Academic Identity Card */}
             <div className="lg:col-span-5 space-y-4">
               <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-400 via-violet-500 to-emerald-400" />
@@ -954,7 +975,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* TECH STACK */}
+        {/* =====================================================================
+            3. INTERACTIVE TECH STACK SECTION
+        ===================================================================== */}
         <section id="stack" className="py-20 border-t border-white/5">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
@@ -1011,7 +1034,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* PROJECTS SECTION */}
+        {/* =====================================================================
+            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (8 PROJECTS)
+        ===================================================================== */}
         <section id="projects" className="py-20 border-t border-white/5">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
             <div>
@@ -1039,65 +1064,68 @@ export default function App() {
             </div>
           </div>
 
-          <div
-            onClick={() => setSelectedProject(featuredProjects[0])}
-            className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-              <div className="space-y-3 max-w-3xl">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/40">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                    ACTIVE BUILD / IN PROGRESS
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
-                    <Star className="w-3 h-3 fill-cyan-300" />
-                    Flagship Project
-                  </span>
-                  <span className="text-xs font-mono text-violet-300">
-                    {featuredProjects[0].subtitle}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
-                  {featuredProjects[0].title}
-                </h3>
-
-                <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed">
-                  {featuredProjects[0].fullDesc}
-                </p>
-
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {featuredProjects[0].tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-cyan-200 border border-white/10"
-                    >
-                      {t}
+          {/* FLAGSHIP SPOTLIGHT BANNER */}
+          {flagshipProject && (
+            <div
+              onClick={() => setSelectedProject(flagshipProject)}
+              className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+                <div className="space-y-3 max-w-3xl">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/40">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                      ACTIVE BUILD / IN PROGRESS
                     </span>
-                  ))}
-                </div>
-              </div>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
+                      <Star className="w-3 h-3 fill-cyan-300" />
+                      Flagship Project
+                    </span>
+                    <span className="text-xs font-mono text-violet-300">
+                      {flagshipProject.subtitle}
+                    </span>
+                  </div>
 
-              <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
-                <a
-                  href={PORTFOLIO_DATA.personal.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub (@SHassani)</span>
-                </a>
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 group-hover:translate-x-1 transition-transform">
-                  <span>Inspect System Design</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                    {flagshipProject.title}
+                  </h3>
+
+                  <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed">
+                    {flagshipProject.fullDesc}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {flagshipProject.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-cyan-200 border border-white/10"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
+                  <a
+                    href={PORTFOLIO_DATA.personal.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>GitHub (@SHassani)</span>
+                  </a>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 group-hover:translate-x-1 transition-transform">
+                    <span>Inspect System Design</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          )}
 
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex flex-wrap gap-2">
@@ -1116,7 +1144,7 @@ export default function App() {
               ))}
             </div>
             <span className="text-xs font-mono text-slate-400">
-              Showing {filteredProjects.length} of {PORTFOLIO_DATA.projects.length} projects
+              Showing {filteredProjects.length} of {nonFlagshipProjects.length} remaining technical projects
             </span>
           </div>
 
@@ -1126,11 +1154,7 @@ export default function App() {
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
                 className={`glass-card glass-card-hover rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col justify-between group ${
-                  project.inProgress
-                    ? "border-amber-400/35 bg-gradient-to-b from-amber-500/[0.04] to-transparent"
-                    : project.featured
-                    ? "border-cyan-500/20"
-                    : ""
+                  project.featured ? "border-cyan-500/20" : ""
                 }`}
               >
                 <div>
@@ -1139,13 +1163,7 @@ export default function App() {
                       <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
                         {project.category}
                       </span>
-                      {project.inProgress && (
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-300 border border-amber-400/35">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
-                          In Progress
-                        </span>
-                      )}
-                      {project.featured && !project.inProgress && (
+                      {project.featured && (
                         <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded-md bg-violet-500/15 text-violet-300 border border-violet-400/25">
                           <Star className="w-3 h-3" />
                           Featured
@@ -1165,7 +1183,7 @@ export default function App() {
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors flex items-start justify-between gap-2 leading-snug">
                     <span>
                       <span className="text-slate-500 font-mono text-base mr-2">
-                        0{idx + 1}.
+                        0{idx + 2}.
                       </span>
                       {project.title}
                     </span>
@@ -1210,7 +1228,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* EXPERIENCE & EDUCATION */}
+        {/* =====================================================================
+            5. EDUCATION & PROFESSIONAL EXPERIENCE TIMELINE
+        ===================================================================== */}
         <section id="experience" className="py-20 border-t border-white/5">
           <div className="mb-12">
             <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1325,7 +1345,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* RESEARCH INTERESTS & LANGUAGES */}
+        {/* =====================================================================
+            6. ACADEMIC RESEARCH INTERESTS, LANGUAGES (5) & PERSONAL INTERESTS
+        ===================================================================== */}
         <section id="interests" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
@@ -1411,7 +1433,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* CONTACT SECTION */}
+        {/* =====================================================================
+            7. INTERACTIVE FASTAPI CONTACT SECTION
+        ===================================================================== */}
         <section id="contact" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
             <div className="lg:col-span-5 space-y-6">
@@ -1603,6 +1627,9 @@ export default function App() {
         </section>
       </main>
 
+      {/* =====================================================================
+          8. FOOTER
+      ===================================================================== */}
       <footer className="relative z-10 border-t border-white/10 bg-[#07080c] py-10 mt-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
@@ -1636,6 +1663,9 @@ export default function App() {
         </div>
       </footer>
 
+      {/* =====================================================================
+          PROJECT ARCHITECTURE DETAIL MODAL
+      ===================================================================== */}
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
@@ -1728,6 +1758,9 @@ export default function App() {
         </div>
       )}
 
+      {/* =====================================================================
+          INTERACTIVE PRINTABLE CV / RESUME MODAL
+      ===================================================================== */}
       {cvModalOpen && (
         <div
           onClick={() => setCvModalOpen(false)}
@@ -1831,7 +1864,7 @@ export default function App() {
                       <h4 className="font-bold text-white text-xs font-mono uppercase mb-2">
                         Languages (5)
                       </h4>
-                      <div className="grid grid-cols1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
                         {PORTFOLIO_DATA.languages.map((l) => (
                           <span key={l.name} className="font-mono">
                             • {l.name}: {l.badge}
