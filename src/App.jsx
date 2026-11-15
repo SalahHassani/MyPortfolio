@@ -127,6 +127,25 @@ const PORTFOLIO_DATA = {
       metrics: "ACTIVE BUILD • AI-Powered Coding Education"
     },
     {
+      id: "human-ai-interaction-lab",
+      title: "Human AI Interaction Lab",
+      subtitle: "Full-Stack Web Application | Interactive AI Interface",
+      category: "Generative AI",
+      featured: true,
+      inProgress: false,
+      shortDesc: "Advanced web application exploring human-AI interaction dynamics, featuring modern UI components and responsive workflows.",
+      fullDesc: "An immersive frontend and full-stack web application designed to study and demonstrate human-AI interaction workflows. Built with modern web technologies, responsive layouts, and seamless client-server communication.",
+      tech: ["TypeScript", "React", "Vercel", "Tailwind CSS"],
+      githubUrl: "https://github.com/SalahHassani/human-ai-interaction-lab",
+      liveUrl: "https://human-ai-interaction-lab-frontend.vercel.app/",
+      architecture: [
+        "Developed responsive user interfaces optimized for interactive AI agent communication and data inspection",
+        "Deployed production-ready frontend on Vercel with high performance and smooth transitions",
+        "Integrated robust state management for handling real-time user inputs and AI response feedback"
+      ],
+      metrics: "LIVE DEPLOYMENT • Interactive AI Lab"
+    },
+    {
       id: "cardiac-segmentation",
       title: "Transformer-Based Cardiac Image Segmentation",
       subtitle: "Bachelor's Thesis | Deep Learning | Medical Image Analysis",
@@ -328,6 +347,12 @@ const PORTFOLIO_DATA = {
         lang: "TypeScript / Python"
       },
       {
+        name: "Human-AI-Interaction-Lab",
+        status: "Live App",
+        desc: "Advanced web application exploring human-AI interaction dynamics hosted on Vercel.",
+        lang: "TypeScript / React"
+      },
+      {
         name: "Cardiac-Image-Segmentation",
         status: "B.Sc. Thesis",
         desc: "Transformer-based medical image segmentation evaluated with Dice, IoU & Hausdorff Distance.",
@@ -338,12 +363,6 @@ const PORTFOLIO_DATA = {
         status: "Generative AI",
         desc: "Stable Diffusion v1.5 + FastAPI + PostgreSQL web app with RBAC and PDF export.",
         lang: "Python / FastAPI"
-      },
-      {
-        name: "Delta-Loading-ETL-Pipeline",
-        status: "Data Engineering",
-        desc: "Incremental CSV-to-SQLite delta-loading workflow built for AUMOVIO.",
-        lang: "Python / SQL"
       }
     ]
   },
@@ -509,7 +528,7 @@ export default function App() {
       setApiResponseToast({
         status: 201,
         endpoint: "POST /api/v1/contact → Email Forwarded",
-        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}. (Note: First-time FormSubmit submissions require a one-click activation email in your inbox.)`,
+        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}.`,
         timestamp: new Date().toISOString()
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
@@ -536,11 +555,9 @@ export default function App() {
       ? PORTFOLIO_DATA.techStack
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
 
-  // Filtered Projects (Excluding the flagship featured build from the main grid to prevent duplication)
-  const nonFlagshipProjects = PORTFOLIO_DATA.projects.filter((p) => p.id !== "ai-coding-tutorial");
-
+  // Filtered Projects
   const projectCategories = ["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"];
-  const filteredProjects = nonFlagshipProjects.filter((proj) => {
+  const filteredProjects = PORTFOLIO_DATA.projects.filter((proj) => {
     const matchesCategory =
       activeProjectFilter === "All"
         ? true
@@ -558,7 +575,7 @@ export default function App() {
     return matchesCategory && matchesQuery;
   });
 
-  const flagshipProject = PORTFOLIO_DATA.projects.find((p) => p.id === "ai-coding-tutorial");
+  const featuredProjects = PORTFOLIO_DATA.projects.filter((p) => p.featured);
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 font-sans relative overflow-x-hidden">
@@ -655,7 +672,7 @@ export default function App() {
             {[
               { label: "About", id: "about" },
               { label: "Skills", id: "stack" },
-              { label: "Projects (8)", id: "projects" },
+              { label: "Projects (9)", id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -694,7 +711,7 @@ export default function App() {
             {[
               { label: "About", id: "about" },
               { label: "Technical Skills", id: "stack" },
-              { label: "Projects (8)", id: "projects" },
+              { label: "Projects (9)", id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -770,10 +787,10 @@ export default function App() {
               <div className="grid grid-cols-3 gap-3 max-w-xl pt-1">
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-cyan-400">
                   <span className="text-base sm:text-lg font-extrabold text-white block">
-                    8 Projects
+                    9 Projects
                   </span>
                   <span className="text-[11px] font-mono text-slate-400">
-                    AI, CV, Diffusion &amp; ETL
+                    AI, CV, Diffusion &amp; Lab
                   </span>
                 </div>
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-emerald-400">
@@ -1035,7 +1052,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (8 PROJECTS)
+            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (9 PROJECTS)
         ===================================================================== */}
         <section id="projects" className="py-20 border-t border-white/5">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
@@ -1048,7 +1065,7 @@ export default function App() {
                 Featured &amp; Technical Projects
               </h2>
               <p className="text-slate-300/80 text-sm sm:text-base mt-2 max-w-2xl">
-                Highlighting my active AI Coding Tutorial Platform, B.Sc. Medical Computer Vision Thesis, Generative AI pipelines, and Data Engineering systems.
+                Highlighting my active AI Coding Tutorial Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
               </p>
             </div>
 
@@ -1058,74 +1075,72 @@ export default function App() {
                 type="text"
                 value={projectSearchQuery}
                 onChange={(e) => setProjectSearchQuery(e.target.value)}
-                placeholder="Search PyTorch, FastAPI, Gemini..."
+                placeholder="Search PyTorch, FastAPI, Vercel..."
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0f18] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
               />
             </div>
           </div>
 
-          {/* FLAGSHIP SPOTLIGHT BANNER */}
-          {flagshipProject && (
-            <div
-              onClick={() => setSelectedProject(flagshipProject)}
-              className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-                <div className="space-y-3 max-w-3xl">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/40">
-                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                      ACTIVE BUILD / IN PROGRESS
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
-                      <Star className="w-3 h-3 fill-cyan-300" />
-                      Flagship Project
-                    </span>
-                    <span className="text-xs font-mono text-violet-300">
-                      {flagshipProject.subtitle}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
-                    {flagshipProject.title}
-                  </h3>
-
-                  <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed">
-                    {flagshipProject.fullDesc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {flagshipProject.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-cyan-200 border border-white/10"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
-                  <a
-                    href={PORTFOLIO_DATA.personal.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span>GitHub (@SHassani)</span>
-                  </a>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 group-hover:translate-x-1 transition-transform">
-                    <span>Inspect System Design</span>
-                    <ArrowUpRight className="w-4 h-4" />
+          {/* FEATURED SPOTLIGHT BANNER */}
+          <div
+            onClick={() => setSelectedProject(featuredProjects[0])}
+            className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+              <div className="space-y-3 max-w-3xl">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/40">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                    ACTIVE BUILD / IN PROGRESS
+                  </span>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
+                    <Star className="w-3 h-3 fill-cyan-300" />
+                    Flagship Project
+                  </span>
+                  <span className="text-xs font-mono text-violet-300">
+                    {featuredProjects[0].subtitle}
                   </span>
                 </div>
+
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                  {featuredProjects[0].title}
+                </h3>
+
+                <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed">
+                  {featuredProjects[0].fullDesc}
+                </p>
+
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {featuredProjects[0].tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-cyan-200 border border-white/10"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
+                <a
+                  href={PORTFOLIO_DATA.personal.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub (@SHassani)</span>
+                </a>
+                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 group-hover:translate-x-1 transition-transform">
+                  <span>Inspect System Design</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
               </div>
             </div>
-          )}
+          </div>
 
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex flex-wrap gap-2">
@@ -1144,7 +1159,7 @@ export default function App() {
               ))}
             </div>
             <span className="text-xs font-mono text-slate-400">
-              Showing {filteredProjects.length} of {nonFlagshipProjects.length} remaining technical projects
+              Showing {filteredProjects.length} of {PORTFOLIO_DATA.projects.length} projects
             </span>
           </div>
 
@@ -1154,7 +1169,11 @@ export default function App() {
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
                 className={`glass-card glass-card-hover rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col justify-between group ${
-                  project.featured ? "border-cyan-500/20" : ""
+                  project.inProgress
+                    ? "border-amber-400/35 bg-gradient-to-b from-amber-500/[0.04] to-transparent"
+                    : project.featured
+                    ? "border-cyan-500/20"
+                    : ""
                 }`}
               >
                 <div>
@@ -1163,7 +1182,13 @@ export default function App() {
                       <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
                         {project.category}
                       </span>
-                      {project.featured && (
+                      {project.inProgress && (
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-300 border border-amber-400/35">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                          In Progress
+                        </span>
+                      )}
+                      {project.featured && !project.inProgress && (
                         <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded-md bg-violet-500/15 text-violet-300 border border-violet-400/25">
                           <Star className="w-3 h-3" />
                           Featured
@@ -1183,7 +1208,7 @@ export default function App() {
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors flex items-start justify-between gap-2 leading-snug">
                     <span>
                       <span className="text-slate-500 font-mono text-base mr-2">
-                        0{idx + 2}.
+                        0{idx + 1}.
                       </span>
                       {project.title}
                     </span>
@@ -1208,6 +1233,18 @@ export default function App() {
                   </div>
 
                   <div className="flex items-center gap-3 ml-auto">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`View live demo for ${project.title}`}
+                        className="p-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-colors"
+                      >
+                        <Globe className="w-4 h-4" />
+                      </a>
+                    )}
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -1580,7 +1617,7 @@ export default function App() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Salah, I saw your work on Transformer cardiac segmentation and FastAPI generative AI apps..."
+                    placeholder="Hi Salah, I saw your work on Human AI Interaction Lab..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   />
                 </div>
@@ -1737,6 +1774,17 @@ export default function App() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
+                {selectedProject.liveUrl && (
+                  <a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-teal-600 text-white hover:opacity-90 transition-opacity"
+                  >
+                    <Globe className="w-4 h-4" />
+                    <span>View Live Demo</span>
+                  </a>
+                )}
                 <a
                   href={selectedProject.githubUrl}
                   target="_blank"
@@ -1744,7 +1792,7 @@ export default function App() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-violet-600 text-white hover:opacity-90 transition-opacity"
                 >
                   <Github className="w-4 h-4" />
-                  <span>View on GitHub (@SalahHassani)</span>
+                  <span>View on GitHub</span>
                 </a>
                 <button
                   onClick={() => setSelectedProject(null)}
