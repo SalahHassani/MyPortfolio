@@ -48,15 +48,15 @@ const PORTFOLIO_DATA = {
     brandTag: "SH.dev",
     headline: "M.Sc. Data Science Student | AI & Machine Learning | Full-Stack Software Engineer",
     roles: [
-      "Currently Deployed: Human-AI Interaction Research Platform",
+      "Currently Building: AI Coding Tutorial Platform",
       "M.Sc. Data Science Student @ Freie Universität Berlin",
       "AI, Computer Vision & Generative AI Researcher",
-      "Python, FastAPI, Next.js & Java/Spring Boot Engineer"
+      "Python, FastAPI, TypeScript & Java/Spring Boot Engineer"
     ],
-    bio: "Computer Science graduate (ELTE, Stipendium Hungaricum Scholar) and current M.Sc. Data Science student at Freie Universität Berlin. Combining backend and full-stack software engineering experience (Java, Spring Boot, FastAPI, Next.js, TypeScript) with applied AI/ML research across Transformer-based medical image segmentation, Stable Diffusion pipelines, human-AI research platforms, and data engineering workflows.",
+    bio: "Computer Science graduate (ELTE, Stipendium Hungaricum Scholar) and current M.Sc. Data Science student at Freie Universität Berlin. Combining backend and full-stack software engineering experience (Java, Spring Boot, FastAPI, TypeScript) with applied AI/ML research across Transformer-based medical image segmentation, Stable Diffusion pipelines, LLM-powered coding education tools, and data engineering workflows.",
     location: "Berlin, Germany",
     university: "Freie Universität Berlin",
-    currentBuild: "Human-AI Interaction Research Platform (Live Production)",
+    currentBuild: "AI Coding Tutorial Platform (Active Development)",
     availability: "Open to AI / ML & Software Engineering Roles (Berlin / Remote)",
     email: "salau02@zedat.fu-berlin.de",
     phone: "+49 152 0676 2522",
@@ -97,9 +97,9 @@ const PORTFOLIO_DATA = {
     { name: "HTML5 & CSS3", category: "Languages", level: "Core", icon: "🌐", color: "from-orange-500 to-pink-500" },
 
     // Databases & DevOps
-    { name: "PostgreSQL & Neon DB", category: "Databases & DevOps", level: "Core", icon: "🐘", color: "from-blue-500 to-cyan-500" },
-    { name: "Render & Vercel Cloud", category: "Databases & DevOps", level: "Core", icon: "☁️", color: "from-violet-500 to-indigo-600" },
+    { name: "PostgreSQL & MySQL", category: "Databases & DevOps", level: "Core", icon: "🐘", color: "from-blue-500 to-cyan-500" },
     { name: "SQLite & H2 Database", category: "Databases & DevOps", level: "Core", icon: "🗄️", color: "from-sky-400 to-indigo-500" },
+    { name: "Oracle & SQL", category: "Databases & DevOps", level: "Proficient", icon: "🏛️", color: "from-red-500 to-rose-700" },
     { name: "ETL & Delta Loading", category: "Databases & DevOps", level: "Applied", icon: "🔄", color: "from-violet-500 to-purple-600" },
     { name: "Git, GitHub & Linux/WSL", category: "Databases & DevOps", level: "Core", icon: "🐧", color: "from-slate-400 to-zinc-600" },
     { name: "Docker (Basic)", category: "Databases & DevOps", level: "Working", icon: "🐳", color: "from-blue-400 to-sky-600" }
@@ -107,45 +107,24 @@ const PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "human-ai-platform",
-      title: "Human-AI Interaction Research Platform",
-      subtitle: "Live Production Deployment | Full-Stack Research Web App",
-      category: "Full-Stack AI",
-      featured: true,
-      inProgress: false,
-      isLive: true,
-      shortDesc: "Production-grade full-stack research platform deployed live to the public web featuring a FastAPI backend on Render, a Next.js frontend on Vercel, and a Neon PostgreSQL database.",
-      fullDesc: "Designed, engineered, and successfully deployed a complete production-grade web platform for conducting human-AI interaction studies. Features robust JWT authentication, automated Alembic database migrations, secure CORS policies, and real-time data persistence.",
-      tech: ["TypeScript", "Next.js", "Python 3.12", "FastAPI", "Neon PostgreSQL", "Render", "Vercel"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://human-ai-interaction-lab-frontend.vercel.app",
-      architecture: [
-        "Engineered a high-performance REST API using FastAPI (Python 3.12) deployed on Render with automated Alembic migrations",
-        "Developed a responsive Next.js frontend deployed on Vercel with dynamic routing and secure researcher workbench authentication",
-        "Configured cloud data persistence using Neon PostgreSQL with secure connection pooling and seed data scripts",
-        "Established secure cross-origin resource sharing (CORS) and environment variable management across production cloud hosts"
-      ],
-      metrics: "LIVE DEPLOYMENT • Vercel + Render + Neon DB"
-    },
-    {
       id: "ai-coding-tutorial",
       title: "AI Coding Tutorial Platform",
-      subtitle: "Interactive AI Education & Developer Platform",
+      subtitle: "Currently Building | Interactive AI Education & Developer Platform",
       category: "Generative AI",
       featured: true,
       inProgress: true,
-      isLive: false,
-      shortDesc: "Interactive AI-powered coding tutorial and learning platform designed to make programming concepts accessible through guided explanations and intelligent code assistance.",
-      fullDesc: "Modern full-stack engineering combined with Large Language Models. Built to bridge the gap between static coding documentation and personalized 1-on-1 mentorship.",
+      shortDesc: "Currently building an interactive AI-powered coding tutorial and learning platform designed to make programming concepts accessible through guided explanations, structured lessons, and intelligent code assistance.",
+      fullDesc: "Active flagship project combining modern full-stack engineering with Large Language Models. Built to bridge the gap between static coding documentation and personalized 1-on-1 mentorship—allowing learners to follow structured modules, ask contextual questions on code snippets, and receive instant step-by-step guidance.",
       tech: ["TypeScript", "React", "Python", "FastAPI", "Google Gemini API", "LangChain"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://github.com/SalahHassani",
       architecture: [
         "Designed an interactive, structured tutorial interface in React & TypeScript for step-by-step programming lessons",
         "Engineered an asynchronous FastAPI backend integrating LangChain and the Google Gemini API for context-aware code tutoring",
-        "Built intelligent code explanation, guided hint progression, and real-time concept breakdown workflows"
+        "Built intelligent code explanation, guided hint progression, and real-time concept breakdown workflows",
+        "Focused on clean modular API design, responsive UX, and extensible curriculum authoring"
       ],
-      metrics: "IN PROGRESS • AI-Powered Coding Education"
+      metrics: "ACTIVE BUILD • AI-Powered Coding Education"
     },
     {
       id: "cardiac-segmentation",
@@ -154,16 +133,16 @@ const PORTFOLIO_DATA = {
       category: "AI & Deep Learning",
       featured: true,
       inProgress: false,
-      isLive: false,
       shortDesc: "Investigated modern Transformer-based deep learning architectures for automated anatomical structure segmentation on cardiac catheterization image datasets.",
-      fullDesc: "Completed as my B.Sc. Computer Science Thesis at Eötvös Loránd University (ELTE). Evaluated Vision Transformer and hybrid encoder-decoder architectures on complex cardiac catheterization imagery.",
+      fullDesc: "Completed as my B.Sc. Computer Science Thesis at Eötvös Loránd University (ELTE). Evaluated Vision Transformer and hybrid encoder-decoder architectures on complex cardiac catheterization imagery to accurately delineate critical anatomical structures under clinical imaging noise.",
       tech: ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Preprocessed and augmented cardiac catheterization image datasets for robust anatomical boundary learning",
         "Implemented and benchmarked Transformer-based segmentation networks in PyTorch",
-        "Evaluated mask accuracy quantitatively using Dice Similarity Coefficient (DSC), Intersection over Union (IoU), and Hausdorff Distance"
+        "Evaluated mask accuracy quantitatively using Dice Similarity Coefficient (DSC), Intersection over Union (IoU), and Hausdorff Distance",
+        "Analyzed boundary precision and spatial consistency across varying contrast conditions"
       ],
       metrics: "B.Sc. Thesis • Dice, IoU & Hausdorff Metrics"
     },
@@ -174,16 +153,16 @@ const PORTFOLIO_DATA = {
       category: "Generative AI",
       featured: true,
       inProgress: false,
-      isLive: false,
       shortDesc: "End-to-end generative AI web application utilizing Stable Diffusion v1.5 and FastAPI to transform narrative prompts into structured, exportable comic strips.",
-      fullDesc: "Full-stack generative visual storytelling platform built around Stable Diffusion v1.5 and a secure FastAPI + PostgreSQL backend.",
+      fullDesc: "Full-stack generative visual storytelling platform built around Stable Diffusion v1.5 and a secure FastAPI + PostgreSQL backend. Enables users to generate consistent panels, manage creative history, and compile finished comic layouts into downloadable PDFs.",
       tech: ["Python", "Stable Diffusion v1.5", "FastAPI", "PostgreSQL"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Integrated Stable Diffusion v1.5 text-to-image inference pipeline for stylized comic panel synthesis",
         "Engineered asynchronous FastAPI REST endpoints backed by PostgreSQL persistence",
-        "Implemented user authentication, Role-Based Access Control (RBAC), and per-user generation history"
+        "Implemented user authentication, Role-Based Access Control (RBAC), and per-user generation history",
+        "Built automated multi-panel layout composition and one-click PDF export functionality"
       ],
       metrics: "Stable Diffusion v1.5 • RBAC & PDF Export"
     },
@@ -192,17 +171,18 @@ const PORTFOLIO_DATA = {
       title: "AI Coding Mentor",
       subtitle: "Full-Stack Generative AI Application",
       category: "Generative AI",
-      featured: false,
+      featured: true,
       inProgress: false,
-      isLive: false,
       shortDesc: "Intelligent programming education and code-review assistant powered by FastAPI, LangChain, Pydantic, and the Google Gemini API.",
-      fullDesc: "Designed a modular generative AI application tailored for interactive programming mentorship, debugging explanations, and structured learning feedback.",
+      fullDesc: "Designed a modular generative AI application tailored for interactive programming mentorship, debugging explanations, and structured learning feedback by connecting Large Language Models directly into software engineering workflows.",
       tech: ["Python", "FastAPI", "LangChain", "Google Gemini API", "Pydantic"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Orchestrated prompt chains and conversational context using LangChain and Google Gemini API",
-        "Enforced strict request/response schemas and type safety with Pydantic v2 models"
+        "Enforced strict request/response schemas and type safety with Pydantic v2 models",
+        "Structured clean FastAPI service layers with environment-based secret management",
+        "Designed extensible API endpoints for code explanation, hint generation, and bug diagnosis"
       ],
       metrics: "LangChain + Gemini • Strict Pydantic Schemas"
     },
@@ -213,15 +193,15 @@ const PORTFOLIO_DATA = {
       category: "AI & Deep Learning",
       featured: false,
       inProgress: false,
-      isLive: false,
       shortDesc: "From-scratch PyTorch and NumPy implementation exploring forward noise schedules, reverse denoising dynamics, and probabilistic image generation.",
-      fullDesc: "Research-focused implementation built to deeply understand the mathematical and computational mechanics of Denoising Diffusion Probabilistic Models (DDPMs).",
+      fullDesc: "Research-focused implementation built to deeply understand the mathematical and computational mechanics of Denoising Diffusion Probabilistic Models (DDPMs), noise scheduling, and neural reverse-process sampling.",
       tech: ["Python", "PyTorch", "NumPy"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Implemented forward Gaussian noise corruption schedules across discrete timesteps",
-        "Built neural denoising U-Net training loops and loss objectives in PyTorch"
+        "Built neural denoising U-Net training loops and loss objectives in PyTorch",
+        "Analysed the mathematical relationship between score matching, denoising, and sample fidelity"
       ],
       metrics: "PyTorch & NumPy • Generative Modelling"
     },
@@ -232,15 +212,15 @@ const PORTFOLIO_DATA = {
       category: "AI & Deep Learning",
       featured: false,
       inProgress: false,
-      isLive: false,
       shortDesc: "End-to-end tabular machine learning regression workflow on Kaggle housing data featuring exploratory analysis, feature engineering, and model evaluation.",
-      fullDesc: "Structured predictive modelling pipeline tackling real-world residential property valuation using statistical preprocessing and correlation analysis.",
+      fullDesc: "Structured predictive modelling pipeline tackling real-world residential property valuation using statistical preprocessing, correlation analysis, and regularized regression estimators.",
       tech: ["Python", "NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Conducted comprehensive Exploratory Data Analysis (EDA) and missing-value imputation in Pandas",
-        "Engineered numerical and categorical features with Scikit-learn preprocessing pipelines"
+        "Engineered numerical and categorical features with Scikit-learn preprocessing pipelines",
+        "Benchmarked regression models using cross-validated RMSE and R² metrics"
       ],
       metrics: "Kaggle ML • Scikit-learn Regression"
     },
@@ -251,15 +231,15 @@ const PORTFOLIO_DATA = {
       category: "Backend & Data",
       featured: false,
       inProgress: false,
-      isLive: false,
       shortDesc: "Incremental ETL and delta-loading data pipeline developed for an AUMOVIO technical assignment using Python, SQLite, CSV datasets, and SQL.",
-      fullDesc: "Engineered a reliable incremental data ingestion workflow capable of detecting new, modified, and unchanged records between CSV snapshots.",
+      fullDesc: "Engineered a reliable incremental data ingestion workflow capable of detecting new, modified, and unchanged records between CSV snapshots and updating relational SQLite tables without full reloads.",
       tech: ["Python", "SQLite", "CSV", "SQL"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Inspected, validated, and normalized raw CSV batch datasets",
-        "Implemented deterministic change-data-capture (delta loading) logic against SQLite"
+        "Implemented deterministic change-data-capture (delta loading) logic against SQLite",
+        "Optimized transactional SQL upsert/update operations for incremental pipeline reliability"
       ],
       metrics: "AUMOVIO Assignment • Incremental SQLite ETL"
     },
@@ -270,15 +250,15 @@ const PORTFOLIO_DATA = {
       category: "Software Dev",
       featured: false,
       inProgress: false,
-      isLive: false,
       shortDesc: "Interactive 2D simulation and strategy games built in Python and Pygame, applying object-oriented architecture, state machines, and custom rendering loops.",
-      fullDesc: "Designed and implemented two complete interactive desktop applications focusing on clean OOP entity hierarchies and event-driven input handling.",
+      fullDesc: "Designed and implemented two complete interactive desktop applications—The Mapmaker and SafariPark—focusing on clean OOP entity hierarchies, event-driven input handling, and simulation state management.",
       tech: ["Python", "Pygame", "OOP"],
       githubUrl: "https://github.com/SalahHassani",
       liveUrl: "https://salahhassani.github.io/MyPortfolio/",
       architecture: [
         "Structured modular object-oriented entity, map, and simulation controller classes",
-        "Implemented real-time game loops, collision/tile logic, and interactive UI overlays"
+        "Implemented real-time game loops, collision/tile logic, and interactive UI overlays",
+        "Applied clean software engineering practices for maintainable interactive applications"
       ],
       metrics: "2 Complete Games • OOP & State Architecture"
     }
@@ -339,12 +319,12 @@ const PORTFOLIO_DATA = {
     username: "SalahHassani",
     displayName: "SHassani",
     url: "https://github.com/SalahHassani",
-    tagline: "AI Systems, Deep Learning Research, FastAPI Backends & Live Cloud Deployments",
+    tagline: "AI Systems, Deep Learning Research, FastAPI Backends & Interactive Coding Education",
     pinnedFocus: [
       {
-        name: "Human-AI-Interaction-Platform",
-        status: "Live Production",
-        desc: "Full-stack research platform deployed live with FastAPI on Render and Next.js on Vercel.",
+        name: "AI-Coding-Tutorial-Platform",
+        status: "Active Build",
+        desc: "Interactive AI-powered programming tutorial site with guided explanations & Gemini/LangChain tutoring.",
         lang: "TypeScript / Python"
       },
       {
@@ -376,7 +356,7 @@ const PORTFOLIO_DATA = {
     "Generative AI & Diffusion Models",
     "Statistical Learning & Predictive Modelling",
     "Data Engineering & Machine Learning Systems",
-    "Full-Stack AI Application Development & Deployment"
+    "AI Application Development & Model Integration"
   ],
 
   languages: [
@@ -399,27 +379,34 @@ const PORTFOLIO_DATA = {
 // MAIN APPLICATION COMPONENT
 // ============================================================================
 export default function App() {
+  // Navigation & Mobile Drawer State
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Typing Subtitle Animation State
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayedRole, setDisplayedRole] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
 
+  // Tech Stack Filter State
   const [activeTechTab, setActiveTechTab] = useState("All");
 
+  // Projects Filter, Search & Modal State
   const [activeProjectFilter, setActiveProjectFilter] = useState("All");
   const [projectSearchQuery, setProjectSearchQuery] = useState("");
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // CV Modal State
   const [cvModalOpen, setCvModalOpen] = useState(false);
 
+  // Timeline Expandable State (all expanded by default for clarity)
   const [expandedTimelineIds, setExpandedTimelineIds] = useState({
     "edu-msc": true,
     "work-nix": true,
     "edu-bsc": true
   });
 
+  // FastAPI Contact Form State
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -431,12 +418,14 @@ export default function App() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [imgError, setImgError] = useState(false);
 
+  // Handle Navbar Blur & Border on Scroll
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Typewriter Effect for Dynamic Subtitle
   useEffect(() => {
     const currentFullText = PORTFOLIO_DATA.personal.roles[roleIndex];
     const typingSpeed = isDeleting ? 28 : 55;
@@ -457,6 +446,7 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [displayedRole, isDeleting, roleIndex]);
 
+  // Close Modals on Escape Key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
@@ -468,6 +458,7 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // Smooth Section Scroll
   const scrollToSection = (sectionId) => {
     setMobileMenuOpen(false);
     const el = document.getElementById(sectionId);
@@ -476,10 +467,12 @@ export default function App() {
     }
   };
 
+  // Toggle Timeline Details
   const toggleTimelineItem = (id) => {
     setExpandedTimelineIds((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
+  // Copy Email Handler
   const handleCopyEmail = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(PORTFOLIO_DATA.personal.email);
@@ -488,6 +481,7 @@ export default function App() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
+  // Simulated FastAPI Backend POST Submission
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
@@ -496,6 +490,7 @@ export default function App() {
     setApiResponseToast(null);
 
     try {
+      // Real email delivery via FormSubmit AJAX endpoint (forwards directly to salau02@zedat.fu-berlin.de)
       const response = await fetch(`https://formsubmit.co/ajax/${PORTFOLIO_DATA.personal.email}`, {
         method: "POST",
         headers: {
@@ -515,11 +510,12 @@ export default function App() {
       setApiResponseToast({
         status: 201,
         endpoint: "POST /api/v1/contact → Email Forwarded",
-        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}.`,
+        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}. (Note: First-time FormSubmit submissions require a one-click activation email in your inbox.)`,
         timestamp: new Date().toISOString()
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch {
+      // Reliable mailto fallback if offline or blocked by browser extensions
       const subjectEncoded = encodeURIComponent(formData.subject || `Portfolio Contact from ${formData.name}`);
       const bodyEncoded = encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`);
       window.open(`mailto:${PORTFOLIO_DATA.personal.email}?subject=${subjectEncoded}&body=${bodyEncoded}`, "_blank");
@@ -527,7 +523,7 @@ export default function App() {
       setApiResponseToast({
         status: 200,
         endpoint: "MAILTO FALLBACK",
-        message: `Opened your default mail client addressed to ${PORTFOLIO_DATA.personal.email}!`,
+        message: `Opened your default mail client addressed to ${PORTFOLIO_DATA.personal.email} with your message pre-filled!`,
         timestamp: new Date().toISOString()
       });
     } finally {
@@ -535,13 +531,15 @@ export default function App() {
     }
   };
 
+  // Filtered Tech Stack
   const techCategories = ["All", "AI & Deep Learning", "Data Science", "Backend & APIs", "Languages", "Databases & DevOps"];
   const filteredTech =
     activeTechTab === "All"
       ? PORTFOLIO_DATA.techStack
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
 
-  const projectCategories = ["All", "Featured", "Full-Stack AI", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"];
+  // Filtered Projects (Category + Search Query)
+  const projectCategories = ["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"];
   const filteredProjects = PORTFOLIO_DATA.projects.filter((proj) => {
     const matchesCategory =
       activeProjectFilter === "All"
@@ -564,6 +562,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 font-sans relative overflow-x-hidden">
+      {/* Custom Utility Styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -612,13 +611,15 @@ export default function App() {
         }
       `}</style>
 
-      {/* Ambient Glows */}
+      {/* Ambient Radial Mesh Glows */}
       <div className="fixed inset-0 bg-grid-pattern pointer-events-none z-0" />
       <div className="fixed -top-40 -left-40 w-96 h-96 bg-cyan-500/15 rounded-full blur-[130px] pointer-events-none z-0" />
       <div className="fixed top-1/3 -right-40 w-[28rem] h-[28rem] bg-violet-600/15 rounded-full blur-[140px] pointer-events-none z-0" />
       <div className="fixed bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
-      {/* NAVBAR */}
+      {/* =====================================================================
+          1. STICKY GLASSMORPHIC NAVBAR
+      ===================================================================== */}
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
           scrolled
@@ -627,6 +628,7 @@ export default function App() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Brand Logo */}
           <button
             onClick={() => scrollToSection("about")}
             className="flex items-center gap-2.5 group focus:outline-none"
@@ -651,11 +653,12 @@ export default function App() {
             </span>
           </button>
 
+          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
             {[
               { label: "About", id: "about" },
               { label: "Skills", id: "stack" },
-              { label: "Projects (9)", id: "projects" },
+              { label: "Projects (8)", id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -670,6 +673,7 @@ export default function App() {
             ))}
           </nav>
 
+          {/* Right CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => setCvModalOpen(true)}
@@ -689,12 +693,13 @@ export default function App() {
           </div>
         </div>
 
+        {/* Mobile Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#0e1018]/95 backdrop-blur-2xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
             {[
               { label: "About", id: "about" },
               { label: "Technical Skills", id: "stack" },
-              { label: "Projects (9)", id: "projects" },
+              { label: "Projects (8)", id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -722,10 +727,14 @@ export default function App() {
       </header>
 
       <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* HERO SECTION */}
+        {/* =====================================================================
+            2. HERO & PROFILE SECTION
+        ===================================================================== */}
         <section id="about" className="pt-32 pb-20 md:pt-40 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left Column: Name, Role, Animated Subtitle, Bio, CTAs */}
             <div className="lg:col-span-7 space-y-6">
+              {/* Location, University & Active Build Pills */}
               <div className="flex flex-wrap items-center gap-2.5">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -734,17 +743,16 @@ export default function App() {
                   <span>{PORTFOLIO_DATA.personal.university}</span>
                 </div>
 
-                <a
-                  href="https://human-ai-interaction-lab-frontend.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-400/35 text-cyan-200 text-xs font-mono hover:bg-cyan-500/20 transition-colors"
+                <button
+                  onClick={() => scrollToSection("projects")}
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/35 text-amber-200 text-xs font-mono hover:bg-amber-500/20 transition-colors"
                 >
-                  <Globe className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Live Platform Deployed</span>
-                </a>
+                  <Zap className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Building: AI Coding Tutorial Site</span>
+                </button>
               </div>
 
+              {/* Main Name & Headline */}
               <div className="space-y-3">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
                   Salah Uddin{" "}
@@ -757,23 +765,26 @@ export default function App() {
                 </p>
               </div>
 
+              {/* Animated Role Subtitle */}
               <div className="h-7 flex items-center font-mono text-sm sm:text-base text-cyan-300">
                 <span className="text-violet-400 mr-2">$</span>
                 <span>{displayedRole}</span>
                 <span className="w-2 h-5 bg-cyan-400 ml-1 animate-pulse" />
               </div>
 
+              {/* Authentic Professional Profile Summary */}
               <p className="text-slate-300 text-base sm:text-[17px] leading-[1.75] max-w-2xl">
                 {PORTFOLIO_DATA.personal.bio}
               </p>
 
+              {/* Quick Key Metrics Strip for Instant Readability */}
               <div className="grid grid-cols-3 gap-3 max-w-xl pt-1">
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-cyan-400">
                   <span className="text-base sm:text-lg font-extrabold text-white block">
-                    9 Projects
+                    8 Projects
                   </span>
                   <span className="text-[11px] font-mono text-slate-400">
-                    Live Full-Stack &amp; AI
+                    AI, CV, Diffusion &amp; ETL
                   </span>
                 </div>
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-emerald-400">
@@ -794,6 +805,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Primary CTA Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <button
                   onClick={() => scrollToSection("projects")}
@@ -803,16 +815,6 @@ export default function App() {
                   <ChevronRight className="w-4 h-4" />
                 </button>
 
-                <a
-                  href="https://human-ai-interaction-lab-frontend.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-200 border border-cyan-400/40 transition-all"
-                >
-                  <Globe className="w-4 h-4 text-cyan-400" />
-                  <span>Visit Live Platform</span>
-                </a>
-
                 <button
                   onClick={() => setCvModalOpen(true)}
                   className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 hover:border-cyan-400/50 transition-all"
@@ -820,8 +822,26 @@ export default function App() {
                   <FileText className="w-4 h-4 text-cyan-400" />
                   <span>Curriculum Vitae</span>
                 </button>
+
+                <button
+                  onClick={handleCopyEmail}
+                  className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs sm:text-sm bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 hover:border-emerald-400/50 transition-all"
+                >
+                  {copiedEmail ? (
+                    <>
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      <span className="text-emerald-300">Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="w-4 h-4 text-cyan-400" />
+                      <span>Copy Email</span>
+                    </>
+                  )}
+                </button>
               </div>
 
+              {/* Direct Social & Contact Links */}
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-xs sm:text-sm text-slate-400">
                 <a
                   href={PORTFOLIO_DATA.personal.github}
@@ -853,17 +873,19 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right Column: GitHub & Live Deployed Platform Spotlight */}
+            {/* Right Column: GitHub & Academic Identity Card */}
             <div className="lg:col-span-5 space-y-4">
               <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-400 via-violet-500 to-emerald-400" />
 
+                {/* Status Availability Pill */}
                 <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-[11px] font-mono text-emerald-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Live Production: Vercel + Render + Neon</span>
+                  <span>Open to AI &amp; Data Science Roles • Berlin</span>
                 </div>
 
                 <div className="flex items-center gap-4">
+                  {/* Profile Portrait with Graceful Monogram Fallback */}
                   <div className="w-20 h-20 rounded-2xl p-[2px] bg-gradient-to-br from-emerald-400 via-cyan-400 to-indigo-500 shadow-lg shadow-cyan-500/20 shrink-0">
                     {!imgError ? (
                       <img
@@ -901,35 +923,26 @@ export default function App() {
                     </p>
                     <p className="text-xs font-mono text-slate-400 flex items-center gap-1.5 mt-1">
                       <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                      {PORTFOLIO_DATA.personal.location} • Stipendium Hungaricum
+                      {PORTFOLIO_DATA.personal.location} • Stipendium Hungaricum Alumni
                     </p>
                   </div>
                 </div>
 
-                {/* Live Platform Spotlight Box */}
-                <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 via-violet-500/10 to-emerald-500/10 border border-cyan-400/30">
+                {/* Currently Building Spotlight Box */}
+                <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-violet-500/10 to-cyan-500/10 border border-amber-400/25">
                   <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                    <span className="inline-flex items-center gap-1.5 text-cyan-300 font-semibold">
-                      <Globe className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                      LIVE CLOUD DEPLOYMENT
+                    <span className="inline-flex items-center gap-1.5 text-amber-300 font-semibold">
+                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                      CURRENTLY BUILDING
                     </span>
-                    <span className="text-emerald-300">Public Access</span>
+                    <span className="text-slate-400">2026</span>
                   </div>
                   <h3 className="text-sm font-bold text-white">
-                    Human-AI Interaction Research Platform
+                    AI Coding Tutorial Platform
                   </h3>
                   <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                    Full-stack research platform running FastAPI on Render and Next.js on Vercel with Neon PostgreSQL.
+                    Interactive AI-assisted programming learning platform combining structured lessons with Gemini &amp; LangChain code mentorship.
                   </p>
-                  <a
-                    href="https://human-ai-interaction-lab-frontend.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-cyan-300 hover:text-white"
-                  >
-                    <span>Launch Live Platform</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
                 </div>
 
                 {/* GitHub Pinned Focus Areas */}
@@ -980,7 +993,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* TECH STACK */}
+        {/* =====================================================================
+            3. INTERACTIVE TECH STACK SECTION
+        ===================================================================== */}
         <section id="stack" className="py-20 border-t border-white/5">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
             <div>
@@ -989,10 +1004,11 @@ export default function App() {
                 <span>Technical Skills &amp; Ecosystem</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                AI, Data Science &amp; Full-Stack Stack
+                AI, Data Science &amp; Backend Stack
               </h2>
             </div>
 
+            {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-2">
               {techCategories.map((category) => (
                 <button
@@ -1037,8 +1053,11 @@ export default function App() {
           </div>
         </section>
 
-        {/* PROJECTS SECTION */}
+        {/* =====================================================================
+            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (8 PROJECTS)
+        ===================================================================== */}
         <section id="projects" className="py-20 border-t border-white/5">
+          {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
             <div>
               <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1046,41 +1065,42 @@ export default function App() {
                 <span>Research &amp; Engineering Portfolio</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                Featured &amp; Technical Projects (9)
+                Featured &amp; Technical Projects
               </h2>
               <p className="text-slate-300/80 text-sm sm:text-base mt-2 max-w-2xl">
-                Highlighting our live deployed Human-AI Interaction Research Platform, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
+                Highlighting my active AI Coding Tutorial Platform, B.Sc. Medical Computer Vision Thesis, Generative AI pipelines, and Data Engineering systems.
               </p>
             </div>
 
+            {/* Search Input */}
             <div className="relative w-full lg:w-72">
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={projectSearchQuery}
                 onChange={(e) => setProjectSearchQuery(e.target.value)}
-                placeholder="Search Next.js, FastAPI, Vercel..."
+                placeholder="Search PyTorch, FastAPI, Gemini..."
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0f18] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
               />
             </div>
           </div>
 
-          {/* FEATURED SPOTLIGHT BANNER (LIVE PLATFORM) */}
+          {/* FEATURED SPOTLIGHT BANNER (FLAGSHIP ACTIVE BUILD) */}
           <div
             onClick={() => setSelectedProject(featuredProjects[0])}
-            className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/40 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/10 cursor-pointer transition-all group relative overflow-hidden"
+            className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
               <div className="space-y-3 max-w-3xl">
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    LIVE PRODUCTION DEPLOYMENT
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/40">
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                    ACTIVE BUILD / IN PROGRESS
                   </span>
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
-                    <Globe className="w-3 h-3 text-cyan-300" />
-                    Public Access
+                    <Star className="w-3 h-3 fill-cyan-300" />
+                    Flagship Project
                   </span>
                   <span className="text-xs font-mono text-violet-300">
                     {featuredProjects[0].subtitle}
@@ -1109,24 +1129,24 @@ export default function App() {
 
               <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
                 <a
-                  href="https://human-ai-interaction-lab-frontend.vercel.app"
+                  href={PORTFOLIO_DATA.personal.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-xs font-mono font-bold bg-cyan-500 hover:bg-cyan-400 text-[#0a0a0f] shadow-lg shadow-cyan-500/20 transition-all"
+                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors"
                 >
-                  <Globe className="w-4 h-4" />
-                  <span>Visit Live App</span>
+                  <Github className="w-4 h-4" />
+                  <span>GitHub (@SHassani)</span>
                 </a>
                 <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 group-hover:translate-x-1 transition-transform">
-                  <span>Inspect Architecture</span>
+                  <span>Inspect System Design</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Filter Pills */}
+          {/* Filter Pills Row */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex flex-wrap gap-2">
               {projectCategories.map((cat) => (
@@ -1148,34 +1168,35 @@ export default function App() {
             </span>
           </div>
 
-          {/* Project Grid */}
+          {/* Project Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredProjects.map((project, idx) => (
               <div
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
                 className={`glass-card glass-card-hover rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col justify-between group ${
-                  project.isLive
-                    ? "border-cyan-400/40 bg-gradient-to-b from-cyan-500/[0.04] to-transparent"
+                  project.inProgress
+                    ? "border-amber-400/35 bg-gradient-to-b from-amber-500/[0.04] to-transparent"
                     : project.featured
                     ? "border-cyan-500/20"
                     : ""
                 }`}
               >
                 <div>
+                  {/* Top Row: Badges */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
                         {project.category}
                       </span>
-                      {project.isLive && (
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          Live Deployment
+                      {project.inProgress && (
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-300 border border-amber-400/35">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                          In Progress
                         </span>
                       )}
-                      {project.featured && !project.isLive && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded bg-violet-500/15 text-violet-300 border border-violet-400/25">
+                      {project.featured && !project.inProgress && (
+                        <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded-md bg-violet-500/15 text-violet-300 border border-violet-400/25">
                           <Star className="w-3 h-3" />
                           Featured
                         </span>
@@ -1187,10 +1208,12 @@ export default function App() {
                     </span>
                   </div>
 
+                  {/* Subtitle */}
                   <p className="text-xs font-mono text-violet-300 mb-1.5">
                     {project.subtitle}
                   </p>
 
+                  {/* Title & Short Description */}
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors flex items-start justify-between gap-2 leading-snug">
                     <span>
                       <span className="text-slate-500 font-mono text-base mr-2">
@@ -1206,6 +1229,7 @@ export default function App() {
                   </p>
                 </div>
 
+                {/* Bottom Row: Tech Tags + Actions */}
                 <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
@@ -1219,18 +1243,16 @@ export default function App() {
                   </div>
 
                   <div className="flex items-center gap-3 ml-auto">
-                    {project.isLive && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-400/40 transition-colors"
-                        title="Visit Live App"
-                      >
-                        <Globe className="w-4 h-4" />
-                      </a>
-                    )}
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      aria-label={`View ${project.title} on GitHub`}
+                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
                     <span className="text-xs font-mono text-cyan-400 group-hover:underline">
                       Architecture →
                     </span>
@@ -1241,7 +1263,9 @@ export default function App() {
           </div>
         </section>
 
-        {/* EXPERIENCE & EDUCATION */}
+        {/* =====================================================================
+            5. EDUCATION & PROFESSIONAL EXPERIENCE TIMELINE
+        ===================================================================== */}
         <section id="experience" className="py-20 border-t border-white/5">
           <div className="mb-12">
             <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1261,6 +1285,7 @@ export default function App() {
               const isExpanded = !!expandedTimelineIds[item.id];
               return (
                 <div key={item.id} className="relative">
+                  {/* Timeline Node Dot */}
                   <div
                     className={`absolute -left-[33px] sm:-left-[41px] top-7 w-4 h-4 rounded-full border-2 border-[#0a0a0f] shadow-md ${
                       item.type === "work"
@@ -1326,6 +1351,7 @@ export default function App() {
                       {item.summary}
                     </p>
 
+                    {/* Key Impact & Skill Chips */}
                     {item.impactTags && (
                       <div className="flex flex-wrap gap-2 mt-4">
                         {item.impactTags.map((tag) => (
@@ -1356,9 +1382,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* RESEARCH INTERESTS & LANGUAGES */}
+        {/* =====================================================================
+            6. ACADEMIC RESEARCH INTERESTS, LANGUAGES (5) & PERSONAL INTERESTS
+        ===================================================================== */}
         <section id="interests" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Academic & Technical Research Interests */}
             <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1381,6 +1410,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Personal & Extracurricular Interests */}
               <div className="mt-8 pt-6 border-t border-white/10">
                 <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest mb-3">
                   <Heart className="w-4 h-4" />
@@ -1399,6 +1429,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* Multilingual Communication Card (All 5 Languages) */}
             <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8">
               <div className="flex items-center justify-between mb-2">
                 <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest">
@@ -1442,9 +1473,12 @@ export default function App() {
           </div>
         </section>
 
-        {/* CONTACT SECTION */}
+        {/* =====================================================================
+            7. INTERACTIVE FASTAPI CONTACT SECTION
+        ===================================================================== */}
         <section id="contact" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Contact Info Column */}
             <div className="lg:col-span-5 space-y-6">
               <div>
                 <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1455,7 +1489,7 @@ export default function App() {
                   Let&apos;s Connect
                 </h2>
                 <p className="text-slate-300/80 text-sm sm:text-base mt-3 leading-relaxed">
-                  Interested in collaborating on AI/ML research, Generative AI applications, or Full-Stack Software Engineering roles in Berlin or remotely? Send a message or reach out directly.
+                  Interested in collaborating on AI/ML research, Generative AI applications, or Data Science &amp; Software Engineering roles in Berlin or remotely? Send a message or reach out directly.
                 </p>
               </div>
 
@@ -1519,6 +1553,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* Interactive Form Column */}
             <div className="lg:col-span-7">
               <form
                 onSubmit={handleContactSubmit}
@@ -1573,7 +1608,7 @@ export default function App() {
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="AI/ML Engineer / Research Collaboration / Full-Stack Role"
+                    placeholder="Working Student AI/ML / Research Collaboration / Full-Stack Role"
                     className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
                   />
                 </div>
@@ -1587,7 +1622,7 @@ export default function App() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Salah, I checked out your live Human-AI Interaction Research Platform and wanted to connect..."
+                    placeholder="Hi Salah, I saw your work on Transformer cardiac segmentation and FastAPI generative AI apps..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   />
                 </div>
@@ -1600,7 +1635,7 @@ export default function App() {
                   {isSubmitting ? (
                     <>
                       <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Dispatching message...</span>
+                      <span>Dispatching to FastAPI...</span>
                     </>
                   ) : (
                     <>
@@ -1610,6 +1645,7 @@ export default function App() {
                   )}
                 </button>
 
+                {/* Simulated FastAPI JSON Response Toast */}
                 {apiResponseToast && (
                   <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-200 space-y-1.5">
                     <div className="flex items-center justify-between">
@@ -1634,7 +1670,9 @@ export default function App() {
         </section>
       </main>
 
-      {/* FOOTER */}
+      {/* =====================================================================
+          8. FOOTER
+      ===================================================================== */}
       <footer className="relative z-10 border-t border-white/10 bg-[#07080c] py-10 mt-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
@@ -1662,13 +1700,15 @@ export default function App() {
                 LinkedIn
               </a>
               <span>•</span>
-              <span className="text-slate-500">Next.js • FastAPI • Vercel • Render</span>
+              <span className="text-slate-500">TypeScript • React • FastAPI</span>
             </div>
           </div>
         </div>
       </footer>
 
-      {/* PROJECT ARCHITECTURE MODAL */}
+      {/* =====================================================================
+          PROJECT ARCHITECTURE DETAIL MODAL
+      ===================================================================== */}
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
@@ -1691,10 +1731,10 @@ export default function App() {
                 <span className="inline-block text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
                   {selectedProject.category}
                 </span>
-                {selectedProject.isLive && (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live Production App
+                {selectedProject.inProgress && (
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-amber-500/15 text-amber-300 border border-amber-400/35">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                    Active Build
                   </span>
                 )}
                 <span className="inline-block text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
@@ -1716,7 +1756,7 @@ export default function App() {
               <div className="bg-[#08090f] border border-white/10 rounded-xl p-4 space-y-2.5">
                 <h4 className="text-xs font-mono uppercase tracking-wider text-violet-300 flex items-center gap-1.5">
                   <Sparkle className="w-3.5 h-3.5" />
-                  Technical Implementation &amp; Architecture
+                  Technical Implementation &amp; Methodology
                 </h4>
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
                   {selectedProject.architecture.map((point, idx) => (
@@ -1740,29 +1780,18 @@ export default function App() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
-                {selectedProject.isLive && (
-                  <a
-                    href={selectedProject.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-cyan-500 text-[#0a0a0f] hover:bg-cyan-400 transition-colors font-mono"
-                  >
-                    <Globe className="w-4 h-4" />
-                    <span>Open Live Platform</span>
-                  </a>
-                )}
                 <a
                   href={selectedProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-white/10 hover:bg-white/15 text-white transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-violet-600 text-white hover:opacity-90 transition-opacity"
                 >
                   <Github className="w-4 h-4" />
-                  <span>GitHub (@SalahHassani)</span>
+                  <span>View on GitHub (@SalahHassani)</span>
                 </a>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition-colors ml-auto"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition-colors"
                 >
                   <span>Close</span>
                 </button>
@@ -1772,7 +1801,9 @@ export default function App() {
         </div>
       )}
 
-      {/* PRINTABLE CV MODAL */}
+      {/* =====================================================================
+          INTERACTIVE PRINTABLE CV / RESUME MODAL
+      ===================================================================== */}
       {cvModalOpen && (
         <div
           onClick={() => setCvModalOpen(false)}
@@ -1783,6 +1814,7 @@ export default function App() {
             onClick={(e) => e.stopPropagation()}
             className="bg-[#0e1018] border border-white/15 rounded-2xl max-w-4xl w-full p-6 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto text-slate-100"
           >
+            {/* Modal Controls */}
             <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-white/10">
               <div className="flex items-center gap-2 text-xs font-mono text-cyan-300">
                 <FileText className="w-4 h-4" />
@@ -1806,6 +1838,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* CV Header */}
             <div className="space-y-4">
               <div className="border-b border-white/10 pb-5">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -1825,6 +1858,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* CV Profile */}
               <div>
                 <h3 className="text-xs font-mono uppercase tracking-widest text-violet-400 mb-1.5">
                   Professional Profile
@@ -1834,6 +1868,7 @@ export default function App() {
                 </p>
               </div>
 
+              {/* CV Education & Experience */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 <div>
                   <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-3">
@@ -1861,15 +1896,15 @@ export default function App() {
                         Languages &amp; Core Frameworks
                       </h4>
                       <p className="leading-relaxed">
-                        Python, Java, C++, TypeScript, JavaScript, PHP • PyTorch, Hugging Face Transformers, Diffusers, OpenCV, LangChain, Gemini API • FastAPI, Next.js, Spring Boot, REST APIs
+                        Python, Java, C++, TypeScript, JavaScript, PHP, HTML, CSS • PyTorch, Hugging Face Transformers, Diffusers, OpenCV, LangChain, Gemini API • FastAPI, Spring Boot, REST APIs, Pydantic
                       </p>
                     </div>
                     <div className="bg-white/5 rounded-xl p-4 border border-white/5">
                       <h4 className="font-bold text-white text-xs font-mono uppercase mb-1">
-                        Data Science, Cloud &amp; Databases
+                        Data Science, Databases &amp; Tools
                       </h4>
                       <p className="leading-relaxed">
-                        NumPy, Pandas, Scikit-learn • PostgreSQL, Neon DB, SQLite, Oracle • Render, Vercel, Git, GitHub, Linux/WSL
+                        NumPy, Pandas, Scikit-learn, Matplotlib, Seaborn • PostgreSQL, MySQL, SQLite, Oracle, H2, ETL &amp; Delta Loading • Git, GitHub, Docker (Basic), Linux/WSL
                       </p>
                     </div>
                     <div className="bg-white/5 rounded-xl p-4 border border-white/5">
@@ -1888,6 +1923,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* CV Selected Projects */}
               <div>
                 <h3 className="text-xs font-mono uppercase tracking-widest text-violet-400 mb-3">
                   Selected Technical Projects ({PORTFOLIO_DATA.projects.length})
@@ -1897,9 +1933,9 @@ export default function App() {
                     <div key={p.id} className="p-3.5 rounded-xl bg-white/5 border border-white/5">
                       <div className="flex items-center justify-between gap-2">
                         <h4 className="font-bold text-white text-sm">{p.title}</h4>
-                        {p.isLive && (
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">
-                            Live App
+                        {p.inProgress && (
+                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">
+                            Active
                           </span>
                         )}
                       </div>
