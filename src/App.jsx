@@ -34,6 +34,9 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 
+// Relative path resolves seamlessly under Vite's base ('/MyPortfolio/') when placed in public/images/profile_pic.jpg
+const PROFILE_PIC_SRC = "./images/profile_pic.jpg";
+
 // ============================================================================
 // AUTHENTIC PORTFOLIO DATA — SALAH UDDIN HASSANI (SHassani)
 // ============================================================================
@@ -413,6 +416,7 @@ export default function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [apiResponseToast, setApiResponseToast] = useState(null);
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   // Handle Navbar Blur & Border on Scroll
   useEffect(() => {
@@ -629,10 +633,19 @@ export default function App() {
             onClick={() => scrollToSection("about")}
             className="flex items-center gap-2.5 group focus:outline-none"
           >
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 via-violet-500 to-emerald-400 p-[1.5px]">
-              <div className="w-full h-full bg-[#0a0a0f] rounded-[7px] flex items-center justify-center font-mono font-bold text-sm text-cyan-300 group-hover:text-white transition-colors">
-                {PORTFOLIO_DATA.personal.initials}
-              </div>
+            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 via-violet-500 to-emerald-400 p-[1.5px] overflow-hidden">
+              {!imgError ? (
+                <img
+                  src={PROFILE_PIC_SRC}
+                  alt={PORTFOLIO_DATA.personal.name}
+                  onError={() => setImgError(true)}
+                  className="w-full h-full object-cover rounded-[7px]"
+                />
+              ) : (
+                <div className="w-full h-full bg-[#0a0a0f] rounded-[7px] flex items-center justify-center font-mono font-bold text-sm text-cyan-300 group-hover:text-white transition-colors">
+                  {PORTFOLIO_DATA.personal.initials}
+                </div>
+              )}
             </div>
             <span className="font-mono font-bold text-lg tracking-tight text-white">
               {PORTFOLIO_DATA.personal.brandTag}
@@ -865,12 +878,29 @@ export default function App() {
               <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-400 via-violet-500 to-emerald-400" />
 
+                {/* Status Availability Pill */}
+                <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-[11px] font-mono text-emerald-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Open to AI &amp; Data Science Roles • Berlin</span>
+                </div>
+
                 <div className="flex items-center gap-4">
-                  {/* Monogram Avatar */}
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-emerald-500/20 border border-cyan-400/40 flex items-center justify-center shrink-0">
-                    <span className="text-2xl font-mono font-extrabold bg-gradient-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent">
-                      {PORTFOLIO_DATA.personal.initials}
-                    </span>
+                  {/* Profile Portrait with Graceful Monogram Fallback */}
+                  <div className="w-20 h-20 rounded-2xl p-[2px] bg-gradient-to-br from-emerald-400 via-cyan-400 to-indigo-500 shadow-lg shadow-cyan-500/20 shrink-0">
+                    {!imgError ? (
+                      <img
+                        src={PROFILE_PIC_SRC}
+                        alt={PORTFOLIO_DATA.personal.name}
+                        onError={() => setImgError(true)}
+                        className="w-full h-full object-cover rounded-[14px] bg-[#0a0a0f]"
+                      />
+                    ) : (
+                      <div className="w-full h-full rounded-[14px] bg-[#0a0a0f] flex items-center justify-center">
+                        <span className="text-2xl font-mono font-extrabold bg-gradient-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent">
+                          {PORTFOLIO_DATA.personal.initials}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <div className="min-w-0 flex-1">
@@ -1644,27 +1674,7 @@ export default function App() {
           8. FOOTER
       ===================================================================== */}
       <footer className="relative z-10 border-t border-white/10 bg-[#07080c] py-10 mt-10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          {/* Interactive Prototype & Live Deployment Note */}
-          <div className="p-4 rounded-xl bg-cyan-500/5 border border-cyan-500/20 text-xs text-slate-300 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <div>
-              <span className="font-mono font-semibold text-cyan-300">NOTE ON PORTFOLIO PREVIEW: </span>
-              <span>
-                This is the live interactive blueprint of Salah&apos;s v2 portfolio. All project cards open architecture breakdowns, GitHub links route to{" "}
-                <a
-                  href={PORTFOLIO_DATA.personal.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-cyan-400 underline"
-                >
-                  github.com/SalahHassani
-                </a>
-                , and the contact form delivers directly to{" "}
-                <span className="font-mono text-slate-100">{PORTFOLIO_DATA.personal.email}</span>.
-              </span>
-            </div>
-          </div>
-
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
             <div className="flex items-center gap-2">
               <span className="text-cyan-400 font-bold">{PORTFOLIO_DATA.personal.brandTag}</span>
@@ -1673,12 +1683,21 @@ export default function App() {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href={PORTFOLIO_DATA.personal.legacyPortfolio}
+                href={PORTFOLIO_DATA.personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-cyan-400 transition-colors"
               >
-                Previous v1 Portfolio
+                GitHub (@SHassani)
+              </a>
+              <span>•</span>
+              <a
+                href={PORTFOLIO_DATA.personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cyan-400 transition-colors"
+              >
+                LinkedIn
               </a>
               <span>•</span>
               <span className="text-slate-500">TypeScript • React • FastAPI</span>
