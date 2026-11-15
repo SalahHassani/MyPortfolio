@@ -127,25 +127,6 @@ const PORTFOLIO_DATA = {
       metrics: "ACTIVE BUILD • AI-Powered Coding Education"
     },
     {
-      id: "human-ai-interaction-lab",
-      title: "Human AI Interaction Lab",
-      subtitle: "Full-Stack Web Application | Interactive AI Interface",
-      category: "Generative AI",
-      featured: true,
-      inProgress: false,
-      shortDesc: "Advanced web application exploring human-AI interaction dynamics, featuring modern UI components and responsive workflows.",
-      fullDesc: "An immersive frontend and full-stack web application designed to study and demonstrate human-AI interaction workflows. Built with modern web technologies, responsive layouts, and seamless client-server communication.",
-      tech: ["TypeScript", "React", "Vercel", "Tailwind CSS"],
-      githubUrl: "https://github.com/SalahHassani/human-ai-interaction-lab",
-      liveUrl: "https://human-ai-interaction-lab-frontend.vercel.app/",
-      architecture: [
-        "Developed responsive user interfaces optimized for interactive AI agent communication and data inspection",
-        "Deployed production-ready frontend on Vercel with high performance and smooth transitions",
-        "Integrated robust state management for handling real-time user inputs and AI response feedback"
-      ],
-      metrics: "LIVE DEPLOYMENT • Interactive AI Lab"
-    },
-    {
       id: "cardiac-segmentation",
       title: "Transformer-Based Cardiac Image Segmentation",
       subtitle: "Bachelor's Thesis | Deep Learning | Medical Image Analysis",
@@ -347,12 +328,6 @@ const PORTFOLIO_DATA = {
         lang: "TypeScript / Python"
       },
       {
-        name: "Human-AI-Interaction-Lab",
-        status: "Live App",
-        desc: "Advanced web application exploring human-AI interaction dynamics hosted on Vercel.",
-        lang: "TypeScript / React"
-      },
-      {
         name: "Cardiac-Image-Segmentation",
         status: "B.Sc. Thesis",
         desc: "Transformer-based medical image segmentation evaluated with Dice, IoU & Hausdorff Distance.",
@@ -363,6 +338,12 @@ const PORTFOLIO_DATA = {
         status: "Generative AI",
         desc: "Stable Diffusion v1.5 + FastAPI + PostgreSQL web app with RBAC and PDF export.",
         lang: "Python / FastAPI"
+      },
+      {
+        name: "Delta-Loading-ETL-Pipeline",
+        status: "Data Engineering",
+        desc: "Incremental CSV-to-SQLite delta-loading workflow built for AUMOVIO.",
+        lang: "Python / SQL"
       }
     ]
   },
@@ -509,6 +490,7 @@ export default function App() {
     setApiResponseToast(null);
 
     try {
+      // Real email delivery via FormSubmit AJAX endpoint (forwards directly to salau02@zedat.fu-berlin.de)
       const response = await fetch(`https://formsubmit.co/ajax/${PORTFOLIO_DATA.personal.email}`, {
         method: "POST",
         headers: {
@@ -528,11 +510,12 @@ export default function App() {
       setApiResponseToast({
         status: 201,
         endpoint: "POST /api/v1/contact → Email Forwarded",
-        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}.`,
+        message: `Sent! Your message has been dispatched directly to ${PORTFOLIO_DATA.personal.email}. (Note: First-time FormSubmit submissions require a one-click activation email in your inbox.)`,
         timestamp: new Date().toISOString()
       });
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch {
+      // Reliable mailto fallback if offline or blocked by browser extensions
       const subjectEncoded = encodeURIComponent(formData.subject || `Portfolio Contact from ${formData.name}`);
       const bodyEncoded = encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`);
       window.open(`mailto:${PORTFOLIO_DATA.personal.email}?subject=${subjectEncoded}&body=${bodyEncoded}`, "_blank");
@@ -555,7 +538,7 @@ export default function App() {
       ? PORTFOLIO_DATA.techStack
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
 
-  // Filtered Projects
+  // Filtered Projects (Category + Search Query)
   const projectCategories = ["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"];
   const filteredProjects = PORTFOLIO_DATA.projects.filter((proj) => {
     const matchesCategory =
@@ -579,6 +562,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0a0a0f] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 font-sans relative overflow-x-hidden">
+      {/* Custom Utility Styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
@@ -644,6 +628,7 @@ export default function App() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+          {/* Brand Logo */}
           <button
             onClick={() => scrollToSection("about")}
             className="flex items-center gap-2.5 group focus:outline-none"
@@ -668,11 +653,12 @@ export default function App() {
             </span>
           </button>
 
+          {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
             {[
               { label: "About", id: "about" },
               { label: "Skills", id: "stack" },
-              { label: "Projects (9)", id: "projects" },
+              { label: "Projects (8)", id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -687,6 +673,7 @@ export default function App() {
             ))}
           </nav>
 
+          {/* Right CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
             <button
               onClick={() => setCvModalOpen(true)}
@@ -706,12 +693,13 @@ export default function App() {
           </div>
         </div>
 
+        {/* Mobile Drawer */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#0e1018]/95 backdrop-blur-2xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
             {[
               { label: "About", id: "about" },
               { label: "Technical Skills", id: "stack" },
-              { label: "Projects (9)", id: "projects" },
+              { label: "Projects (8)", id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -744,7 +732,9 @@ export default function App() {
         ===================================================================== */}
         <section id="about" className="pt-32 pb-20 md:pt-40 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Left Column: Name, Role, Animated Subtitle, Bio, CTAs */}
             <div className="lg:col-span-7 space-y-6">
+              {/* Location, University & Active Build Pills */}
               <div className="flex flex-wrap items-center gap-2.5">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -762,6 +752,7 @@ export default function App() {
                 </button>
               </div>
 
+              {/* Main Name & Headline */}
               <div className="space-y-3">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
                   Salah Uddin{" "}
@@ -774,23 +765,26 @@ export default function App() {
                 </p>
               </div>
 
+              {/* Animated Role Subtitle */}
               <div className="h-7 flex items-center font-mono text-sm sm:text-base text-cyan-300">
                 <span className="text-violet-400 mr-2">$</span>
                 <span>{displayedRole}</span>
                 <span className="w-2 h-5 bg-cyan-400 ml-1 animate-pulse" />
               </div>
 
+              {/* Authentic Professional Profile Summary */}
               <p className="text-slate-300 text-base sm:text-[17px] leading-[1.75] max-w-2xl">
                 {PORTFOLIO_DATA.personal.bio}
               </p>
 
+              {/* Quick Key Metrics Strip for Instant Readability */}
               <div className="grid grid-cols-3 gap-3 max-w-xl pt-1">
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-cyan-400">
                   <span className="text-base sm:text-lg font-extrabold text-white block">
-                    9 Projects
+                    8 Projects
                   </span>
                   <span className="text-[11px] font-mono text-slate-400">
-                    AI, CV, Diffusion &amp; Lab
+                    AI, CV, Diffusion &amp; ETL
                   </span>
                 </div>
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-emerald-400">
@@ -811,6 +805,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Primary CTA Buttons */}
               <div className="flex flex-wrap items-center gap-3.5 pt-2">
                 <button
                   onClick={() => scrollToSection("projects")}
@@ -846,6 +841,7 @@ export default function App() {
                 </button>
               </div>
 
+              {/* Direct Social & Contact Links */}
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-xs sm:text-sm text-slate-400">
                 <a
                   href={PORTFOLIO_DATA.personal.github}
@@ -877,16 +873,19 @@ export default function App() {
               </div>
             </div>
 
+            {/* Right Column: GitHub & Academic Identity Card */}
             <div className="lg:col-span-5 space-y-4">
               <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
                 <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-400 via-violet-500 to-emerald-400" />
 
+                {/* Status Availability Pill */}
                 <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-[11px] font-mono text-emerald-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span>Open to AI &amp; Data Science Roles • Berlin</span>
                 </div>
 
                 <div className="flex items-center gap-4">
+                  {/* Profile Portrait with Graceful Monogram Fallback */}
                   <div className="w-20 h-20 rounded-2xl p-[2px] bg-gradient-to-br from-emerald-400 via-cyan-400 to-indigo-500 shadow-lg shadow-cyan-500/20 shrink-0">
                     {!imgError ? (
                       <img
@@ -929,6 +928,7 @@ export default function App() {
                   </div>
                 </div>
 
+                {/* Currently Building Spotlight Box */}
                 <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-violet-500/10 to-cyan-500/10 border border-amber-400/25">
                   <div className="flex items-center justify-between text-xs font-mono mb-1.5">
                     <span className="inline-flex items-center gap-1.5 text-amber-300 font-semibold">
@@ -945,6 +945,7 @@ export default function App() {
                   </p>
                 </div>
 
+                {/* GitHub Pinned Focus Areas */}
                 <div className="mt-5">
                   <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-2.5">
                     <span className="flex items-center gap-1.5 text-slate-200">
@@ -1007,6 +1008,7 @@ export default function App() {
               </h2>
             </div>
 
+            {/* Category Filter Tabs */}
             <div className="flex flex-wrap gap-2">
               {techCategories.map((category) => (
                 <button
@@ -1052,9 +1054,10 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (9 PROJECTS)
+            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (8 PROJECTS)
         ===================================================================== */}
         <section id="projects" className="py-20 border-t border-white/5">
+          {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
             <div>
               <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1065,23 +1068,24 @@ export default function App() {
                 Featured &amp; Technical Projects
               </h2>
               <p className="text-slate-300/80 text-sm sm:text-base mt-2 max-w-2xl">
-                Highlighting my active AI Coding Tutorial Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
+                Highlighting my active AI Coding Tutorial Platform, B.Sc. Medical Computer Vision Thesis, Generative AI pipelines, and Data Engineering systems.
               </p>
             </div>
 
+            {/* Search Input */}
             <div className="relative w-full lg:w-72">
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 value={projectSearchQuery}
                 onChange={(e) => setProjectSearchQuery(e.target.value)}
-                placeholder="Search PyTorch, FastAPI, Vercel..."
+                placeholder="Search PyTorch, FastAPI, Gemini..."
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0f18] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
               />
             </div>
           </div>
 
-          {/* FEATURED SPOTLIGHT BANNER */}
+          {/* FEATURED SPOTLIGHT BANNER (FLAGSHIP ACTIVE BUILD) */}
           <div
             onClick={() => setSelectedProject(featuredProjects[0])}
             className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
@@ -1142,6 +1146,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* Filter Pills Row */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex flex-wrap gap-2">
               {projectCategories.map((cat) => (
@@ -1163,6 +1168,7 @@ export default function App() {
             </span>
           </div>
 
+          {/* Project Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {filteredProjects.map((project, idx) => (
               <div
@@ -1177,6 +1183,7 @@ export default function App() {
                 }`}
               >
                 <div>
+                  {/* Top Row: Badges */}
                   <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
                     <div className="flex flex-wrap items-center gap-2">
                       <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
@@ -1201,10 +1208,12 @@ export default function App() {
                     </span>
                   </div>
 
+                  {/* Subtitle */}
                   <p className="text-xs font-mono text-violet-300 mb-1.5">
                     {project.subtitle}
                   </p>
 
+                  {/* Title & Short Description */}
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors flex items-start justify-between gap-2 leading-snug">
                     <span>
                       <span className="text-slate-500 font-mono text-base mr-2">
@@ -1220,6 +1229,7 @@ export default function App() {
                   </p>
                 </div>
 
+                {/* Bottom Row: Tech Tags + Actions */}
                 <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                   <div className="flex flex-wrap gap-1.5">
                     {project.tech.map((t) => (
@@ -1233,18 +1243,6 @@ export default function App() {
                   </div>
 
                   <div className="flex items-center gap-3 ml-auto">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        aria-label={`View live demo for ${project.title}`}
-                        className="p-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-colors"
-                      >
-                        <Globe className="w-4 h-4" />
-                      </a>
-                    )}
                     <a
                       href={project.githubUrl}
                       target="_blank"
@@ -1287,6 +1285,7 @@ export default function App() {
               const isExpanded = !!expandedTimelineIds[item.id];
               return (
                 <div key={item.id} className="relative">
+                  {/* Timeline Node Dot */}
                   <div
                     className={`absolute -left-[33px] sm:-left-[41px] top-7 w-4 h-4 rounded-full border-2 border-[#0a0a0f] shadow-md ${
                       item.type === "work"
@@ -1352,6 +1351,7 @@ export default function App() {
                       {item.summary}
                     </p>
 
+                    {/* Key Impact & Skill Chips */}
                     {item.impactTags && (
                       <div className="flex flex-wrap gap-2 mt-4">
                         {item.impactTags.map((tag) => (
@@ -1387,6 +1387,7 @@ export default function App() {
         ===================================================================== */}
         <section id="interests" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            {/* Academic & Technical Research Interests */}
             <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
               <div>
                 <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1409,6 +1410,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Personal & Extracurricular Interests */}
               <div className="mt-8 pt-6 border-t border-white/10">
                 <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest mb-3">
                   <Heart className="w-4 h-4" />
@@ -1427,6 +1429,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* Multilingual Communication Card (All 5 Languages) */}
             <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8">
               <div className="flex items-center justify-between mb-2">
                 <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest">
@@ -1475,6 +1478,7 @@ export default function App() {
         ===================================================================== */}
         <section id="contact" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Contact Info Column */}
             <div className="lg:col-span-5 space-y-6">
               <div>
                 <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
@@ -1549,6 +1553,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* Interactive Form Column */}
             <div className="lg:col-span-7">
               <form
                 onSubmit={handleContactSubmit}
@@ -1617,7 +1622,7 @@ export default function App() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Salah, I saw your work on Human AI Interaction Lab..."
+                    placeholder="Hi Salah, I saw your work on Transformer cardiac segmentation and FastAPI generative AI apps..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   />
                 </div>
@@ -1640,6 +1645,7 @@ export default function App() {
                   )}
                 </button>
 
+                {/* Simulated FastAPI JSON Response Toast */}
                 {apiResponseToast && (
                   <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-200 space-y-1.5">
                     <div className="flex items-center justify-between">
@@ -1774,17 +1780,6 @@ export default function App() {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
-                {selectedProject.liveUrl && (
-                  <a
-                    href={selectedProject.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-teal-600 text-white hover:opacity-90 transition-opacity"
-                  >
-                    <Globe className="w-4 h-4" />
-                    <span>View Live Demo</span>
-                  </a>
-                )}
                 <a
                   href={selectedProject.githubUrl}
                   target="_blank"
@@ -1792,7 +1787,7 @@ export default function App() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-violet-600 text-white hover:opacity-90 transition-opacity"
                 >
                   <Github className="w-4 h-4" />
-                  <span>View on GitHub</span>
+                  <span>View on GitHub (@SalahHassani)</span>
                 </a>
                 <button
                   onClick={() => setSelectedProject(null)}
@@ -1819,6 +1814,7 @@ export default function App() {
             onClick={(e) => e.stopPropagation()}
             className="bg-[#0e1018] border border-white/15 rounded-2xl max-w-4xl w-full p-6 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto text-slate-100"
           >
+            {/* Modal Controls */}
             <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-white/10">
               <div className="flex items-center gap-2 text-xs font-mono text-cyan-300">
                 <FileText className="w-4 h-4" />
@@ -1842,6 +1838,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* CV Header */}
             <div className="space-y-4">
               <div className="border-b border-white/10 pb-5">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -1861,6 +1858,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* CV Profile */}
               <div>
                 <h3 className="text-xs font-mono uppercase tracking-widest text-violet-400 mb-1.5">
                   Professional Profile
@@ -1870,6 +1868,7 @@ export default function App() {
                 </p>
               </div>
 
+              {/* CV Education & Experience */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 <div>
                   <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-3">
@@ -1924,6 +1923,7 @@ export default function App() {
                 </div>
               </div>
 
+              {/* CV Selected Projects */}
               <div>
                 <h3 className="text-xs font-mono uppercase tracking-widest text-violet-400 mb-3">
                   Selected Technical Projects ({PORTFOLIO_DATA.projects.length})
