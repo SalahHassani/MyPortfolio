@@ -1,6 +1,7 @@
 {
   "name": "salah-hassani-portfolio",
   "private": true,
+  "homepage": "https://salahhassani.github.io/MyPortfolio",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
