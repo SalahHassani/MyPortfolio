@@ -30,7 +30,10 @@ import {
   Star,
   Zap,
   GitBranch,
-  ArrowUpRight
+  ArrowUpRight,
+  Layers,
+  Code2,
+  RotateCcw
 } from 'lucide-react';
 
 // Relative path resolves seamlessly under Vite's base ('/MyPortfolio/') when placed in public/images/profile_pic.jpg
@@ -106,26 +109,6 @@ const PORTFOLIO_DATA = {
 
   projects: [
     {
-      id: "ai-coding-tutorial",
-      title: "AI Coding Tutorial Platform",
-      subtitle: "Currently Building | Interactive AI Education & Developer Platform",
-      category: "Generative AI",
-      featured: true,
-      inProgress: true,
-      shortDesc: "Currently building an interactive AI-powered coding tutorial and learning platform designed to make programming concepts accessible through guided explanations, structured lessons, and intelligent code assistance.",
-      fullDesc: "Active flagship project combining modern full-stack engineering with Large Language Models. Built to bridge the gap between static coding documentation and personalized 1-on-1 mentorship—allowing learners to follow structured modules, ask contextual questions on code snippets, and receive instant step-by-step guidance.",
-      tech: ["TypeScript", "React", "Python", "FastAPI", "Google Gemini API", "LangChain"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://github.com/SalahHassani",
-      architecture: [
-        "Designed an interactive, structured tutorial interface in React & TypeScript for step-by-step programming lessons",
-        "Engineered an asynchronous FastAPI backend integrating LangChain and the Google Gemini API for context-aware code tutoring",
-        "Built intelligent code explanation, guided hint progression, and real-time concept breakdown workflows",
-        "Focused on clean modular API design, responsive UX, and extensible curriculum authoring"
-      ],
-      metrics: "ACTIVE BUILD • AI-Powered Coding Education"
-    },
-    {
       id: "human-ai-decision-platform",
       title: "Human-AI Decision Experiment Platform",
       subtitle: "Full-Stack Experiment Platform | Real-Time WebSockets & PostgreSQL",
@@ -134,7 +117,7 @@ const PORTFOLIO_DATA = {
       inProgress: false,
       shortDesc: "Interactive multi-round experiment platform for studying human and AI group decision-making, featuring real-time WebSocket discussions, voting phases, and persistent session tracking.",
       fullDesc: "End-to-end full-stack research platform built with FastAPI, React/Vite, and PostgreSQL to run structured multi-round human-AI group decision experiments. Supports live real-time discussion and voting phases, dynamic HTTP/HTTPS and WS/WSS protocol routing, and persistent session/round state tracking.",
-      tech: ["Python", "FastAPI", "SQLAlchemy (Async)", "React", "Vite", "PostgreSQL", "WebSockets", "Render"],
+      tech: ["Python", "FastAPI", "SQLAlchemy", "React", "Vite", "PostgreSQL", "WebSockets", "Render"],
       githubUrl: "https://github.com/SalahHassani/human-ai-decision-platform",
       liveUrl: "https://human-ai-decision-platform.onrender.com/",
       architecture: [
@@ -165,17 +148,37 @@ const PORTFOLIO_DATA = {
       metrics: "LIVE DEPLOYMENT • Interactive AI Lab"
     },
     {
+      id: "ai-coding-tutorial",
+      title: "AI Coding Tutorial Platform",
+      subtitle: "Currently Building | Interactive AI Education & Developer Platform",
+      category: "Generative AI",
+      featured: true,
+      inProgress: true,
+      shortDesc: "Currently building an interactive AI-powered coding tutorial and learning platform designed to make programming concepts accessible through guided explanations, structured lessons, and intelligent code assistance.",
+      fullDesc: "Active flagship project combining modern full-stack engineering with Large Language Models. Built to bridge the gap between static coding documentation and personalized 1-on-1 mentorship—allowing learners to follow structured modules, ask contextual questions on code snippets, and receive instant step-by-step guidance.",
+      tech: ["React", "TypeScript", "Python", "FastAPI", "Gemini", "LangChain"],
+      githubUrl: null,
+      liveUrl: null,
+      architecture: [
+        "Designed an interactive, structured tutorial interface in React & TypeScript for step-by-step programming lessons",
+        "Engineered an asynchronous FastAPI backend integrating LangChain and the Google Gemini API for context-aware code tutoring",
+        "Built intelligent code explanation, guided hint progression, and real-time concept breakdown workflows",
+        "Focused on clean modular API design, responsive UX, and extensible curriculum authoring"
+      ],
+      metrics: "IN PROGRESS • AI-Powered Coding Education"
+    },
+    {
       id: "cardiac-segmentation",
       title: "Transformer-Based Cardiac Image Segmentation",
       subtitle: "Bachelor's Thesis | Deep Learning | Medical Image Analysis",
       category: "AI & Deep Learning",
-      featured: true,
+      featured: false,
       inProgress: false,
       shortDesc: "Investigated modern Transformer-based deep learning architectures for automated anatomical structure segmentation on cardiac catheterization image datasets.",
       fullDesc: "Completed as my B.Sc. Computer Science Thesis at Eötvös Loránd University (ELTE). Evaluated Vision Transformer and hybrid encoder-decoder architectures on complex cardiac catheterization imagery to accurately delineate critical anatomical structures under clinical imaging noise.",
       tech: ["Python", "PyTorch", "Computer Vision", "Deep Learning"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Preprocessed and augmented cardiac catheterization image datasets for robust anatomical boundary learning",
         "Implemented and benchmarked Transformer-based segmentation networks in PyTorch",
@@ -189,13 +192,13 @@ const PORTFOLIO_DATA = {
       title: "Web-Based Automated Comic Generation",
       subtitle: "Generative AI | Stable Diffusion",
       category: "Generative AI",
-      featured: true,
+      featured: false,
       inProgress: false,
       shortDesc: "End-to-end generative AI web application utilizing Stable Diffusion v1.5 and FastAPI to transform narrative prompts into structured, exportable comic strips.",
       fullDesc: "Full-stack generative visual storytelling platform built around Stable Diffusion v1.5 and a secure FastAPI + PostgreSQL backend. Enables users to generate consistent panels, manage creative history, and compile finished comic layouts into downloadable PDFs.",
       tech: ["Python", "Stable Diffusion v1.5", "FastAPI", "PostgreSQL"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Integrated Stable Diffusion v1.5 text-to-image inference pipeline for stylized comic panel synthesis",
         "Engineered asynchronous FastAPI REST endpoints backed by PostgreSQL persistence",
@@ -209,13 +212,13 @@ const PORTFOLIO_DATA = {
       title: "AI Coding Mentor",
       subtitle: "Full-Stack Generative AI Application",
       category: "Generative AI",
-      featured: true,
+      featured: false,
       inProgress: false,
       shortDesc: "Intelligent programming education and code-review assistant powered by FastAPI, LangChain, Pydantic, and the Google Gemini API.",
       fullDesc: "Designed a modular generative AI application tailored for interactive programming mentorship, debugging explanations, and structured learning feedback by connecting Large Language Models directly into software engineering workflows.",
       tech: ["Python", "FastAPI", "LangChain", "Google Gemini API", "Pydantic"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Orchestrated prompt chains and conversational context using LangChain and Google Gemini API",
         "Enforced strict request/response schemas and type safety with Pydantic v2 models",
@@ -234,8 +237,8 @@ const PORTFOLIO_DATA = {
       shortDesc: "From-scratch PyTorch and NumPy implementation exploring forward noise schedules, reverse denoising dynamics, and probabilistic image generation.",
       fullDesc: "Research-focused implementation built to deeply understand the mathematical and computational mechanics of Denoising Diffusion Probabilistic Models (DDPMs), noise scheduling, and neural reverse-process sampling.",
       tech: ["Python", "PyTorch", "NumPy"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Implemented forward Gaussian noise corruption schedules across discrete timesteps",
         "Built neural denoising U-Net training loops and loss objectives in PyTorch",
@@ -253,8 +256,8 @@ const PORTFOLIO_DATA = {
       shortDesc: "End-to-end tabular machine learning regression workflow on Kaggle housing data featuring exploratory analysis, feature engineering, and model evaluation.",
       fullDesc: "Structured predictive modelling pipeline tackling real-world residential property valuation using statistical preprocessing, correlation analysis, and regularized regression estimators.",
       tech: ["Python", "NumPy", "Pandas", "Matplotlib", "Scikit-learn"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Conducted comprehensive Exploratory Data Analysis (EDA) and missing-value imputation in Pandas",
         "Engineered numerical and categorical features with Scikit-learn preprocessing pipelines",
@@ -272,8 +275,8 @@ const PORTFOLIO_DATA = {
       shortDesc: "Incremental ETL and delta-loading data pipeline developed for an AUMOVIO technical assignment using Python, SQLite, CSV datasets, and SQL.",
       fullDesc: "Engineered a reliable incremental data ingestion workflow capable of detecting new, modified, and unchanged records between CSV snapshots and updating relational SQLite tables without full reloads.",
       tech: ["Python", "SQLite", "CSV", "SQL"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Inspected, validated, and normalized raw CSV batch datasets",
         "Implemented deterministic change-data-capture (delta loading) logic against SQLite",
@@ -291,8 +294,8 @@ const PORTFOLIO_DATA = {
       shortDesc: "Interactive 2D simulation and strategy games built in Python and Pygame, applying object-oriented architecture, state machines, and custom rendering loops.",
       fullDesc: "Designed and implemented two complete interactive desktop applications—The Mapmaker and SafariPark—focusing on clean OOP entity hierarchies, event-driven input handling, and simulation state management.",
       tech: ["Python", "Pygame", "OOP"],
-      githubUrl: "https://github.com/SalahHassani",
-      liveUrl: "https://salahhassani.github.io/MyPortfolio/",
+      githubUrl: null,
+      liveUrl: null,
       architecture: [
         "Structured modular object-oriented entity, map, and simulation controller classes",
         "Implemented real-time game loops, collision/tile logic, and interactive UI overlays",
@@ -423,7 +426,7 @@ const NAV_ITEMS = [
 ];
 
 // ============================================================================
-// MAIN APPLICATION COMPONENT — EXPERIMENT 02: NAVIGATION & PAGE ORIENTATION
+// MAIN APPLICATION COMPONENT — EXPERIMENT 03: INTERACTIVE PROJECT CARDS
 // ============================================================================
 export default function App() {
   // Navigation & Mobile Drawer State
@@ -716,7 +719,12 @@ export default function App() {
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
   }, [activeTechTab]);
 
-  // Memoized Filtered Projects
+  // Featured Projects (3 primary showcase projects)
+  const featuredProjects = useMemo(() => {
+    return PORTFOLIO_DATA.projects.filter((p) => p.featured);
+  }, []);
+
+  // Memoized Filtered Projects (works across all 10 projects when filter/search is used)
   const filteredProjects = useMemo(() => {
     return PORTFOLIO_DATA.projects.filter((proj) => {
       const matchesCategory =
@@ -730,14 +738,23 @@ export default function App() {
       const matchesQuery =
         !query ||
         proj.title.toLowerCase().includes(query) ||
+        proj.subtitle.toLowerCase().includes(query) ||
         proj.shortDesc.toLowerCase().includes(query) ||
+        proj.fullDesc.toLowerCase().includes(query) ||
+        proj.category.toLowerCase().includes(query) ||
         proj.tech.some((t) => t.toLowerCase().includes(query));
 
       return matchesCategory && matchesQuery;
     });
   }, [activeProjectFilter, projectSearchQuery]);
 
-  const featuredProjects = PORTFOLIO_DATA.projects.filter((p) => p.featured);
+  const hasActiveProjectQuery =
+    activeProjectFilter !== "All" || projectSearchQuery.trim().length > 0;
+
+  const resetProjectFilters = () => {
+    setActiveProjectFilter("All");
+    setProjectSearchQuery("");
+  };
 
   return (
     <div className="min-h-screen bg-[#FFFFFF] text-[#182B49] selection:bg-[#3867F5]/15 selection:text-[#182B49] font-sans relative overflow-x-hidden">
@@ -1236,7 +1253,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (WHITE SURFACE)
+            4. EXPERIMENT 03: FEATURED SHOWCASE & PROJECT DIRECTORY
         ===================================================================== */}
         <section id="projects" className="py-20 bg-[#FFFFFF] border-t border-[#E2E8F0]">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1250,203 +1267,374 @@ export default function App() {
                   Featured &amp; Technical Projects
                 </h2>
                 <p className="text-[#475569] text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
-                  Highlighting my active AI Coding Tutorial Platform, Human-AI Decision Experiment Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
+                  Showcasing my featured full-stack AI platforms alongside my B.Sc. cardiac segmentation thesis, generative diffusion work, machine learning pipelines, ETL systems, and simulation projects.
                 </p>
               </div>
 
-              <div className="relative w-full lg:w-72">
-                <Search className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2" />
+              <div className="relative w-full lg:w-80">
+                <Search className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="text"
                   value={projectSearchQuery}
                   onChange={(e) => setProjectSearchQuery(e.target.value)}
-                  placeholder="Search PyTorch, FastAPI, Render..."
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs sm:text-sm text-[#182B49] placeholder-[#94A3B8] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all"
+                  aria-label="Search projects by title, description, or technology"
+                  placeholder="Search FastAPI, PyTorch, React, SQLite..."
+                  className="w-full pl-10 pr-9 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs sm:text-sm text-[#182B49] placeholder-[#64748B] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all"
                 />
-              </div>
-            </div>
-
-            {/* FEATURED SPOTLIGHT BANNER */}
-            <div
-              onClick={() => setSelectedProject(featuredProjects[0])}
-              className="mb-10 rounded-2xl p-6 sm:p-8 bg-[#182B49] text-white border border-[#182B49] hover:border-[#3867F5] shadow-md cursor-pointer transition-all group relative overflow-hidden"
-            >
-              <div className="absolute top-0 inset-x-0 h-1 bg-[#F07845]" />
-              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                <div className="space-y-3 max-w-3xl">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#F07845] text-white">
-                      <span className="w-2 h-2 rounded-full bg-white" />
-                      ACTIVE BUILD / IN PROGRESS
-                    </span>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-white/10 text-white border border-white/15">
-                      <Star className="w-3 h-3 fill-[#F07845] text-[#F07845]" />
-                      Flagship Project
-                    </span>
-                    <span className="text-xs font-mono text-[#93C5FD]">
-                      {featuredProjects[0].subtitle}
-                    </span>
-                  </div>
-
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-[#93C5FD] transition-colors">
-                    {featuredProjects[0].title}
-                  </h3>
-
-                  <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
-                    {featuredProjects[0].fullDesc}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    {featuredProjects[0].tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-white border border-white/15"
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
-                  <a
-                    href={PORTFOLIO_DATA.personal.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-[#3867F5] text-white border border-white/15 transition-colors"
-                  >
-                    <Github className="w-4 h-4" />
-                    <span>GitHub (@SHassani)</span>
-                  </a>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#93C5FD] group-hover:text-white transition-colors">
-                    <span>Inspect System Design</span>
-                    <ArrowUpRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-              <div className="flex flex-wrap gap-2">
-                {["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"].map((cat) => (
+                {projectSearchQuery && (
                   <button
-                    key={cat}
-                    onClick={() => setActiveProjectFilter(cat)}
-                    className={`px-3.5 py-2 rounded-lg text-xs font-mono font-medium transition-colors ${
-                      activeProjectFilter === cat
-                        ? "bg-[#3867F5] text-white border border-[#3867F5]"
-                        : "bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0] hover:border-[#3867F5] hover:text-[#182B49]"
-                    }`}
+                    type="button"
+                    onClick={() => setProjectSearchQuery("")}
+                    aria-label="Clear search query"
+                    className="p-1 rounded-md text-[#64748B] hover:text-[#182B49] hover:bg-[#E2E8F0]/60 absolute right-2 top-1/2 -translate-y-1/2 transition-colors"
                   >
-                    {cat}
+                    <X className="w-3.5 h-3.5" />
                   </button>
-                ))}
+                )}
               </div>
-              <span className="text-xs font-mono text-[#64748B]">
-                Showing {filteredProjects.length} of {PORTFOLIO_DATA.projects.length} projects
-              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {filteredProjects.map((project, idx) => (
-                <div
-                  key={project.id}
-                  onClick={() => setSelectedProject(project)}
-                  className={`surface-card surface-card-interactive rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col justify-between group ${
-                    project.inProgress
-                      ? "border-t-4 border-t-[#F07845]"
-                      : project.featured
-                      ? "border-t-4 border-t-[#3867F5]"
-                      : ""
-                  }`}
-                >
-                  <div>
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-[#182B49] text-white">
-                          {project.category}
-                        </span>
-                        {project.inProgress && (
-                          <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
-                            In Progress
+            {/* FEATURED PROJECTS SHOWCASE (DISTINCT FROM STANDARD CARDS) */}
+            <div className="mb-12">
+              <div className="flex items-center justify-between gap-3 mb-4">
+                <div className="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49]">
+                  <Star className="w-3.5 h-3.5 fill-[#F07845] text-[#F07845]" />
+                  <span>Featured Projects ({featuredProjects.length})</span>
+                </div>
+                <span className="text-xs font-mono text-[#64748B] hidden sm:inline">
+                  Click any featured project to inspect implementation details
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {featuredProjects.map((project) => (
+                  <article
+                    key={project.id}
+                    onClick={() => setSelectedProject(project)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setSelectedProject(project);
+                      }
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`Inspect ${project.title} details`}
+                    className="rounded-2xl bg-[#182B49] text-white border border-[#182B49] hover:border-[#3867F5] shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between overflow-hidden group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
+                  >
+                    <div>
+                      <div
+                        className={`h-1.5 w-full ${
+                          project.inProgress ? "bg-[#F07845]" : "bg-[#3867F5]"
+                        }`}
+                      />
+
+                      <div className="p-6 pb-4">
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                          <span className="text-[11px] font-mono font-medium px-2.5 py-0.5 rounded bg-white/10 text-[#93C5FD] border border-white/15">
+                            {project.category}
                           </span>
-                        )}
-                        {project.featured && !project.inProgress && (
-                          <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2 py-1 rounded-md bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25">
-                            <Star className="w-3 h-3" />
-                            Featured
+                          {project.inProgress ? (
+                            <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-[#F07845] text-white">
+                              <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                              In Progress
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2.5 py-0.5 rounded-full bg-[#3867F5]/25 text-[#93C5FD] border border-[#3867F5]/40">
+                              <Star className="w-3 h-3 fill-[#F07845] text-[#F07845]" />
+                              Featured
+                            </span>
+                          )}
+                        </div>
+
+                        <p className="text-[11px] font-mono text-slate-300 mb-1">
+                          {project.subtitle}
+                        </p>
+
+                        <h3 className="text-xl font-extrabold text-white group-hover:text-[#93C5FD] transition-colors leading-snug">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-slate-200 text-sm leading-relaxed mt-2.5">
+                          {project.shortDesc}
+                        </p>
+
+                        <div className="mt-4 p-3 rounded-xl bg-white/[0.06] border border-white/10">
+                          <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#93C5FD] mb-1.5">
+                            <Code2 className="w-3 h-3 text-[#F07845]" />
+                            <span>Key Implementation</span>
+                          </div>
+                          <p className="text-xs text-slate-200 leading-relaxed line-clamp-2">
+                            {project.architecture[0]}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="px-6 pb-6 pt-3 border-t border-white/10 space-y-4">
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tech.map((t) => (
+                          <span
+                            key={t}
+                            className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-white/10 text-slate-100 border border-white/10"
+                          >
+                            {t}
                           </span>
-                        )}
+                        ))}
                       </div>
 
-                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]">
-                        {project.metrics}
-                      </span>
-                    </div>
+                      <div className="flex flex-wrap items-center justify-between gap-2 pt-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          {project.githubUrl && (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-white/10 hover:bg-[#3867F5] text-white border border-white/15 transition-colors"
+                            >
+                              <Github className="w-3.5 h-3.5" />
+                              <span>GitHub</span>
+                            </a>
+                          )}
+                          {project.liveUrl && (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={(e) => e.stopPropagation()}
+                              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
+                            >
+                              <Globe className="w-3.5 h-3.5" />
+                              <span>Live App</span>
+                            </a>
+                          )}
+                          {!project.githubUrl && !project.liveUrl && project.inProgress && (
+                            <span className="text-[11px] font-mono text-[#FDBA74]">
+                              Active build • Repo &amp; live URL not yet public
+                            </span>
+                          )}
+                        </div>
 
-                    <p className="text-xs font-mono text-[#3867F5] font-medium mb-1.5">
-                      {project.subtitle}
-                    </p>
-
-                    <h3 className="text-xl font-extrabold text-[#182B49] group-hover:text-[#3867F5] transition-colors flex items-start justify-between gap-2 leading-snug">
-                      <span>
-                        <span className="text-[#94A3B8] font-mono text-base mr-2">
-                          {String(idx + 1).padStart(2, "0")}.
+                        <span className="inline-flex items-center gap-1 text-xs font-mono font-semibold text-[#93C5FD] group-hover:text-white ml-auto">
+                          <span>Details</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </span>
-                        {project.title}
-                      </span>
-                      <ExternalLink className="w-5 h-5 text-[#94A3B8] group-hover:text-[#3867F5] shrink-0 mt-1 transition-colors" />
-                    </h3>
-
-                    <p className="text-[#334155] text-sm sm:text-[15px] leading-[1.7] mt-3">
-                      {project.shortDesc}
-                    </p>
-                  </div>
-
-                  <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tech.map((t) => (
-                        <span
-                          key={t}
-                          className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0]"
-                        >
-                          {t}
-                        </span>
-                      ))}
+                      </div>
                     </div>
+                  </article>
+                ))}
+              </div>
+            </div>
 
-                    <div className="flex items-center gap-2.5 ml-auto">
-                      {project.liveUrl && project.liveUrl !== PORTFOLIO_DATA.personal.github && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          onClick={(e) => e.stopPropagation()}
-                          title="Open Live Deployment"
-                          className="p-1.5 rounded-lg bg-[#3867F5]/10 hover:bg-[#3867F5] text-[#3867F5] hover:text-white border border-[#3867F5]/25 transition-colors"
-                        >
-                          <Globe className="w-4 h-4" />
-                        </a>
-                      )}
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        aria-label={`View ${project.title} on GitHub`}
-                        className="p-1.5 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+            {/* FILTER BAR & MATCHING COUNT FOR ALL 10 PROJECTS */}
+            <div className="pt-4 border-t border-[#E2E8F0]">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div
+                  role="group"
+                  aria-label="Filter projects by category"
+                  className="flex flex-wrap gap-2"
+                >
+                  {["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"].map((cat) => {
+                    const isSelected = activeProjectFilter === cat;
+                    return (
+                      <button
+                        key={cat}
+                        type="button"
+                        onClick={() => setActiveProjectFilter(cat)}
+                        aria-pressed={isSelected}
+                        className={`px-3.5 py-2 rounded-lg text-xs font-mono font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] ${
+                          isSelected
+                            ? "bg-[#3867F5] text-white border border-[#3867F5] shadow-xs"
+                            : "bg-[#F8FAFC] text-[#334155] border border-[#E2E8F0] hover:border-[#3867F5] hover:text-[#182B49]"
+                        }`}
                       >
-                        <Github className="w-4 h-4" />
-                      </a>
-                      <span className="text-xs font-mono font-semibold text-[#3867F5] group-hover:underline">
-                        Architecture →
-                      </span>
-                    </div>
-                  </div>
+                        {cat}
+                      </button>
+                    );
+                  })}
                 </div>
-              ))}
+
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono text-[#475569]">
+                    Matching:{" "}
+                    <strong className="text-[#182B49] font-semibold">
+                      {filteredProjects.length}
+                    </strong>{" "}
+                    of {PORTFOLIO_DATA.projects.length} projects
+                  </span>
+                  {hasActiveProjectQuery && (
+                    <button
+                      type="button"
+                      onClick={resetProjectFilters}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono font-medium text-[#3867F5] hover:bg-[#3867F5]/10 transition-colors"
+                    >
+                      <RotateCcw className="w-3 h-3" />
+                      <span>Reset</span>
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* STANDARD & FILTERED PROJECT CARDS GRID */}
+              {filteredProjects.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {filteredProjects.map((project, idx) => (
+                    <article
+                      key={project.id}
+                      onClick={() => setSelectedProject(project)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault();
+                          setSelectedProject(project);
+                        }
+                      }}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`Open architecture details for ${project.title}`}
+                      className={`surface-card surface-card-interactive rounded-2xl overflow-hidden cursor-pointer flex flex-col justify-between group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] ${
+                        project.inProgress
+                          ? "border-t-4 border-t-[#F07845]"
+                          : project.featured
+                          ? "border-t-4 border-t-[#3867F5]"
+                          : ""
+                      }`}
+                    >
+                      <div>
+                        {/* Restrained Spec / Metadata Header (Clearly Not a Screenshot) */}
+                        <div className="px-6 py-2.5 bg-[#F8FAFC] border-b border-[#E2E8F0] flex items-center justify-between gap-2 text-[11px] font-mono text-[#64748B]">
+                          <span className="inline-flex items-center gap-1.5 truncate">
+                            <Layers className="w-3.5 h-3.5 text-[#3867F5] shrink-0" />
+                            <span className="truncate">{project.metrics}</span>
+                          </span>
+                          <span className="shrink-0 text-[#94A3B8]">SPEC • NO PREVIEW IMG</span>
+                        </div>
+
+                        <div className="p-6 pb-4">
+                          <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-md bg-[#182B49] text-white">
+                                {project.category}
+                              </span>
+                              {project.inProgress && (
+                                <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-md bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
+                                  In Progress
+                                </span>
+                              )}
+                              {project.featured && !project.inProgress && (
+                                <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2 py-0.5 rounded-md bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25">
+                                  <Star className="w-3 h-3" />
+                                  Featured
+                                </span>
+                              )}
+                            </div>
+                          </div>
+
+                          <p className="text-xs font-mono text-[#3867F5] font-medium mb-1">
+                            {project.subtitle}
+                          </p>
+
+                          <h3 className="text-xl font-extrabold text-[#182B49] group-hover:text-[#3867F5] transition-colors flex items-start justify-between gap-2 leading-snug">
+                            <span>
+                              <span className="text-[#94A3B8] font-mono text-base mr-2">
+                                {String(idx + 1).padStart(2, "0")}.
+                              </span>
+                              {project.title}
+                            </span>
+                            <ArrowUpRight className="w-5 h-5 text-[#94A3B8] group-hover:text-[#3867F5] shrink-0 mt-0.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </h3>
+
+                          <p className="text-[#334155] text-sm sm:text-[15px] leading-[1.65] mt-2.5">
+                            {project.shortDesc}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="px-6 pb-6 pt-4 border-t border-[#E2E8F0] space-y-3.5">
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tech.map((t) => (
+                            <span
+                              key={t}
+                              className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0] group-hover:border-[#CBD5E1] transition-colors"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-between gap-3 pt-0.5">
+                          <div className="flex flex-wrap items-center gap-2">
+                            {project.githubUrl && (
+                              <a
+                                href={project.githubUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                              >
+                                <Github className="w-3.5 h-3.5" />
+                                <span>Repository</span>
+                              </a>
+                            )}
+                            {project.liveUrl && (
+                              <a
+                                href={project.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={(e) => e.stopPropagation()}
+                                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-medium bg-[#3867F5]/10 hover:bg-[#3867F5] text-[#3867F5] hover:text-white border border-[#3867F5]/25 transition-colors"
+                              >
+                                <Globe className="w-3.5 h-3.5" />
+                                <span>Live Demo</span>
+                              </a>
+                            )}
+                          </div>
+
+                          <span className="text-xs font-mono font-semibold text-[#3867F5] ml-auto">
+                            Inspect Details →
+                          </span>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <div className="surface-card rounded-2xl p-10 text-center max-w-xl mx-auto space-y-4">
+                  <div className="w-11 h-11 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#182B49] flex items-center justify-center mx-auto">
+                    <Search className="w-5 h-5 text-[#3867F5]" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-lg font-bold text-[#182B49]">
+                      No matching projects found
+                    </h3>
+                    <p className="text-sm text-[#475569]">
+                      No projects match{" "}
+                      {projectSearchQuery.trim() ? (
+                        <span className="font-mono text-[#182B49]">
+                          &ldquo;{projectSearchQuery.trim()}&rdquo;
+                        </span>
+                      ) : (
+                        "the selected filter"
+                      )}{" "}
+                      {activeProjectFilter !== "All" && (
+                        <>
+                          in <span className="font-mono text-[#182B49]">{activeProjectFilter}</span>
+                        </>
+                      )}
+                      .
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={resetProjectFilters}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>Clear Search &amp; Filters</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -1887,11 +2075,14 @@ export default function App() {
       </footer>
 
       {/* =====================================================================
-          PROJECT ARCHITECTURE DETAIL MODAL
+          PROJECT ARCHITECTURE DETAIL MODAL (STRUCTURED SECTIONS)
       ===================================================================== */}
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
           className="fixed inset-0 z-50 bg-[#182B49]/60 backdrop-blur-xs flex items-center justify-center p-4"
         >
           <div
@@ -1899,68 +2090,114 @@ export default function App() {
             className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-[#182B49]"
           >
             <button
+              type="button"
               onClick={() => setSelectedProject(null)}
-              aria-label="Close modal"
-              className="absolute top-5 right-5 p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+              aria-label="Close project details modal"
+              className="absolute top-5 right-5 p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-2 pr-8">
-                <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#182B49] text-white">
-                  {selectedProject.category}
-                </span>
-                {selectedProject.inProgress && (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
-                    Active Build
+            <div className="space-y-5">
+              {/* Header & Status */}
+              <div className="space-y-2 pr-10">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#182B49] text-white">
+                    {selectedProject.category}
                   </span>
-                )}
-                <span className="inline-block text-xs font-mono px-2.5 py-1 rounded bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]">
-                  {selectedProject.metrics}
-                </span>
-              </div>
+                  {selectedProject.inProgress && (
+                    <span className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold px-2.5 py-1 rounded bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
+                      In Progress
+                    </span>
+                  )}
+                  {selectedProject.featured && (
+                    <span className="inline-flex items-center gap-1 text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25">
+                      <Star className="w-3 h-3" />
+                      Featured
+                    </span>
+                  )}
+                </div>
 
-              <div>
-                <p className="text-xs font-mono font-medium text-[#3867F5]">{selectedProject.subtitle}</p>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#182B49] mt-1">
+                <p className="text-xs font-mono font-medium text-[#3867F5]">
+                  {selectedProject.subtitle}
+                </p>
+                <h3
+                  id="project-modal-title"
+                  className="text-2xl sm:text-3xl font-extrabold text-[#182B49]"
+                >
                   {selectedProject.title}
                 </h3>
               </div>
 
-              <p className="text-[#334155] text-sm sm:text-base leading-relaxed">
-                {selectedProject.fullDesc}
-              </p>
+              {/* Section 1: Project Overview */}
+              <div className="space-y-1.5">
+                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49]">
+                  Project Overview
+                </h4>
+                <p className="text-[#334155] text-sm sm:text-base leading-relaxed">
+                  {selectedProject.fullDesc}
+                </p>
+              </div>
 
-              <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 space-y-2.5">
+              {/* Section 2: Objective & Scope */}
+              <div className="space-y-1.5">
+                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49]">
+                  Objective &amp; Focus
+                </h4>
+                <p className="text-[#334155] text-sm leading-relaxed bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3.5">
+                  {selectedProject.shortDesc}
+                </p>
+              </div>
+
+              {/* Section 3: Technical Implementation & Architecture */}
+              <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 sm:p-5 space-y-2.5">
                 <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49] flex items-center gap-1.5">
                   <Sparkle className="w-3.5 h-3.5 text-[#F07845]" />
-                  Technical Implementation &amp; Methodology
+                  <span>Technical Implementation &amp; Architecture</span>
                 </h4>
                 <ul className="space-y-2 text-xs sm:text-sm text-[#334155]">
                   {selectedProject.architecture.map((point, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-[#3867F5] font-mono font-semibold">0{idx + 1}.</span>
+                    <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
+                      <span className="text-[#3867F5] font-mono font-semibold shrink-0">
+                        0{idx + 1}.
+                      </span>
                       <span>{point}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="flex flex-wrap gap-2 pt-1">
-                {selectedProject.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-mono px-3 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0]"
-                  >
-                    {t}
-                  </span>
-                ))}
+              {/* Section 4: Technologies */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49]">
+                  Technologies
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs font-mono px-3 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
 
+              {/* Section 5: Project Label / Status Summary */}
+              <div className="space-y-1.5">
+                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49]">
+                  Project Label &amp; Status
+                </h4>
+                <p className="text-xs font-mono text-[#182B49] bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3 py-2">
+                  {selectedProject.metrics}
+                </p>
+              </div>
+
+              {/* Section 6: Verified Links & Actions */}
               <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#E2E8F0]">
-                {selectedProject.liveUrl && selectedProject.liveUrl !== PORTFOLIO_DATA.personal.github && (
+                {selectedProject.liveUrl && (
                   <a
                     href={selectedProject.liveUrl}
                     target="_blank"
@@ -1968,21 +2205,31 @@ export default function App() {
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
                   >
                     <Globe className="w-4 h-4" />
-                    <span>View Live App</span>
+                    <span>Open Live Application</span>
                   </a>
                 )}
-                <a
-                  href={selectedProject.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#182B49] hover:bg-[#223B63] text-white transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>View on GitHub</span>
-                </a>
+                {selectedProject.githubUrl && (
+                  <a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#182B49] hover:bg-[#223B63] text-white transition-colors"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>View GitHub Repository</span>
+                  </a>
+                )}
+                {!selectedProject.githubUrl && !selectedProject.liveUrl && (
+                  <span className="text-xs font-mono text-[#64748B]">
+                    {selectedProject.inProgress
+                      ? "Currently in active development — public repository/live link not yet available."
+                      : "Standalone repository or live deployment link not listed in portfolio data."}
+                  </span>
+                )}
                 <button
+                  type="button"
                   onClick={() => setSelectedProject(null)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#182B49] border border-[#CBD5E1] transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#182B49] border border-[#CBD5E1] transition-colors ml-auto"
                 >
                   <span>Close</span>
                 </button>
