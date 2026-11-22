@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #FFFFFF;
+  color: #182B49;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.surface-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px rgba(24, 43, 73, 0.04), 0 1px 2px rgba(24, 43, 73, 0.02);
+}
+
+.surface-card-interactive {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.surface-card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: #3867F5;
+  box-shadow: 0 10px 24px -8px rgba(24, 43, 73, 0.12);
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-cv, #printable-cv * {
+    visibility: visible;
+  }
+
+  #printable-cv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #FFFFFF !important;
+    color: #182B49 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
