@@ -127,6 +127,26 @@ const PORTFOLIO_DATA = {
       metrics: "ACTIVE BUILD • AI-Powered Coding Education"
     },
     {
+      id: "human-ai-decision-platform",
+      title: "Human-AI Decision Experiment Platform",
+      subtitle: "Full-Stack Experiment Platform | Real-Time WebSockets & PostgreSQL",
+      category: "Generative AI",
+      featured: true,
+      inProgress: false,
+      shortDesc: "Interactive multi-round experiment platform for studying human and AI group decision-making, featuring real-time WebSocket discussions, voting phases, and persistent session tracking.",
+      fullDesc: "End-to-end full-stack research platform built with FastAPI, React/Vite, and PostgreSQL to run structured multi-round human-AI group decision experiments. Supports live real-time discussion and voting phases, dynamic HTTP/HTTPS and WS/WSS protocol routing, and persistent session/round state tracking.",
+      tech: ["Python", "FastAPI", "SQLAlchemy (Async)", "React", "Vite", "PostgreSQL", "WebSockets", "Render"],
+      githubUrl: "https://github.com/SalahHassani/human-ai-decision-platform",
+      liveUrl: "https://human-ai-decision-platform.onrender.com/",
+      architecture: [
+        "Engineered an asynchronous FastAPI backend with SQLAlchemy and asyncpg backed by PostgreSQL on Render",
+        "Implemented real-time WebSocket communication and live state synchronization across multi-round discussion and voting phases",
+        "Built a React/Vite frontend with protocol-aware HTTP/HTTPS and WS/WSS connection handling",
+        "Deployed as a multi-service cloud stack with automated Blueprint configuration and live public access"
+      ],
+      metrics: "LIVE DEPLOYMENT • FastAPI + WebSockets + PostgreSQL"
+    },
+    {
       id: "human-ai-interaction-lab",
       title: "Human AI Interaction Lab",
       subtitle: "Full-Stack Web Application | Interactive AI Interface",
@@ -347,6 +367,12 @@ const PORTFOLIO_DATA = {
         lang: "TypeScript / Python"
       },
       {
+        name: "Human-AI-Decision-Platform",
+        status: "Live Render App",
+        desc: "Multi-round human-AI decision experiment platform with FastAPI, WebSockets & PostgreSQL.",
+        lang: "Python / React"
+      },
+      {
         name: "Human-AI-Interaction-Lab",
         status: "Live Vercel App",
         desc: "Advanced web application exploring human-AI interaction dynamics hosted on Vercel.",
@@ -357,12 +383,6 @@ const PORTFOLIO_DATA = {
         status: "B.Sc. Thesis",
         desc: "Transformer-based medical image segmentation evaluated with Dice, IoU & Hausdorff Distance.",
         lang: "Python / PyTorch"
-      },
-      {
-        name: "Automated-Comic-Generator",
-        status: "Generative AI",
-        desc: "Stable Diffusion v1.5 + FastAPI + PostgreSQL web app with RBAC and PDF export.",
-        lang: "Python / FastAPI"
       }
     ]
   },
@@ -635,7 +655,7 @@ export default function App() {
       <div className="fixed bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none z-0" />
 
       {/* =====================================================================
-          1. STICKY GLASSMORPHIC NAVBAR
+1. STICKY GLASSMORPHIC NAVBAR
       ===================================================================== */}
       <header
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
@@ -673,7 +693,7 @@ export default function App() {
             {[
               { label: "About", id: "about" },
               { label: "Skills", id: "stack" },
-              { label: "Projects (9)", id: "projects" },
+              { label: `Projects (${PORTFOLIO_DATA.projects.length})`, id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -712,7 +732,7 @@ export default function App() {
             {[
               { label: "About", id: "about" },
               { label: "Technical Skills", id: "stack" },
-              { label: "Projects (9)", id: "projects" },
+              { label: `Projects (${PORTFOLIO_DATA.projects.length})`, id: "projects" },
               { label: "Experience & Education", id: "experience" },
               { label: "Research & Languages", id: "interests" },
               { label: "Contact", id: "contact" }
@@ -741,7 +761,7 @@ export default function App() {
 
       <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* =====================================================================
-            2. HERO & PROFILE SECTION
+2. HERO & PROFILE SECTION
         ===================================================================== */}
         <section id="about" className="pt-32 pb-20 md:pt-40 md:pb-24">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -788,7 +808,7 @@ export default function App() {
               <div className="grid grid-cols-3 gap-3 max-w-xl pt-1">
                 <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-cyan-400">
                   <span className="text-base sm:text-lg font-extrabold text-white block">
-                    9 Projects
+                    {PORTFOLIO_DATA.projects.length} Projects
                   </span>
                   <span className="text-[11px] font-mono text-slate-400">
                     AI, CV, Diffusion &amp; Lab
@@ -994,7 +1014,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            3. INTERACTIVE TECH STACK SECTION
+3. INTERACTIVE TECH STACK SECTION
         ===================================================================== */}
         <section id="stack" className="py-20 border-t border-white/5">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
@@ -1053,7 +1073,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (9 PROJECTS)
+4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS
         ===================================================================== */}
         <section id="projects" className="py-20 border-t border-white/5">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
@@ -1066,7 +1086,7 @@ export default function App() {
                 Featured &amp; Technical Projects
               </h2>
               <p className="text-slate-300/80 text-sm sm:text-base mt-2 max-w-2xl">
-                Highlighting my active AI Coding Tutorial Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
+                Highlighting my active AI Coding Tutorial Platform, Human-AI Decision Experiment Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
               </p>
             </div>
 
@@ -1209,7 +1229,7 @@ export default function App() {
                   <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors flex items-start justify-between gap-2 leading-snug">
                     <span>
                       <span className="text-slate-500 font-mono text-base mr-2">
-                        0{idx + 1}.
+                        {String(idx + 1).padStart(2, "0")}.
                       </span>
                       {project.title}
                     </span>
@@ -1267,7 +1287,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            5. EDUCATION & PROFESSIONAL EXPERIENCE TIMELINE
+5. EDUCATION & PROFESSIONAL EXPERIENCE TIMELINE
         ===================================================================== */}
         <section id="experience" className="py-20 border-t border-white/5">
           <div className="mb-12">
@@ -1384,7 +1404,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            6. ACADEMIC RESEARCH INTERESTS, LANGUAGES (5) & PERSONAL INTERESTS
+6. ACADEMIC RESEARCH INTERESTS, LANGUAGES (5) & PERSONAL INTERESTS
         ===================================================================== */}
         <section id="interests" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -1472,7 +1492,7 @@ export default function App() {
         </section>
 
         {/* =====================================================================
-            7. INTERACTIVE FASTAPI CONTACT SECTION
+7. INTERACTIVE FASTAPI CONTACT SECTION
         ===================================================================== */}
         <section id="contact" className="py-20 border-t border-white/5">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -1618,7 +1638,7 @@ export default function App() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Salah, I saw your work on Human AI Interaction Lab..."
+                    placeholder="Hi Salah, I saw your work on Human-AI Decision Experiment Platform..."
                     className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
                   />
                 </div>
@@ -1666,7 +1686,7 @@ export default function App() {
       </main>
 
       {/* =====================================================================
-          8. FOOTER
+8. FOOTER
       ===================================================================== */}
       <footer className="relative z-10 border-t border-white/10 bg-[#07080c] py-10 mt-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1916,7 +1936,7 @@ export default function App() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
                         {PORTFOLIO_DATA.languages.map((l) => (
                           <span key={l.name} className="font-mono">
-                            • {l.name}: {l.badge}
+                            - {l.name}: {l.badge}
                           </span>
                         ))}
                       </div>
