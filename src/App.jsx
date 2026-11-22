@@ -16,7 +16,6 @@ import {
   ChevronDown,
   X,
   Menu,
-  Server,
   Sparkle,
   MapPin,
   Briefcase,
@@ -68,41 +67,41 @@ const PORTFOLIO_DATA = {
 
   techStack: [
     // AI & Deep Learning
-    { name: "PyTorch", category: "AI & Deep Learning", level: "Core", icon: "🔥", color: "from-orange-500 to-red-600" },
-    { name: "Hugging Face Transformers", category: "AI & Deep Learning", level: "Core", icon: "🤗", color: "from-amber-400 to-orange-500" },
-    { name: "Diffusers & Stable Diffusion", category: "AI & Deep Learning", level: "Advanced", icon: "🎨", color: "from-violet-500 to-fuchsia-600" },
-    { name: "LangChain & Gemini API", category: "AI & Deep Learning", level: "Advanced", icon: "🦜", color: "from-emerald-400 to-teal-600" },
-    { name: "OpenCV & Computer Vision", category: "AI & Deep Learning", level: "Advanced", icon: "👁️", color: "from-cyan-400 to-blue-600" },
-    { name: "Accelerate", category: "AI & Deep Learning", level: "Proficient", icon: "⚡", color: "from-yellow-400 to-amber-600" },
+    { name: "PyTorch", category: "AI & Deep Learning", level: "Core", icon: "🔥" },
+    { name: "Hugging Face Transformers", category: "AI & Deep Learning", level: "Core", icon: "🤗" },
+    { name: "Diffusers & Stable Diffusion", category: "AI & Deep Learning", level: "Advanced", icon: "🎨" },
+    { name: "LangChain & Gemini API", category: "AI & Deep Learning", level: "Advanced", icon: "🦜" },
+    { name: "OpenCV & Computer Vision", category: "AI & Deep Learning", level: "Advanced", icon: "👁️" },
+    { name: "Accelerate", category: "AI & Deep Learning", level: "Proficient", icon: "⚡" },
 
     // Data Science & Scientific Computing
-    { name: "NumPy", category: "Data Science", level: "Core", icon: "📐", color: "from-sky-400 to-blue-600" },
-    { name: "Pandas", category: "Data Science", level: "Core", icon: "🐼", color: "from-indigo-400 to-purple-600" },
-    { name: "Scikit-learn", category: "Data Science", level: "Core", icon: "📊", color: "from-orange-400 to-amber-500" },
-    { name: "Matplotlib & Seaborn", category: "Data Science", level: "Advanced", icon: "📈", color: "from-teal-400 to-emerald-600" },
-    { name: "Jupyter Notebook", category: "Data Science", level: "Core", icon: "📓", color: "from-orange-500 to-yellow-500" },
+    { name: "NumPy", category: "Data Science", level: "Core", icon: "📐" },
+    { name: "Pandas", category: "Data Science", level: "Core", icon: "🐼" },
+    { name: "Scikit-learn", category: "Data Science", level: "Core", icon: "📊" },
+    { name: "Matplotlib & Seaborn", category: "Data Science", level: "Advanced", icon: "📈" },
+    { name: "Jupyter Notebook", category: "Data Science", level: "Core", icon: "📓" },
 
     // Backend & API Development
-    { name: "FastAPI & Uvicorn", category: "Backend & APIs", level: "Core", icon: "🚀", color: "from-emerald-400 to-cyan-600" },
-    { name: "Java & Spring Boot", category: "Backend & APIs", level: "Industry Exp", icon: "🍃", color: "from-green-500 to-emerald-700" },
-    { name: "REST APIs & Pydantic", category: "Backend & APIs", level: "Core", icon: "🔌", color: "from-pink-500 to-rose-600" },
-    { name: "Flask", category: "Backend & APIs", level: "Proficient", icon: "🧪", color: "from-slate-300 to-slate-500" },
+    { name: "FastAPI & Uvicorn", category: "Backend & APIs", level: "Core", icon: "🚀" },
+    { name: "Java & Spring Boot", category: "Backend & APIs", level: "Industry Exp", icon: "🍃" },
+    { name: "REST APIs & Pydantic", category: "Backend & APIs", level: "Core", icon: "🔌" },
+    { name: "Flask", category: "Backend & APIs", level: "Proficient", icon: "🧪" },
 
     // Programming Languages
-    { name: "Python", category: "Languages", level: "Primary", icon: "🐍", color: "from-yellow-400 to-blue-500" },
-    { name: "Java", category: "Languages", level: "Industry Exp", icon: "☕", color: "from-red-500 to-orange-600" },
-    { name: "C++", category: "Languages", level: "Proficient", icon: "⚙️", color: "from-blue-600 to-indigo-500" },
-    { name: "TypeScript & JavaScript", category: "Languages", level: "Core", icon: "TS", color: "from-sky-400 to-blue-600" },
-    { name: "PHP", category: "Languages", level: "Proficient", icon: "🐘", color: "from-indigo-400 to-violet-600" },
-    { name: "HTML5 & CSS3", category: "Languages", level: "Core", icon: "🌐", color: "from-orange-500 to-pink-500" },
+    { name: "Python", category: "Languages", level: "Primary", icon: "🐍" },
+    { name: "Java", category: "Languages", level: "Industry Exp", icon: "☕" },
+    { name: "C++", category: "Languages", level: "Proficient", icon: "⚙️" },
+    { name: "TypeScript & JavaScript", category: "Languages", level: "Core", icon: "TS" },
+    { name: "PHP", category: "Languages", level: "Proficient", icon: "🐘" },
+    { name: "HTML5 & CSS3", category: "Languages", level: "Core", icon: "🌐" },
 
     // Databases & DevOps
-    { name: "PostgreSQL & MySQL", category: "Databases & DevOps", level: "Core", icon: "🐘", color: "from-blue-500 to-cyan-500" },
-    { name: "SQLite & H2 Database", category: "Databases & DevOps", level: "Core", icon: "🗄️", color: "from-sky-400 to-indigo-500" },
-    { name: "Oracle & SQL", category: "Databases & DevOps", level: "Proficient", icon: "🏛️", color: "from-red-500 to-rose-700" },
-    { name: "ETL & Delta Loading", category: "Databases & DevOps", level: "Applied", icon: "🔄", color: "from-violet-500 to-purple-600" },
-    { name: "Git, GitHub & Linux/WSL", category: "Databases & DevOps", level: "Core", icon: "🐧", color: "from-slate-400 to-zinc-600" },
-    { name: "Docker (Basic)", category: "Databases & DevOps", level: "Working", icon: "🐳", color: "from-blue-400 to-sky-600" }
+    { name: "PostgreSQL & MySQL", category: "Databases & DevOps", level: "Core", icon: "🐘" },
+    { name: "SQLite & H2 Database", category: "Databases & DevOps", level: "Core", icon: "🗄️" },
+    { name: "Oracle & SQL", category: "Databases & DevOps", level: "Proficient", icon: "🏛️" },
+    { name: "ETL & Delta Loading", category: "Databases & DevOps", level: "Applied", icon: "🔄" },
+    { name: "Git, GitHub & Linux/WSL", category: "Databases & DevOps", level: "Core", icon: "🐧" },
+    { name: "Docker (Basic)", category: "Databases & DevOps", level: "Working", icon: "🐳" }
   ],
 
   projects: [
@@ -415,7 +414,7 @@ const PORTFOLIO_DATA = {
 };
 
 // ============================================================================
-// MAIN APPLICATION COMPONENT
+// MAIN APPLICATION COMPONENT — EXPERIMENT 01: VISUAL FOUNDATION
 // ============================================================================
 export default function App() {
   // Navigation & Mobile Drawer State
@@ -457,9 +456,9 @@ export default function App() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [imgError, setImgError] = useState(false);
 
-  // Handle Navbar Blur & Border on Scroll
+  // Handle Navbar Shadow & Border on Scroll
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
+    const handleScroll = () => setScrolled(window.scrollY > 16);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -520,7 +519,7 @@ export default function App() {
     setTimeout(() => setCopiedEmail(false), 2500);
   };
 
-  // Simulated FastAPI Backend POST Submission
+  // FastAPI / FormSubmit Contact Handler
   const handleContactSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) return;
@@ -568,14 +567,14 @@ export default function App() {
     }
   };
 
-  // Memoized Filtered Tech Stack (Optimized for instant re-renders)
+  // Memoized Filtered Tech Stack
   const filteredTech = useMemo(() => {
     return activeTechTab === "All"
       ? PORTFOLIO_DATA.techStack
       : PORTFOLIO_DATA.techStack.filter((item) => item.category === activeTechTab);
   }, [activeTechTab]);
 
-  // Memoized Filtered Projects (Category + Search Query Optimized)
+  // Memoized Filtered Projects
   const filteredProjects = useMemo(() => {
     return PORTFOLIO_DATA.projects.filter((proj) => {
       const matchesCategory =
@@ -599,36 +598,34 @@ export default function App() {
   const featuredProjects = PORTFOLIO_DATA.projects.filter((p) => p.featured);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 font-sans relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#182B49] selection:bg-[#3867F5]/15 selection:text-[#182B49] font-sans relative overflow-x-hidden">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap');
 
         body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-          background-color: #0a0a0f;
+          background-color: #FFFFFF;
+          color: #182B49;
+          -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, .font-heading {
+          font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         .font-mono {
           font-family: 'JetBrains Mono', monospace;
         }
-        .bg-grid-pattern {
-          background-size: 40px 40px;
-          background-image: 
-            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        .surface-card {
+          background-color: #FFFFFF;
+          border: 1px solid #E2E8F0;
+          box-shadow: 0 1px 3px rgba(24, 43, 73, 0.04), 0 1px 2px rgba(24, 43, 73, 0.02);
         }
-        .glass-card {
-          background: rgba(18, 19, 28, 0.72);
-          backdrop-filter: blur(14px);
-          -webkit-backdrop-filter: blur(14px);
-          border: 1px solid rgba(255, 255, 255, 0.08);
+        .surface-card-interactive {
+          transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
-        .glass-card-hover {
-          transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
-        }
-        .glass-card-hover:hover {
-          transform: translateY(-4px);
-          border-color: rgba(34, 211, 238, 0.45);
-          box-shadow: 0 14px 34px -10px rgba(34, 211, 238, 0.16);
+        .surface-card-interactive:hover {
+          transform: translateY(-2px);
+          border-color: #3867F5;
+          box-shadow: 0 10px 24px -8px rgba(24, 43, 73, 0.12);
         }
         @media print {
           body * {
@@ -642,54 +639,50 @@ export default function App() {
             left: 0;
             top: 0;
             width: 100%;
-            background: white !important;
-            color: black !important;
+            background: #FFFFFF !important;
+            color: #182B49 !important;
+            border: none !important;
+            box-shadow: none !important;
           }
         }
       `}</style>
 
-      {/* Ambient Radial Mesh Glows */}
-      <div className="fixed inset-0 bg-grid-pattern pointer-events-none z-0" />
-      <div className="fixed -top-40 -left-40 w-96 h-96 bg-cyan-500/15 rounded-full blur-[130px] pointer-events-none z-0" />
-      <div className="fixed top-1/3 -right-40 w-[28rem] h-[28rem] bg-violet-600/15 rounded-full blur-[140px] pointer-events-none z-0" />
-      <div className="fixed bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none z-0" />
-
       {/* =====================================================================
-1. STICKY GLASSMORPHIC NAVBAR
+          1. STICKY CLEAN HEADER NAVIGATION
       ===================================================================== */}
       <header
-        className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 inset-x-0 z-40 transition-all duration-200 ${
           scrolled
-            ? "bg-[#0a0a0f]/85 backdrop-blur-xl border-b border-white/10 py-3 shadow-lg shadow-black/40"
-            : "bg-transparent py-5"
+            ? "bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E2E8F0] py-3 shadow-sm"
+            : "bg-[#FFFFFF] border-b border-transparent py-4"
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <button
             onClick={() => scrollToSection("about")}
-            className="flex items-center gap-2.5 group focus:outline-none"
+            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] rounded-lg"
           >
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-400 via-violet-500 to-emerald-400 p-[1.5px] overflow-hidden">
+            <div className="w-9 h-9 rounded-lg bg-[#182B49] p-[1.5px] overflow-hidden shrink-0">
               {!imgError ? (
                 <img
                   src={PROFILE_PIC_SRC}
                   alt={PORTFOLIO_DATA.personal.name}
                   onError={() => setImgError(true)}
-                  className="w-full h-full object-cover rounded-[7px]"
+                  className="w-full h-full object-cover rounded-[6px]"
                 />
               ) : (
-                <div className="w-full h-full bg-[#0a0a0f] rounded-[7px] flex items-center justify-center font-mono font-bold text-sm text-cyan-300 group-hover:text-white transition-colors">
+                <div className="w-full h-full bg-[#182B49] rounded-[6px] flex items-center justify-center font-mono font-semibold text-xs text-white">
                   {PORTFOLIO_DATA.personal.initials}
                 </div>
               )}
             </div>
-            <span className="font-mono font-bold text-lg tracking-tight text-white">
+            <span className="font-mono font-semibold text-base tracking-tight text-[#182B49]">
               {PORTFOLIO_DATA.personal.brandTag}
-              <span className="text-cyan-400 animate-pulse">_</span>
+              <span className="text-[#3867F5]">_</span>
             </span>
           </button>
 
-          <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#334155]">
             {[
               { label: "About", id: "about" },
               { label: "Skills", id: "stack" },
@@ -701,7 +694,7 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="hover:text-cyan-400 transition-colors cursor-pointer"
+                className="hover:text-[#3867F5] transition-colors cursor-pointer focus:outline-none focus-visible:text-[#3867F5]"
               >
                 {item.label}
               </button>
@@ -711,7 +704,7 @@ export default function App() {
           <div className="flex items-center gap-3">
             <button
               onClick={() => setCvModalOpen(true)}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white/5 hover:bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 hover:border-cyan-400 transition-all"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium bg-[#182B49] hover:bg-[#3867F5] text-white transition-colors"
             >
               <FileText className="w-3.5 h-3.5" />
               <span>View / Print CV</span>
@@ -720,7 +713,7 @@ export default function App() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Menu"
-              className="md:hidden p-2 rounded-lg bg-white/5 border border-white/10 text-slate-200 hover:text-cyan-400"
+              className="md:hidden p-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#182B49] hover:border-[#3867F5]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -728,7 +721,7 @@ export default function App() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#0e1018]/95 backdrop-blur-2xl border-b border-white/10 px-4 pt-3 pb-6 space-y-2">
+          <div className="md:hidden bg-[#FFFFFF] border-b border-[#E2E8F0] px-4 pt-3 pb-6 space-y-1.5 shadow-lg">
             {[
               { label: "About", id: "about" },
               { label: "Technical Skills", id: "stack" },
@@ -740,7 +733,7 @@ export default function App() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-3 py-2.5 rounded-lg text-slate-200 hover:bg-white/5 hover:text-cyan-400 font-medium"
+                className="block w-full text-left px-3 py-2.5 rounded-lg text-[#182B49] hover:bg-[#F8FAFC] hover:text-[#3867F5] font-medium text-sm"
               >
                 {item.label}
               </button>
@@ -750,7 +743,7 @@ export default function App() {
                 setMobileMenuOpen(false);
                 setCvModalOpen(true);
               }}
-              className="flex items-center justify-center gap-2 w-full mt-3 px-4 py-3 rounded-lg text-sm font-mono font-semibold bg-gradient-to-r from-cyan-500 to-violet-600 text-white"
+              className="flex items-center justify-center gap-2 w-full mt-3 px-4 py-3 rounded-lg text-sm font-mono font-medium bg-[#3867F5] text-white"
             >
               <FileText className="w-4 h-4" />
               <span>Open Printable CV</span>
@@ -759,941 +752,944 @@ export default function App() {
         )}
       </header>
 
-      <main className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="relative">
         {/* =====================================================================
-2. HERO & PROFILE SECTION
+            2. HERO & PROFILE SECTION (WHITE PRIMARY SURFACE)
         ===================================================================== */}
-        <section id="about" className="pt-32 pb-20 md:pt-40 md:pb-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex flex-wrap items-center gap-2.5">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-mono">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>{PORTFOLIO_DATA.personal.location}</span>
-                  <span className="text-emerald-600">•</span>
-                  <span>{PORTFOLIO_DATA.personal.university}</span>
-                </div>
-
-                <button
-                  onClick={() => scrollToSection("projects")}
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-400/35 text-amber-200 text-xs font-mono hover:bg-amber-500/20 transition-colors"
-                >
-                  <Zap className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Building: AI Coding Tutorial Site</span>
-                </button>
-              </div>
-
-              <div className="space-y-3">
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-white">
-                  Salah Uddin{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
-                    Hassani
-                  </span>
-                </h1>
-                <p className="text-lg sm:text-xl font-semibold text-slate-200 leading-snug">
-                  {PORTFOLIO_DATA.personal.headline}
-                </p>
-              </div>
-
-              <div className="h-7 flex items-center font-mono text-sm sm:text-base text-cyan-300">
-                <span className="text-violet-400 mr-2">$</span>
-                <span>{displayedRole}</span>
-                <span className="w-2 h-5 bg-cyan-400 ml-1 animate-pulse" />
-              </div>
-
-              <p className="text-slate-300 text-base sm:text-[17px] leading-[1.75] max-w-2xl">
-                {PORTFOLIO_DATA.personal.bio}
-              </p>
-
-              <div className="grid grid-cols-3 gap-3 max-w-xl pt-1">
-                <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-cyan-400">
-                  <span className="text-base sm:text-lg font-extrabold text-white block">
-                    {PORTFOLIO_DATA.projects.length} Projects
-                  </span>
-                  <span className="text-[11px] font-mono text-slate-400">
-                    AI, CV, Diffusion &amp; Lab
-                  </span>
-                </div>
-                <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-emerald-400">
-                  <span className="text-base sm:text-lg font-extrabold text-white block">
-                    4.22 / 5.0
-                  </span>
-                  <span className="text-[11px] font-mono text-slate-400">
-                    ELTE CS Honors GPA
-                  </span>
-                </div>
-                <div className="glass-card rounded-xl p-3.5 border-l-2 border-l-violet-400">
-                  <span className="text-base sm:text-lg font-extrabold text-white block">
-                    5 Languages
-                  </span>
-                  <span className="text-[11px] font-mono text-slate-400">
-                    EN, UR, BRH, HI, DE
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-3.5 pt-2">
-                <button
-                  onClick={() => scrollToSection("projects")}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 to-violet-600 hover:from-cyan-400 hover:to-violet-500 text-white shadow-lg shadow-cyan-500/20 transition-all hover:scale-[1.02]"
-                >
-                  <span>Explore Featured Projects</span>
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={() => setCvModalOpen(true)}
-                  className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm bg-white/5 hover:bg-white/10 text-slate-100 border border-white/15 hover:border-cyan-400/50 transition-all"
-                >
-                  <FileText className="w-4 h-4 text-cyan-400" />
-                  <span>Curriculum Vitae</span>
-                </button>
-
-                <button
-                  onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs sm:text-sm bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 hover:border-emerald-400/50 transition-all"
-                >
-                  {copiedEmail ? (
-                    <>
-                      <Check className="w-4 h-4 text-emerald-400" />
-                      <span className="text-emerald-300">Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-4 h-4 text-cyan-400" />
-                      <span>Copy Email</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-xs sm:text-sm text-slate-400">
-                <a
-                  href={PORTFOLIO_DATA.personal.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
-                >
-                  <Github className="w-4 h-4 text-slate-200" />
-                  <span className="font-mono">github.com/SalahHassani (SHassani)</span>
-                </a>
-                <span className="text-slate-700 hidden sm:inline">•</span>
-                <a
-                  href={PORTFOLIO_DATA.personal.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
-                >
-                  <Linkedin className="w-4 h-4 text-sky-400" />
-                  <span>LinkedIn</span>
-                </a>
-                <span className="text-slate-700 hidden sm:inline">•</span>
-                <a
-                  href={`mailto:${PORTFOLIO_DATA.personal.email}`}
-                  className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors font-mono"
-                >
-                  <Mail className="w-4 h-4 text-violet-400" />
-                  <span>{PORTFOLIO_DATA.personal.email}</span>
-                </a>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 space-y-4">
-              <div className="glass-card rounded-2xl p-6 relative overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-cyan-400 via-violet-500 to-emerald-400" />
-
-                <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-[11px] font-mono text-emerald-300">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Open to AI &amp; Data Science Roles • Berlin</span>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-2xl p-[2px] bg-gradient-to-br from-emerald-400 via-cyan-400 to-indigo-500 shadow-lg shadow-cyan-500/20 shrink-0">
-                    {!imgError ? (
-                      <img
-                        src={PROFILE_PIC_SRC}
-                        alt={PORTFOLIO_DATA.personal.name}
-                        onError={() => setImgError(true)}
-                        className="w-full h-full object-cover rounded-[14px] bg-[#0a0a0f]"
-                      />
-                    ) : (
-                      <div className="w-full h-full rounded-[14px] bg-[#0a0a0f] flex items-center justify-center">
-                        <span className="text-2xl font-mono font-extrabold bg-gradient-to-r from-cyan-300 to-violet-300 bg-clip-text text-transparent">
-                          {PORTFOLIO_DATA.personal.initials}
-                        </span>
-                      </div>
-                    )}
+        <section id="about" className="pt-28 pb-20 md:pt-36 md:pb-24 bg-[#FFFFFF]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+              <div className="lg:col-span-7 space-y-6">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] text-[#182B49] text-xs font-mono">
+                    <span className="w-2 h-2 rounded-full bg-[#3867F5]" />
+                    <span>{PORTFOLIO_DATA.personal.location}</span>
+                    <span className="text-[#94A3B8]">•</span>
+                    <span>{PORTFOLIO_DATA.personal.university}</span>
                   </div>
 
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <h2 className="text-lg font-bold text-white truncate">
-                        {PORTFOLIO_DATA.personal.name}
-                      </h2>
-                      <a
-                        href={PORTFOLIO_DATA.githubHighlights.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded-lg bg-white/5 hover:bg-cyan-500/20 text-cyan-300 border border-white/10 transition-colors shrink-0"
-                      >
-                        <Github className="w-3.5 h-3.5" />
-                        <span>@{PORTFOLIO_DATA.githubHighlights.displayName}</span>
-                      </a>
-                    </div>
-                    <p className="text-xs font-mono text-cyan-300 mt-0.5">
-                      M.Sc. Data Science @ FU Berlin
-                    </p>
-                    <p className="text-xs font-mono text-slate-400 flex items-center gap-1.5 mt-1">
-                      <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-                      {PORTFOLIO_DATA.personal.location} • Stipendium Hungaricum Alumni
-                    </p>
-                  </div>
+                  <button
+                    onClick={() => scrollToSection("projects")}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#F07845]/10 border border-[#F07845]/30 text-[#C2410C] text-xs font-mono font-medium hover:bg-[#F07845]/15 transition-colors"
+                  >
+                    <Zap className="w-3.5 h-3.5 text-[#F07845]" />
+                    <span>Building: AI Coding Tutorial Site</span>
+                  </button>
                 </div>
 
-                <div className="mt-5 p-4 rounded-xl bg-gradient-to-r from-amber-500/10 via-violet-500/10 to-cyan-500/10 border border-amber-400/25">
-                  <div className="flex items-center justify-between text-xs font-mono mb-1.5">
-                    <span className="inline-flex items-center gap-1.5 text-amber-300 font-semibold">
-                      <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                      CURRENTLY BUILDING
-                    </span>
-                    <span className="text-slate-400">2026</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-white">
-                    AI Coding Tutorial Platform
-                  </h3>
-                  <p className="text-xs text-slate-300 mt-1 leading-relaxed">
-                    Interactive AI-assisted programming learning platform combining structured lessons with Gemini &amp; LangChain code mentorship.
+                <div className="space-y-3">
+                  <h1 className="text-4xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-[1.1] text-[#182B49]">
+                    Salah Uddin{" "}
+                    <span className="text-[#3867F5]">Hassani</span>
+                  </h1>
+                  <p className="text-lg sm:text-xl font-semibold text-[#182B49]/90 leading-snug">
+                    {PORTFOLIO_DATA.personal.headline}
                   </p>
                 </div>
 
-                <div className="mt-5">
-                  <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-2.5">
-                    <span className="flex items-center gap-1.5 text-slate-200">
-                      <GitBranch className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>GitHub Highlights (@SalahHassani)</span>
+                <div className="h-7 flex items-center font-mono text-sm sm:text-[15px] text-[#182B49]">
+                  <span className="text-[#3867F5] font-semibold mr-2">$</span>
+                  <span>{displayedRole}</span>
+                  <span className="w-2 h-4 bg-[#F07845] ml-1 animate-pulse" />
+                </div>
+
+                <p className="text-[#334155] text-base sm:text-[17px] leading-[1.75] max-w-2xl">
+                  {PORTFOLIO_DATA.personal.bio}
+                </p>
+
+                <div className="grid grid-cols-3 gap-3.5 max-w-xl pt-1">
+                  <div className="surface-card rounded-xl p-3.5 border-l-4 border-l-[#182B49]">
+                    <span className="font-heading text-base sm:text-lg font-extrabold text-[#182B49] block">
+                      {PORTFOLIO_DATA.projects.length} Projects
                     </span>
-                    <a
-                      href={PORTFOLIO_DATA.githubHighlights.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-cyan-400 hover:underline inline-flex items-center gap-1"
-                    >
-                      <span>View Profile</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      AI, CV, Diffusion &amp; Lab
+                    </span>
+                  </div>
+                  <div className="surface-card rounded-xl p-3.5 border-l-4 border-l-[#3867F5]">
+                    <span className="font-heading text-base sm:text-lg font-extrabold text-[#182B49] block">
+                      4.22 / 5.0
+                    </span>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      ELTE CS Honors GPA
+                    </span>
+                  </div>
+                  <div className="surface-card rounded-xl p-3.5 border-l-4 border-l-[#F07845]">
+                    <span className="font-heading text-base sm:text-lg font-extrabold text-[#182B49] block">
+                      5 Languages
+                    </span>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      EN, UR, BRH, HI, DE
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <button
+                    onClick={() => scrollToSection("projects")}
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm bg-[#3867F5] hover:bg-[#2954D8] text-white shadow-sm transition-colors"
+                  >
+                    <span>Explore Featured Projects</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+
+                  <button
+                    onClick={() => setCvModalOpen(true)}
+                    className="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl font-semibold text-sm bg-[#182B49] hover:bg-[#223B63] text-white transition-colors"
+                  >
+                    <FileText className="w-4 h-4 text-[#F07845]" />
+                    <span>Curriculum Vitae</span>
+                  </button>
+
+                  <button
+                    onClick={handleCopyEmail}
+                    className="inline-flex items-center gap-2 px-4 py-3.5 rounded-xl font-mono text-xs sm:text-sm bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#182B49] border border-[#CBD5E1] transition-colors"
+                  >
+                    {copiedEmail ? (
+                      <>
+                        <Check className="w-4 h-4 text-[#16A34A]" />
+                        <span className="text-[#15803D] font-medium">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-4 h-4 text-[#3867F5]" />
+                        <span>Copy Email</span>
+                      </>
+                    )}
+                  </button>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-2 text-xs sm:text-sm text-[#475569]">
+                  <a
+                    href={PORTFOLIO_DATA.personal.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-[#3867F5] transition-colors"
+                  >
+                    <Github className="w-4 h-4 text-[#182B49]" />
+                    <span className="font-mono">github.com/SalahHassani (SHassani)</span>
+                  </a>
+                  <span className="text-[#CBD5E1] hidden sm:inline">•</span>
+                  <a
+                    href={PORTFOLIO_DATA.personal.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-[#3867F5] transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4 text-[#3867F5]" />
+                    <span>LinkedIn</span>
+                  </a>
+                  <span className="text-[#CBD5E1] hidden sm:inline">•</span>
+                  <a
+                    href={`mailto:${PORTFOLIO_DATA.personal.email}`}
+                    className="inline-flex items-center gap-2 hover:text-[#3867F5] transition-colors font-mono"
+                  >
+                    <Mail className="w-4 h-4 text-[#F07845]" />
+                    <span>{PORTFOLIO_DATA.personal.email}</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column — Midnight Navy Academic & Profile Card */}
+              <div className="lg:col-span-5">
+                <div className="rounded-2xl bg-[#182B49] text-white p-6 shadow-md border border-[#182B49] relative overflow-hidden">
+                  <div className="absolute top-0 inset-x-0 h-1 bg-[#3867F5]" />
+
+                  <div className="mb-4 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-[11px] font-mono text-white">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
+                    <span>Open to AI &amp; Data Science Roles • Berlin</span>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {PORTFOLIO_DATA.githubHighlights.pinnedFocus.map((repo) => (
-                      <a
-                        key={repo.name}
-                        href={PORTFOLIO_DATA.githubHighlights.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 rounded-xl bg-[#07080d] border border-white/5 hover:border-cyan-400/40 transition-all group block"
-                      >
-                        <div className="flex items-center justify-between gap-1">
-                          <span className="text-xs font-mono font-semibold text-slate-100 group-hover:text-cyan-300 truncate">
-                            {repo.name}
+                  <div className="flex items-center gap-4">
+                    <div className="w-20 h-20 rounded-2xl p-[2px] bg-[#3867F5] shrink-0">
+                      {!imgError ? (
+                        <img
+                          src={PROFILE_PIC_SRC}
+                          alt={PORTFOLIO_DATA.personal.name}
+                          onError={() => setImgError(true)}
+                          className="w-full h-full object-cover rounded-[14px] bg-[#182B49]"
+                        />
+                      ) : (
+                        <div className="w-full h-full rounded-[14px] bg-[#182B49] flex items-center justify-center">
+                          <span className="text-2xl font-mono font-bold text-white">
+                            {PORTFOLIO_DATA.personal.initials}
                           </span>
                         </div>
-                        <p className="text-[11px] text-slate-400 line-clamp-2 mt-1 leading-relaxed">
-                          {repo.desc}
-                        </p>
-                        <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-white/5 text-[10px] font-mono">
-                          <span className="text-cyan-400">{repo.lang}</span>
-                          <span className="text-emerald-300">{repo.status}</span>
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =====================================================================
-3. INTERACTIVE TECH STACK SECTION
-        ===================================================================== */}
-        <section id="stack" className="py-20 border-t border-white/5">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
-                <Cpu className="w-4 h-4" />
-                <span>Technical Skills &amp; Ecosystem</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                AI, Data Science &amp; Backend Stack
-              </h2>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
-              {["All", "AI & Deep Learning", "Data Science", "Backend & APIs", "Languages", "Databases & DevOps"].map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setActiveTechTab(category)}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-mono transition-all ${
-                    activeTechTab === category
-                      ? "bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 shadow-sm shadow-cyan-500/10"
-                      : "bg-white/5 text-slate-400 border border-white/5 hover:text-slate-200 hover:bg-white/10"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {filteredTech.map((tech) => (
-              <div
-                key={tech.name}
-                className="glass-card glass-card-hover rounded-xl p-4 flex flex-col justify-between group"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <span
-                    className={`w-10 h-10 rounded-lg bg-gradient-to-br ${tech.color} flex items-center justify-center text-white font-mono font-bold text-xs shadow-md`}
-                  >
-                    {tech.icon}
-                  </span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/5 text-slate-300 border border-white/5">
-                    {tech.level}
-                  </span>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-sm text-slate-100 group-hover:text-cyan-300 transition-colors leading-snug">
-                    {tech.name}
-                  </h3>
-                  <p className="text-[11px] font-mono text-slate-500 mt-1">{tech.category}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* =====================================================================
-4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS
-        ===================================================================== */}
-        <section id="projects" className="py-20 border-t border-white/5">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
-            <div>
-              <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest mb-2">
-                <FolderGit2 className="w-4 h-4" />
-                <span>Research &amp; Engineering Portfolio</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                Featured &amp; Technical Projects
-              </h2>
-              <p className="text-slate-300/80 text-sm sm:text-base mt-2 max-w-2xl">
-                Highlighting my active AI Coding Tutorial Platform, Human-AI Decision Experiment Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
-              </p>
-            </div>
-
-            <div className="relative w-full lg:w-72">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={projectSearchQuery}
-                onChange={(e) => setProjectSearchQuery(e.target.value)}
-                placeholder="Search PyTorch, FastAPI, Vercel..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#0d0f18] border border-white/10 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
-              />
-            </div>
-          </div>
-
-          {/* FEATURED SPOTLIGHT BANNER */}
-          <div
-            onClick={() => setSelectedProject(featuredProjects[0])}
-            className="mb-10 rounded-2xl p-6 sm:p-8 bg-gradient-to-br from-[#121629] via-[#131226] to-[#0d1821] border border-cyan-400/35 hover:border-cyan-300/70 shadow-xl shadow-cyan-500/5 cursor-pointer transition-all group relative overflow-hidden"
-          >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
-              <div className="space-y-3 max-w-3xl">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-amber-500/15 text-amber-300 border border-amber-400/40">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
-                    ACTIVE BUILD / IN PROGRESS
-                  </span>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
-                    <Star className="w-3 h-3 fill-cyan-300" />
-                    Flagship Project
-                  </span>
-                  <span className="text-xs font-mono text-violet-300">
-                    {featuredProjects[0].subtitle}
-                  </span>
-                </div>
-
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
-                  {featuredProjects[0].title}
-                </h3>
-
-                <p className="text-slate-200/90 text-sm sm:text-base leading-relaxed">
-                  {featuredProjects[0].fullDesc}
-                </p>
-
-                <div className="flex flex-wrap gap-2 pt-1">
-                  {featuredProjects[0].tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-cyan-200 border border-white/10"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
-                <a
-                  href={PORTFOLIO_DATA.personal.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-white/15 text-white border border-white/15 transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>GitHub (@SHassani)</span>
-                </a>
-                <span className="inline-flex items-center gap-1.5 text-xs font-mono text-cyan-300 group-hover:translate-x-1 transition-transform">
-                  <span>Inspect System Design</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <div className="flex flex-wrap gap-2">
-              {["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveProjectFilter(cat)}
-                  className={`px-3.5 py-2 rounded-lg text-xs font-mono transition-all ${
-                    activeProjectFilter === cat
-                      ? "bg-violet-500/25 text-violet-200 border border-violet-400/50 shadow-sm"
-                      : "bg-white/5 text-slate-400 border border-white/5 hover:text-slate-200 hover:bg-white/10"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-            <span className="text-xs font-mono text-slate-400">
-              Showing {filteredProjects.length} of {PORTFOLIO_DATA.projects.length} projects
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {filteredProjects.map((project, idx) => (
-              <div
-                key={project.id}
-                onClick={() => setSelectedProject(project)}
-                className={`glass-card glass-card-hover rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col justify-between group ${
-                  project.inProgress
-                    ? "border-amber-400/35 bg-gradient-to-b from-amber-500/[0.04] to-transparent"
-                    : project.featured
-                    ? "border-cyan-500/20"
-                    : ""
-                }`}
-              >
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-mono px-2.5 py-1 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/25">
-                        {project.category}
-                      </span>
-                      {project.inProgress && (
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-1 rounded-md bg-amber-500/15 text-amber-300 border border-amber-400/35">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
-                          In Progress
-                        </span>
-                      )}
-                      {project.featured && !project.inProgress && (
-                        <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-1 rounded-md bg-violet-500/15 text-violet-300 border border-violet-400/25">
-                          <Star className="w-3 h-3" />
-                          Featured
-                        </span>
                       )}
                     </div>
 
-                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
-                      {project.metrics}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <h2 className="text-lg font-bold text-white truncate">
+                          {PORTFOLIO_DATA.personal.name}
+                        </h2>
+                        <a
+                          href={PORTFOLIO_DATA.githubHighlights.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded-lg bg-white/10 hover:bg-[#3867F5] text-white transition-colors shrink-0"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                          <span>@{PORTFOLIO_DATA.githubHighlights.displayName}</span>
+                        </a>
+                      </div>
+                      <p className="text-xs font-mono text-[#93C5FD] mt-0.5">
+                        M.Sc. Data Science @ FU Berlin
+                      </p>
+                      <p className="text-xs font-mono text-slate-300 flex items-center gap-1.5 mt-1">
+                        <MapPin className="w-3.5 h-3.5 text-[#F07845] shrink-0" />
+                        <span>{PORTFOLIO_DATA.personal.location} • Stipendium Hungaricum Alumni</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-5 p-4 rounded-xl bg-white/[0.07] border border-white/15">
+                    <div className="flex items-center justify-between text-xs font-mono mb-1.5">
+                      <span className="inline-flex items-center gap-1.5 text-[#F07845] font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-[#F07845]" />
+                        CURRENTLY BUILDING
+                      </span>
+                      <span className="text-slate-300">2026</span>
+                    </div>
+                    <h3 className="text-sm font-bold text-white">
+                      AI Coding Tutorial Platform
+                    </h3>
+                    <p className="text-xs text-slate-200 mt-1 leading-relaxed">
+                      Interactive AI-assisted programming learning platform combining structured lessons with Gemini &amp; LangChain code mentorship.
+                    </p>
+                  </div>
+
+                  <div className="mt-5">
+                    <div className="flex items-center justify-between text-xs font-mono text-slate-300 mb-2.5">
+                      <span className="flex items-center gap-1.5 text-white font-medium">
+                        <GitBranch className="w-3.5 h-3.5 text-[#3867F5]" />
+                        <span>GitHub Highlights (@SalahHassani)</span>
+                      </span>
+                      <a
+                        href={PORTFOLIO_DATA.githubHighlights.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#93C5FD] hover:text-white hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>View Profile</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      {PORTFOLIO_DATA.githubHighlights.pinnedFocus.map((repo) => (
+                        <a
+                          key={repo.name}
+                          href={PORTFOLIO_DATA.githubHighlights.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-3 rounded-xl bg-[#101F36] border border-white/10 hover:border-[#3867F5] transition-colors group block"
+                        >
+                          <div className="flex items-center justify-between gap-1">
+                            <span className="text-xs font-mono font-semibold text-white group-hover:text-[#93C5FD] truncate">
+                              {repo.name}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-slate-300 line-clamp-2 mt-1 leading-relaxed">
+                            {repo.desc}
+                          </p>
+                          <div className="flex items-center justify-between mt-2 pt-1.5 border-t border-white/10 text-[10px] font-mono">
+                            <span className="text-[#93C5FD]">{repo.lang}</span>
+                            <span className="text-[#FDBA74]">{repo.status}</span>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================================
+            3. INTERACTIVE TECH STACK SECTION (SOFT SLATE TINT SURFACE)
+        ===================================================================== */}
+        <section id="stack" className="py-20 bg-[#F8FAFC] border-t border-[#E2E8F0]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+              <div>
+                <div className="inline-flex items-center gap-2 text-[#3867F5] font-mono text-xs font-semibold uppercase tracking-widest mb-2">
+                  <Cpu className="w-4 h-4" />
+                  <span>Technical Skills &amp; Ecosystem</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182B49] tracking-tight">
+                  AI, Data Science &amp; Backend Stack
+                </h2>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {["All", "AI & Deep Learning", "Data Science", "Backend & APIs", "Languages", "Databases & DevOps"].map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setActiveTechTab(category)}
+                    className={`px-3.5 py-2 rounded-lg text-xs font-mono font-medium transition-colors ${
+                      activeTechTab === category
+                        ? "bg-[#182B49] text-white border border-[#182B49]"
+                        : "bg-[#FFFFFF] text-[#475569] border border-[#E2E8F0] hover:border-[#3867F5] hover:text-[#182B49]"
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {filteredTech.map((tech) => (
+                <div
+                  key={tech.name}
+                  className="surface-card surface-card-interactive rounded-xl p-4 flex flex-col justify-between group"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="w-10 h-10 rounded-lg bg-[#182B49] text-white flex items-center justify-center font-mono font-bold text-xs">
+                      {tech.icon}
+                    </span>
+                    <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-[#F1F5F9] text-[#182B49] border border-[#E2E8F0]">
+                      {tech.level}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-sm text-[#182B49] group-hover:text-[#3867F5] transition-colors leading-snug">
+                      {tech.name}
+                    </h3>
+                    <p className="text-[11px] font-mono text-[#64748B] mt-1">{tech.category}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================================
+            4. FEATURED SPOTLIGHT & ALL TECHNICAL PROJECTS (WHITE SURFACE)
+        ===================================================================== */}
+        <section id="projects" className="py-20 bg-[#FFFFFF] border-t border-[#E2E8F0]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+              <div>
+                <div className="inline-flex items-center gap-2 text-[#3867F5] font-mono text-xs font-semibold uppercase tracking-widest mb-2">
+                  <FolderGit2 className="w-4 h-4" />
+                  <span>Research &amp; Engineering Portfolio</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182B49] tracking-tight">
+                  Featured &amp; Technical Projects
+                </h2>
+                <p className="text-[#475569] text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                  Highlighting my active AI Coding Tutorial Platform, Human-AI Decision Experiment Platform, Human AI Interaction Lab, B.Sc. Medical Computer Vision Thesis, and Generative AI systems.
+                </p>
+              </div>
+
+              <div className="relative w-full lg:w-72">
+                <Search className="w-4 h-4 text-[#64748B] absolute left-3.5 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={projectSearchQuery}
+                  onChange={(e) => setProjectSearchQuery(e.target.value)}
+                  placeholder="Search PyTorch, FastAPI, Render..."
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs sm:text-sm text-[#182B49] placeholder-[#94A3B8] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all"
+                />
+              </div>
+            </div>
+
+            {/* FEATURED SPOTLIGHT BANNER */}
+            <div
+              onClick={() => setSelectedProject(featuredProjects[0])}
+              className="mb-10 rounded-2xl p-6 sm:p-8 bg-[#182B49] text-white border border-[#182B49] hover:border-[#3867F5] shadow-md cursor-pointer transition-all group relative overflow-hidden"
+            >
+              <div className="absolute top-0 inset-x-0 h-1 bg-[#F07845]" />
+              <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="space-y-3 max-w-3xl">
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#F07845] text-white">
+                      <span className="w-2 h-2 rounded-full bg-white" />
+                      ACTIVE BUILD / IN PROGRESS
+                    </span>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-mono bg-white/10 text-white border border-white/15">
+                      <Star className="w-3 h-3 fill-[#F07845] text-[#F07845]" />
+                      Flagship Project
+                    </span>
+                    <span className="text-xs font-mono text-[#93C5FD]">
+                      {featuredProjects[0].subtitle}
                     </span>
                   </div>
 
-                  <p className="text-xs font-mono text-violet-300 mb-1.5">
-                    {project.subtitle}
-                  </p>
-
-                  <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors flex items-start justify-between gap-2 leading-snug">
-                    <span>
-                      <span className="text-slate-500 font-mono text-base mr-2">
-                        {String(idx + 1).padStart(2, "0")}.
-                      </span>
-                      {project.title}
-                    </span>
-                    <ExternalLink className="w-5 h-5 text-slate-500 group-hover:text-cyan-400 shrink-0 mt-1 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-[#93C5FD] transition-colors">
+                    {featuredProjects[0].title}
                   </h3>
 
-                  <p className="text-slate-300 text-sm sm:text-[15px] leading-[1.7] mt-3">
-                    {project.shortDesc}
+                  <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
+                    {featuredProjects[0].fullDesc}
                   </p>
-                </div>
 
-                <div className="mt-6 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tech.map((t) => (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {featuredProjects[0].tech.map((t) => (
                       <span
                         key={t}
-                        className="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-slate-200 border border-white/10"
+                        className="text-xs font-mono px-3 py-1 rounded-lg bg-white/10 text-white border border-white/15"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
-
-                  <div className="flex items-center gap-3 ml-auto">
-                    {project.liveUrl && project.liveUrl !== PORTFOLIO_DATA.personal.github && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        title="Open Live Deployment"
-                        className="p-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 transition-colors"
-                      >
-                        <Globe className="w-4 h-4" />
-                      </a>
-                    )}
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      aria-label={`View ${project.title} on GitHub`}
-                      className="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                    <span className="text-xs font-mono text-cyan-400 group-hover:underline">
-                      Architecture →
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* =====================================================================
-5. EDUCATION & PROFESSIONAL EXPERIENCE TIMELINE
-        ===================================================================== */}
-        <section id="experience" className="py-20 border-t border-white/5">
-          <div className="mb-12">
-            <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest mb-2">
-              <Briefcase className="w-4 h-4" />
-              <span>Academic &amp; Industry Track Record</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
-              Experience &amp; Education
-            </h2>
-            <p className="text-slate-300/80 text-sm sm:text-base mt-2 max-w-2xl">
-              Combining enterprise backend Java/Spring Boot software engineering at NIX United with graduate Data Science research in Berlin and Computer Science honors in Budapest.
-            </p>
-          </div>
-
-          <div className="relative pl-6 sm:pl-8 border-l-2 border-white/15 space-y-7">
-            {PORTFOLIO_DATA.timeline.map((item) => {
-              const isExpanded = !!expandedTimelineIds[item.id];
-              return (
-                <div key={item.id} className="relative">
-                  <div
-                    className={`absolute -left-[33px] sm:-left-[41px] top-7 w-4 h-4 rounded-full border-2 border-[#0a0a0f] shadow-md ${
-                      item.type === "work"
-                        ? "bg-emerald-400 shadow-emerald-400/40"
-                        : "bg-cyan-400 shadow-cyan-400/40"
-                    }`}
-                  />
-
-                  <div
-                    onClick={() => toggleTimelineItem(item.id)}
-                    className={`glass-card rounded-2xl p-6 sm:p-7 cursor-pointer transition-all ${
-                      item.type === "work"
-                        ? "border-emerald-500/25 hover:border-emerald-400/50"
-                        : "hover:border-cyan-400/40"
-                    }`}
-                  >
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                      <div className="space-y-1.5">
-                        <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                          <span
-                            className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-md font-semibold ${
-                              item.type === "work"
-                                ? "bg-emerald-500/15 text-emerald-300 border border-emerald-500/30"
-                                : "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
-                            }`}
-                          >
-                            {item.type === "work" ? (
-                              <Briefcase className="w-3.5 h-3.5" />
-                            ) : (
-                              <GraduationCap className="w-3.5 h-3.5" />
-                            )}
-                            <span>{item.period}</span>
-                          </span>
-                          <span className="text-slate-400">{item.location}</span>
-                          {item.badge && (
-                            <span className="px-2.5 py-1 rounded-md bg-violet-500/15 text-violet-200 border border-violet-500/30">
-                              {item.badge}
-                            </span>
-                          )}
-                        </div>
-                        <h3 className="text-xl sm:text-2xl font-bold text-white pt-1">
-                          {item.role}
-                        </h3>
-                        <p className="text-base font-semibold text-cyan-300">
-                          {item.organization}
-                        </p>
-                      </div>
-
-                      <button
-                        type="button"
-                        className="self-start inline-flex items-center gap-1 text-xs font-mono text-slate-300 hover:text-cyan-300 px-3.5 py-2 rounded-lg bg-white/5 border border-white/10 shrink-0"
-                      >
-                        <span>{isExpanded ? "Hide Highlights" : "Show Highlights"}</span>
-                        <ChevronDown
-                          className={`w-4 h-4 transition-transform duration-200 ${
-                            isExpanded ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    </div>
-
-                    <p className="text-sm sm:text-[15px] text-slate-200/90 leading-relaxed mt-3">
-                      {item.summary}
-                    </p>
-
-                    {item.impactTags && (
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {item.impactTags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#08090f] text-slate-300 border border-white/10"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {isExpanded && (
-                      <ul className="mt-5 pt-4 border-t border-white/10 space-y-2.5 text-sm sm:text-[15px] text-slate-300 leading-relaxed">
-                        {item.highlights.map((bullet, idx) => (
-                          <li key={idx} className="flex items-start gap-2.5">
-                            <span className="text-cyan-400 font-mono mt-0.5">▹</span>
-                            <span>{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
-        {/* =====================================================================
-6. ACADEMIC RESEARCH INTERESTS, LANGUAGES (5) & PERSONAL INTERESTS
-        ===================================================================== */}
-        <section id="interests" className="py-20 border-t border-white/5">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
-              <div>
-                <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
-                  <BookOpen className="w-4 h-4" />
-                  <span>Research Focus</span>
-                </div>
-                <h2 className="text-2xl font-bold text-white mb-5">
-                  Academic &amp; Technical Interests
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {PORTFOLIO_DATA.academicInterests.map((interest) => (
-                    <div
-                      key={interest}
-                      className="flex items-center gap-2.5 p-3.5 rounded-xl bg-[#08090f] border border-white/5 hover:border-cyan-500/30 transition-colors"
-                    >
-                      <Sparkles className="w-4 h-4 text-violet-400 shrink-0" />
-                      <span className="text-sm text-slate-200 leading-snug">{interest}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/10">
-                <div className="inline-flex items-center gap-2 text-violet-400 font-mono text-xs uppercase tracking-widest mb-3">
-                  <Heart className="w-4 h-4" />
-                  <span>Additional Interests</span>
-                </div>
-                <div className="flex flex-wrap gap-2.5">
-                  {PORTFOLIO_DATA.personalInterests.map((item) => (
-                    <span
-                      key={item}
-                      className="px-3.5 py-2 rounded-xl text-xs font-mono bg-white/5 border border-white/10 text-slate-200"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 glass-card rounded-2xl p-6 sm:p-8">
-              <div className="flex items-center justify-between mb-2">
-                <div className="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-widest">
-                  <Globe className="w-4 h-4" />
-                  <span>Multilingual Communication</span>
-                </div>
-                <span className="text-xs font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">
-                  5 Languages
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-2">Languages</h3>
-              <p className="text-xs sm:text-sm text-slate-400 mb-6">
-                Fluent across South Asian and international academic/engineering languages, alongside active German studies in Berlin.
-              </p>
-
-              <div className="space-y-4">
-                {PORTFOLIO_DATA.languages.map((lang) => (
-                  <div
-                    key={lang.name}
-                    className="p-3.5 rounded-xl bg-[#08090f] border border-white/5 space-y-2"
-                  >
-                    <div className="flex items-center justify-between text-sm">
-                      <div className="flex items-center gap-2.5">
-                        <span className="px-2 py-0.5 rounded text-xs font-mono font-bold bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
-                          {lang.badge}
-                        </span>
-                        <span className="font-semibold text-white">{lang.name}</span>
-                      </div>
-                      <span className="font-mono text-xs text-slate-300">{lang.level}</span>
-                    </div>
-                    <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 transition-all duration-500"
-                        style={{ width: `${lang.percent}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* =====================================================================
-7. INTERACTIVE FASTAPI CONTACT SECTION
-        ===================================================================== */}
-        <section id="contact" className="py-20 border-t border-white/5">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-            <div className="lg:col-span-5 space-y-6">
-              <div>
-                <div className="inline-flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-widest mb-2">
-                  <Terminal className="w-4 h-4" />
-                  <span>Direct Contact &amp; FastAPI Endpoint</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-white">
-                  Let&apos;s Connect
-                </h2>
-                <p className="text-slate-300/80 text-sm sm:text-base mt-3 leading-relaxed">
-                  Interested in collaborating on AI/ML research, Generative AI applications, or Data Science &amp; Software Engineering roles in Berlin or remotely? Send a message or reach out directly.
-                </p>
-              </div>
-
-              <div className="glass-card rounded-2xl p-5 space-y-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-mono text-slate-400">University / Direct Email</p>
-                    <p className="text-sm font-mono text-slate-100 mt-0.5">
-                      {PORTFOLIO_DATA.personal.email}
-                    </p>
-                  </div>
-                  <button
-                    onClick={handleCopyEmail}
-                    className="p-2.5 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300 border border-white/10 transition-colors"
-                    aria-label="Copy Email Address"
-                  >
-                    {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-                  </button>
                 </div>
 
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-                  <div>
-                    <p className="text-xs font-mono text-slate-400">Phone (Berlin, Germany)</p>
-                    <a
-                      href="tel:+4915206762522"
-                      className="text-sm font-mono text-slate-100 hover:text-cyan-300 transition-colors mt-0.5 block"
-                    >
-                      {PORTFOLIO_DATA.personal.phone}
-                    </a>
-                  </div>
-                  <Phone className="w-4 h-4 text-emerald-400" />
-                </div>
-
-                <div className="pt-3 border-t border-white/10 flex flex-wrap gap-3">
+                <div className="flex flex-row lg:flex-col items-center lg:items-end justify-between gap-3 shrink-0">
                   <a
                     href={PORTFOLIO_DATA.personal.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-mono text-slate-200 border border-white/10 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-mono bg-white/10 hover:bg-[#3867F5] text-white border border-white/15 transition-colors"
                   >
                     <Github className="w-4 h-4" />
-                    <span>GitHub</span>
+                    <span>GitHub (@SHassani)</span>
                   </a>
-                  <a
-                    href={PORTFOLIO_DATA.personal.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/5 hover:bg-white/10 text-xs font-mono text-slate-200 border border-white/10 transition-colors"
-                  >
-                    <Linkedin className="w-4 h-4 text-sky-400" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <button
-                    onClick={() => setCvModalOpen(true)}
-                    className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-cyan-500/15 hover:bg-cyan-500/25 text-xs font-mono text-cyan-300 border border-cyan-500/30 transition-colors"
-                  >
-                    <FileText className="w-4 h-4" />
-                    <span>Open CV</span>
-                  </button>
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono text-[#93C5FD] group-hover:text-white transition-colors">
+                    <span>Inspect System Design</span>
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-7">
-              <form
-                onSubmit={handleContactSubmit}
-                className="glass-card rounded-2xl p-6 sm:p-8 space-y-5"
-              >
-                <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                  <div className="flex items-center gap-2 font-mono text-xs text-emerald-400">
-                    <span className="px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30 font-bold">
-                      POST
-                    </span>
-                    <span className="text-slate-300">/api/v1/contact</span>
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <div className="flex flex-wrap gap-2">
+                {["All", "Featured", "AI & Deep Learning", "Generative AI", "Backend & Data", "Software Dev"].map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveProjectFilter(cat)}
+                    className={`px-3.5 py-2 rounded-lg text-xs font-mono font-medium transition-colors ${
+                      activeProjectFilter === cat
+                        ? "bg-[#3867F5] text-white border border-[#3867F5]"
+                        : "bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0] hover:border-[#3867F5] hover:text-[#182B49]"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+              <span className="text-xs font-mono text-[#64748B]">
+                Showing {filteredProjects.length} of {PORTFOLIO_DATA.projects.length} projects
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredProjects.map((project, idx) => (
+                <div
+                  key={project.id}
+                  onClick={() => setSelectedProject(project)}
+                  className={`surface-card surface-card-interactive rounded-2xl p-6 sm:p-7 cursor-pointer flex flex-col justify-between group ${
+                    project.inProgress
+                      ? "border-t-4 border-t-[#F07845]"
+                      : project.featured
+                      ? "border-t-4 border-t-[#3867F5]"
+                      : ""
+                  }`}
+                >
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-3.5">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs font-mono font-medium px-2.5 py-1 rounded-md bg-[#182B49] text-white">
+                          {project.category}
+                        </span>
+                        {project.inProgress && (
+                          <span className="inline-flex items-center gap-1.5 text-[11px] font-mono font-medium px-2.5 py-1 rounded-md bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
+                            In Progress
+                          </span>
+                        )}
+                        {project.featured && !project.inProgress && (
+                          <span className="inline-flex items-center gap-1 text-[11px] font-mono font-medium px-2 py-1 rounded-md bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25">
+                            <Star className="w-3 h-3" />
+                            Featured
+                          </span>
+                        )}
+                      </div>
+
+                      <span className="text-[11px] font-mono px-2.5 py-0.5 rounded bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]">
+                        {project.metrics}
+                      </span>
+                    </div>
+
+                    <p className="text-xs font-mono text-[#3867F5] font-medium mb-1.5">
+                      {project.subtitle}
+                    </p>
+
+                    <h3 className="text-xl font-extrabold text-[#182B49] group-hover:text-[#3867F5] transition-colors flex items-start justify-between gap-2 leading-snug">
+                      <span>
+                        <span className="text-[#94A3B8] font-mono text-base mr-2">
+                          {String(idx + 1).padStart(2, "0")}.
+                        </span>
+                        {project.title}
+                      </span>
+                      <ExternalLink className="w-5 h-5 text-[#94A3B8] group-hover:text-[#3867F5] shrink-0 mt-1 transition-colors" />
+                    </h3>
+
+                    <p className="text-[#334155] text-sm sm:text-[15px] leading-[1.7] mt-3">
+                      {project.shortDesc}
+                    </p>
                   </div>
-                  <span className="text-[11px] font-mono text-slate-500">
-                    Pydantic v2 Schema Validated
-                  </span>
+
+                  <div className="mt-6 pt-4 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0]"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-2.5 ml-auto">
+                      {project.liveUrl && project.liveUrl !== PORTFOLIO_DATA.personal.github && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          title="Open Live Deployment"
+                          className="p-1.5 rounded-lg bg-[#3867F5]/10 hover:bg-[#3867F5] text-[#3867F5] hover:text-white border border-[#3867F5]/25 transition-colors"
+                        >
+                          <Globe className="w-4 h-4" />
+                        </a>
+                      )}
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label={`View ${project.title} on GitHub`}
+                        className="p-1.5 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                      <span className="text-xs font-mono font-semibold text-[#3867F5] group-hover:underline">
+                        Architecture →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================================
+            5. EDUCATION & PROFESSIONAL EXPERIENCE TIMELINE (SOFT SLATE TINT)
+        ===================================================================== */}
+        <section id="experience" className="py-20 bg-[#F8FAFC] border-t border-[#E2E8F0]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="mb-12">
+              <div className="inline-flex items-center gap-2 text-[#3867F5] font-mono text-xs font-semibold uppercase tracking-widest mb-2">
+                <Briefcase className="w-4 h-4" />
+                <span>Academic &amp; Industry Track Record</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182B49] tracking-tight">
+                Experience &amp; Education
+              </h2>
+              <p className="text-[#475569] text-sm sm:text-base mt-2 max-w-2xl leading-relaxed">
+                Combining enterprise backend Java/Spring Boot software engineering at NIX United with graduate Data Science research in Berlin and Computer Science honors in Budapest.
+              </p>
+            </div>
+
+            <div className="relative pl-6 sm:pl-8 border-l-2 border-[#CBD5E1] space-y-7">
+              {PORTFOLIO_DATA.timeline.map((item) => {
+                const isExpanded = !!expandedTimelineIds[item.id];
+                return (
+                  <div key={item.id} className="relative">
+                    <div
+                      className={`absolute -left-[33px] sm:-left-[41px] top-7 w-4 h-4 rounded-full border-2 border-[#FFFFFF] shadow-sm ${
+                        item.type === "work" ? "bg-[#F07845]" : "bg-[#3867F5]"
+                      }`}
+                    />
+
+                    <div
+                      onClick={() => toggleTimelineItem(item.id)}
+                      className="surface-card rounded-2xl p-6 sm:p-7 cursor-pointer hover:border-[#3867F5] transition-colors"
+                    >
+                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                        <div className="space-y-1.5">
+                          <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                            <span
+                              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-md font-semibold ${
+                                item.type === "work"
+                                  ? "bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30"
+                                  : "bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25"
+                              }`}
+                            >
+                              {item.type === "work" ? (
+                                <Briefcase className="w-3.5 h-3.5" />
+                              ) : (
+                                <GraduationCap className="w-3.5 h-3.5" />
+                              )}
+                              <span>{item.period}</span>
+                            </span>
+                            <span className="text-[#64748B]">{item.location}</span>
+                            {item.badge && (
+                              <span className="px-2.5 py-1 rounded-md bg-[#182B49] text-white">
+                                {item.badge}
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-xl sm:text-2xl font-extrabold text-[#182B49] pt-1">
+                            {item.role}
+                          </h3>
+                          <p className="text-base font-semibold text-[#3867F5]">
+                            {item.organization}
+                          </p>
+                        </div>
+
+                        <button
+                          type="button"
+                          className="self-start inline-flex items-center gap-1 text-xs font-mono font-medium text-[#182B49] hover:text-[#3867F5] px-3.5 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] shrink-0"
+                        >
+                          <span>{isExpanded ? "Hide Highlights" : "Show Highlights"}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              isExpanded ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+
+                      <p className="text-sm sm:text-[15px] text-[#334155] leading-relaxed mt-3">
+                        {item.summary}
+                      </p>
+
+                      {item.impactTags && (
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {item.impactTags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-xs font-mono px-2.5 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0]"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {isExpanded && (
+                        <ul className="mt-5 pt-4 border-t border-[#E2E8F0] space-y-2.5 text-sm sm:text-[15px] text-[#334155] leading-relaxed">
+                          {item.highlights.map((bullet, idx) => (
+                            <li key={idx} className="flex items-start gap-2.5">
+                              <span className="text-[#3867F5] font-mono font-bold mt-0.5">▹</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================================
+            6. ACADEMIC RESEARCH INTERESTS, LANGUAGES (5) & PERSONAL INTERESTS
+        ===================================================================== */}
+        <section id="interests" className="py-20 bg-[#FFFFFF] border-t border-[#E2E8F0]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+              <div className="lg:col-span-6 surface-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-[#3867F5] font-mono text-xs font-semibold uppercase tracking-widest mb-2">
+                    <BookOpen className="w-4 h-4" />
+                    <span>Research Focus</span>
+                  </div>
+                  <h2 className="text-2xl font-extrabold text-[#182B49] mb-5">
+                    Academic &amp; Technical Interests
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {PORTFOLIO_DATA.academicInterests.map((interest) => (
+                      <div
+                        key={interest}
+                        className="flex items-center gap-2.5 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] hover:border-[#3867F5] transition-colors"
+                      >
+                        <Sparkles className="w-4 h-4 text-[#F07845] shrink-0" />
+                        <span className="text-sm font-medium text-[#182B49] leading-snug">{interest}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="mt-8 pt-6 border-t border-[#E2E8F0]">
+                  <div className="inline-flex items-center gap-2 text-[#182B49] font-mono text-xs font-semibold uppercase tracking-widest mb-3">
+                    <Heart className="w-4 h-4 text-[#F07845]" />
+                    <span>Additional Interests</span>
+                  </div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {PORTFOLIO_DATA.personalInterests.map((item) => (
+                      <span
+                        key={item}
+                        className="px-3.5 py-2 rounded-xl text-xs font-mono font-medium bg-[#F8FAFC] border border-[#E2E8F0] text-[#182B49]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-6 surface-card rounded-2xl p-6 sm:p-8">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="inline-flex items-center gap-2 text-[#3867F5] font-mono text-xs font-semibold uppercase tracking-widest">
+                    <Globe className="w-4 h-4" />
+                    <span>Multilingual Communication</span>
+                  </div>
+                  <span className="text-xs font-mono font-medium px-2.5 py-0.5 rounded-full bg-[#182B49] text-white">
+                    5 Languages
+                  </span>
+                </div>
+                <h3 className="text-2xl font-extrabold text-[#182B49] mb-2">Languages</h3>
+                <p className="text-xs sm:text-sm text-[#475569] mb-6 leading-relaxed">
+                  Fluent across South Asian and international academic/engineering languages, alongside active German studies in Berlin.
+                </p>
+
+                <div className="space-y-4">
+                  {PORTFOLIO_DATA.languages.map((lang) => (
+                    <div
+                      key={lang.name}
+                      className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2"
+                    >
+                      <div className="flex items-center justify-between text-sm">
+                        <div className="flex items-center gap-2.5">
+                          <span className="px-2 py-0.5 rounded text-xs font-mono font-semibold bg-[#182B49] text-white">
+                            {lang.badge}
+                          </span>
+                          <span className="font-bold text-[#182B49]">{lang.name}</span>
+                        </div>
+                        <span className="font-mono text-xs text-[#475569]">{lang.level}</span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-[#E2E8F0] overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-[#3867F5] transition-all duration-500"
+                          style={{ width: `${lang.percent}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =====================================================================
+            7. INTERACTIVE FASTAPI CONTACT SECTION (SOFT SLATE TINT)
+        ===================================================================== */}
+        <section id="contact" className="py-20 bg-[#F8FAFC] border-t border-[#E2E8F0]">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+              <div className="lg:col-span-5 space-y-6">
+                <div>
+                  <div className="inline-flex items-center gap-2 text-[#3867F5] font-mono text-xs font-semibold uppercase tracking-widest mb-2">
+                    <Terminal className="w-4 h-4" />
+                    <span>Direct Contact &amp; FastAPI Endpoint</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#182B49] tracking-tight">
+                    Let&apos;s Connect
+                  </h2>
+                  <p className="text-[#475569] text-sm sm:text-base mt-3 leading-relaxed">
+                    Interested in collaborating on AI/ML research, Generative AI applications, or Data Science &amp; Software Engineering roles in Berlin or remotely? Send a message or reach out directly.
+                  </p>
+                </div>
+
+                <div className="surface-card rounded-2xl p-5 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-mono text-[#64748B]">University / Direct Email</p>
+                      <p className="text-sm font-mono font-medium text-[#182B49] mt-0.5">
+                        {PORTFOLIO_DATA.personal.email}
+                      </p>
+                    </div>
+                    <button
+                      onClick={handleCopyEmail}
+                      className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#3867F5] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                      aria-label="Copy Email Address"
+                    >
+                      {copiedEmail ? <Check className="w-4 h-4 text-[#16A34A]" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
+
+                  <div className="pt-3 border-t border-[#E2E8F0] flex items-center justify-between">
+                    <div>
+                      <p className="text-xs font-mono text-[#64748B]">Phone (Berlin, Germany)</p>
+                      <a
+                        href="tel:+4915206762522"
+                        className="text-sm font-mono font-medium text-[#182B49] hover:text-[#3867F5] transition-colors mt-0.5 block"
+                      >
+                        {PORTFOLIO_DATA.personal.phone}
+                      </a>
+                    </div>
+                    <Phone className="w-4 h-4 text-[#F07845]" />
+                  </div>
+
+                  <div className="pt-3 border-t border-[#E2E8F0] flex flex-wrap gap-2.5">
+                    <a
+                      href={PORTFOLIO_DATA.personal.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-xs font-mono font-medium text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span>GitHub</span>
+                    </a>
+                    <a
+                      href={PORTFOLIO_DATA.personal.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#3867F5] text-xs font-mono font-medium text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                    >
+                      <Linkedin className="w-4 h-4 text-[#3867F5] group-hover:text-white" />
+                      <span>LinkedIn</span>
+                    </a>
+                    <button
+                      onClick={() => setCvModalOpen(true)}
+                      className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#182B49] hover:bg-[#3867F5] text-xs font-mono font-medium text-white transition-colors"
+                    >
+                      <FileText className="w-4 h-4 text-[#F07845]" />
+                      <span>Open CV</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="lg:col-span-7">
+                <form
+                  onSubmit={handleContactSubmit}
+                  className="surface-card rounded-2xl p-6 sm:p-8 space-y-5"
+                >
+                  <div className="flex items-center justify-between border-b border-[#E2E8F0] pb-4">
+                    <div className="flex items-center gap-2 font-mono text-xs text-[#182B49]">
+                      <span className="px-2 py-0.5 rounded bg-[#182B49] text-white font-semibold">
+                        POST
+                      </span>
+                      <span className="font-medium">/api/v1/contact</span>
+                    </div>
+                    <span className="text-[11px] font-mono text-[#64748B]">
+                      Pydantic v2 Schema Validated
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Dr. Ada Lovelace"
+                        className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-sm text-[#182B49] placeholder-[#94A3B8] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="ada@research-lab.de"
+                        className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-sm text-[#182B49] placeholder-[#94A3B8] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all"
+                      />
+                    </div>
+                  </div>
+
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 mb-1.5">
-                      Your Name *
+                    <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                      Subject
                     </label>
                     <input
                       type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Dr. Ada Lovelace"
-                      className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      placeholder="Working Student AI/ML / Research Collaboration / Full-Stack Role"
+                      className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-sm text-[#182B49] placeholder-[#94A3B8] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all"
                     />
                   </div>
+
                   <div>
-                    <label className="block text-xs font-mono text-slate-300 mb-1.5">
-                      Email Address *
+                    <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                      Message *
                     </label>
-                    <input
-                      type="email"
+                    <textarea
+                      rows={4}
                       required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="ada@research-lab.de"
-                      className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Hi Salah, I saw your work on Human-AI Decision Experiment Platform..."
+                      className="w-full px-4 py-3 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-sm text-[#182B49] placeholder-[#94A3B8] focus:outline-none focus:bg-[#FFFFFF] focus:border-[#3867F5] focus:ring-2 focus:ring-[#3867F5]/15 transition-all resize-none"
                     />
                   </div>
-                </div>
 
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1.5">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    value={formData.subject}
-                    onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="Working Student AI/ML / Research Collaboration / Full-Stack Role"
-                    className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
-                  />
-                </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3.5 px-6 rounded-xl font-semibold text-sm bg-[#3867F5] hover:bg-[#2954D8] text-white shadow-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        <span>Dispatching to FastAPI...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>Send Message</span>
+                      </>
+                    )}
+                  </button>
 
-                <div>
-                  <label className="block text-xs font-mono text-slate-300 mb-1.5">
-                    Message *
-                  </label>
-                  <textarea
-                    rows={4}
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Hi Salah, I saw your work on Human-AI Decision Experiment Platform..."
-                    className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-3.5 px-6 rounded-xl font-semibold text-sm bg-gradient-to-r from-cyan-500 via-violet-600 to-emerald-500 hover:opacity-95 text-white shadow-lg shadow-violet-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Dispatching to FastAPI...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      <span>Send Message</span>
-                    </>
-                  )}
-                </button>
-
-                {apiResponseToast && (
-                  <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-200 space-y-1.5">
-                    <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 font-bold text-emerald-300">
-                        <CheckCircle2 className="w-4 h-4" />
-                        HTTP 201 Created — {apiResponseToast.endpoint}
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => setApiResponseToast(null)}
-                        className="text-emerald-400 hover:text-white"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
+                  {apiResponseToast && (
+                    <div className="p-4 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] text-xs font-mono text-[#166534] space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1.5 font-bold text-[#15803D]">
+                          <CheckCircle2 className="w-4 h-4" />
+                          HTTP 201 Created — {apiResponseToast.endpoint}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => setApiResponseToast(null)}
+                          className="text-[#15803D] hover:text-[#182B49]"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                      <p className="text-[#182B49]">{apiResponseToast.message}</p>
                     </div>
-                    <p className="text-slate-200">{apiResponseToast.message}</p>
-                  </div>
-                )}
-              </form>
+                  )}
+                </form>
+              </div>
             </div>
           </div>
         </section>
       </main>
 
       {/* =====================================================================
-8. FOOTER
+          8. MIDNIGHT NAVY FOOTER
       ===================================================================== */}
-      <footer className="relative z-10 border-t border-white/10 bg-[#07080c] py-10 mt-10">
+      <footer className="bg-[#182B49] text-slate-300 py-10 border-t border-[#182B49]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono">
             <div className="flex items-center gap-2">
-              <span className="text-cyan-400 font-bold">{PORTFOLIO_DATA.personal.brandTag}</span>
-              <span>•</span>
+              <span className="text-white font-bold">{PORTFOLIO_DATA.personal.brandTag}</span>
+              <span className="text-slate-500">•</span>
               <span>© {new Date().getFullYear()} Salah Uddin Hassani • Berlin, Germany</span>
             </div>
             <div className="flex items-center gap-4">
@@ -1701,21 +1697,21 @@ export default function App() {
                 href={PORTFOLIO_DATA.personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-400 transition-colors"
+                className="text-white hover:text-[#93C5FD] transition-colors"
               >
                 GitHub (@SHassani)
               </a>
-              <span>•</span>
+              <span className="text-slate-500">•</span>
               <a
                 href={PORTFOLIO_DATA.personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-cyan-400 transition-colors"
+                className="text-white hover:text-[#93C5FD] transition-colors"
               >
                 LinkedIn
               </a>
-              <span>•</span>
-              <span className="text-slate-500">TypeScript • React • FastAPI</span>
+              <span className="text-slate-500">•</span>
+              <span className="text-slate-400">TypeScript • React • FastAPI</span>
             </div>
           </div>
         </div>
@@ -1727,56 +1723,56 @@ export default function App() {
       {selectedProject && (
         <div
           onClick={() => setSelectedProject(null)}
-          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#182B49]/60 backdrop-blur-xs flex items-center justify-center p-4"
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="glass-card border border-cyan-500/30 rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto"
+            className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-[#182B49]"
           >
             <button
               onClick={() => setSelectedProject(null)}
               aria-label="Close modal"
-              className="absolute top-5 right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white"
+              className="absolute top-5 right-5 p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="inline-block text-xs font-mono px-2.5 py-1 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+              <div className="flex flex-wrap items-center gap-2 pr-8">
+                <span className="inline-block text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#182B49] text-white">
                   {selectedProject.category}
                 </span>
                 {selectedProject.inProgress && (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-mono px-2.5 py-1 rounded bg-amber-500/15 text-amber-300 border border-amber-400/35">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#F07845]/10 text-[#C2410C] border border-[#F07845]/30">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#F07845]" />
                     Active Build
                   </span>
                 )}
-                <span className="inline-block text-xs font-mono px-2.5 py-1 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
+                <span className="inline-block text-xs font-mono px-2.5 py-1 rounded bg-[#F8FAFC] text-[#475569] border border-[#E2E8F0]">
                   {selectedProject.metrics}
                 </span>
               </div>
 
               <div>
-                <p className="text-xs font-mono text-violet-300">{selectedProject.subtitle}</p>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mt-1">
+                <p className="text-xs font-mono font-medium text-[#3867F5]">{selectedProject.subtitle}</p>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-[#182B49] mt-1">
                   {selectedProject.title}
                 </h3>
               </div>
 
-              <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              <p className="text-[#334155] text-sm sm:text-base leading-relaxed">
                 {selectedProject.fullDesc}
               </p>
 
-              <div className="bg-[#08090f] border border-white/10 rounded-xl p-4 space-y-2.5">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-violet-300 flex items-center gap-1.5">
-                  <Sparkle className="w-3.5 h-3.5" />
+              <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 space-y-2.5">
+                <h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-[#182B49] flex items-center gap-1.5">
+                  <Sparkle className="w-3.5 h-3.5 text-[#F07845]" />
                   Technical Implementation &amp; Methodology
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-sm text-slate-300">
+                <ul className="space-y-2 text-xs sm:text-sm text-[#334155]">
                   {selectedProject.architecture.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-cyan-400 font-mono">0{idx + 1}.</span>
+                      <span className="text-[#3867F5] font-mono font-semibold">0{idx + 1}.</span>
                       <span>{point}</span>
                     </li>
                   ))}
@@ -1787,20 +1783,20 @@ export default function App() {
                 {selectedProject.tech.map((t) => (
                   <span
                     key={t}
-                    className="text-xs font-mono px-3 py-1 rounded-md bg-white/5 text-cyan-200 border border-white/10"
+                    className="text-xs font-mono px-3 py-1 rounded-md bg-[#F8FAFC] text-[#182B49] border border-[#E2E8F0]"
                   >
                     {t}
                   </span>
                 ))}
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-white/10">
+              <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#E2E8F0]">
                 {selectedProject.liveUrl && selectedProject.liveUrl !== PORTFOLIO_DATA.personal.github && (
                   <a
                     href={selectedProject.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-teal-600 text-white hover:opacity-90 transition-opacity"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
                   >
                     <Globe className="w-4 h-4" />
                     <span>View Live App</span>
@@ -1810,14 +1806,14 @@ export default function App() {
                   href={selectedProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan-500 to-violet-600 text-white hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#182B49] hover:bg-[#223B63] text-white transition-colors"
                 >
                   <Github className="w-4 h-4" />
                   <span>View on GitHub</span>
                 </a>
                 <button
                   onClick={() => setSelectedProject(null)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-white/5 hover:bg-white/10 text-slate-200 border border-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#182B49] border border-[#CBD5E1] transition-colors"
                 >
                   <span>Close</span>
                 </button>
@@ -1833,22 +1829,22 @@ export default function App() {
       {cvModalOpen && (
         <div
           onClick={() => setCvModalOpen(false)}
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-[#182B49]/65 backdrop-blur-xs flex items-center justify-center p-4"
         >
           <div
             id="printable-cv"
             onClick={(e) => e.stopPropagation()}
-            className="bg-[#0e1018] border border-white/15 rounded-2xl max-w-4xl w-full p-6 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto text-slate-100"
+            className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl max-w-4xl w-full p-6 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto text-[#182B49]"
           >
-            <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-white/10">
-              <div className="flex items-center gap-2 text-xs font-mono text-cyan-300">
-                <FileText className="w-4 h-4" />
+            <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-[#E2E8F0]">
+              <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[#182B49]">
+                <FileText className="w-4 h-4 text-[#3867F5]" />
                 <span>Curriculum Vitae — Salah Uddin Hassani</span>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => window.print()}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono font-semibold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-200 border border-cyan-400/40 transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
                 >
                   <Printer className="w-3.5 h-3.5" />
                   <span>Print / Save PDF</span>
@@ -1856,22 +1852,22 @@ export default function App() {
                 <button
                   onClick={() => setCvModalOpen(false)}
                   aria-label="Close CV modal"
-                  className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white"
+                  className="p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="border-b border-white/10 pb-5">
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            <div className="space-y-5">
+              <div className="border-b-2 border-[#182B49] pb-5">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#182B49] tracking-tight">
                   SALAH UDDIN HASSANI
                 </h2>
-                <p className="text-sm font-mono text-cyan-300 mt-1">
+                <p className="text-sm font-mono font-medium text-[#3867F5] mt-1">
                   M.Sc. Data Science Student | AI &amp; Machine Learning | Full-Stack Software Engineering
                 </p>
-                <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs font-mono text-slate-300 mt-3">
+                <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs font-mono text-[#475569] mt-3">
                   <span>Berlin, Germany</span>
                   <span>•</span>
                   <span>{PORTFOLIO_DATA.personal.phone}</span>
@@ -1883,57 +1879,57 @@ export default function App() {
               </div>
 
               <div>
-                <h3 className="text-xs font-mono uppercase tracking-widest text-violet-400 mb-1.5">
+                <h3 className="text-xs font-mono font-semibold uppercase tracking-widest text-[#3867F5] mb-1.5">
                   Professional Profile
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-[#334155] leading-relaxed">
                   {PORTFOLIO_DATA.personal.bio}
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
                 <div>
-                  <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 mb-3">
+                  <h3 className="text-xs font-mono font-semibold uppercase tracking-widest text-[#182B49] mb-3">
                     Education &amp; Experience
                   </h3>
-                  <div className="space-y-4">
+                  <div className="space-y-3.5">
                     {PORTFOLIO_DATA.timeline.map((t) => (
-                      <div key={t.id} className="bg-white/5 rounded-xl p-4 border border-white/5">
-                        <span className="text-[11px] font-mono text-emerald-300">{t.period}</span>
-                        <h4 className="font-bold text-white text-sm mt-0.5">{t.role}</h4>
-                        <p className="text-xs text-cyan-200">{t.organization} • {t.location}</p>
-                        <p className="text-xs text-slate-300 mt-1.5 leading-relaxed">{t.summary}</p>
+                      <div key={t.id} className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0]">
+                        <span className="text-[11px] font-mono font-medium text-[#C2410C]">{t.period}</span>
+                        <h4 className="font-bold text-[#182B49] text-sm mt-0.5">{t.role}</h4>
+                        <p className="text-xs font-medium text-[#3867F5]">{t.organization} • {t.location}</p>
+                        <p className="text-xs text-[#334155] mt-1.5 leading-relaxed">{t.summary}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-mono uppercase tracking-widest text-emerald-400 mb-3">
+                  <h3 className="text-xs font-mono font-semibold uppercase tracking-widest text-[#182B49] mb-3">
                     Core Technical Skills &amp; Languages
                   </h3>
-                  <div className="space-y-3 text-xs text-slate-300">
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <h4 className="font-bold text-white text-xs font-mono uppercase mb-1">
+                  <div className="space-y-3 text-xs text-[#334155]">
+                    <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0]">
+                      <h4 className="font-bold text-[#182B49] text-xs font-mono uppercase mb-1">
                         Languages &amp; Core Frameworks
                       </h4>
                       <p className="leading-relaxed">
                         Python, Java, C++, TypeScript, JavaScript, PHP, HTML, CSS • PyTorch, Hugging Face Transformers, Diffusers, OpenCV, LangChain, Gemini API • FastAPI, Spring Boot, REST APIs, Pydantic
                       </p>
                     </div>
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <h4 className="font-bold text-white text-xs font-mono uppercase mb-1">
+                    <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0]">
+                      <h4 className="font-bold text-[#182B49] text-xs font-mono uppercase mb-1">
                         Data Science, Databases &amp; Tools
                       </h4>
                       <p className="leading-relaxed">
                         NumPy, Pandas, Scikit-learn, Matplotlib, Seaborn • PostgreSQL, MySQL, SQLite, Oracle, H2, ETL &amp; Delta Loading • Git, GitHub, Docker (Basic), Linux/WSL
                       </p>
                     </div>
-                    <div className="bg-white/5 rounded-xl p-4 border border-white/5">
-                      <h4 className="font-bold text-white text-xs font-mono uppercase mb-2">
+                    <div className="bg-[#F8FAFC] rounded-xl p-4 border border-[#E2E8F0]">
+                      <h4 className="font-bold text-[#182B49] text-xs font-mono uppercase mb-2">
                         Languages (5)
                       </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-slate-300">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 text-xs text-[#182B49]">
                         {PORTFOLIO_DATA.languages.map((l) => (
                           <span key={l.name} className="font-mono">
                             - {l.name}: {l.badge}
@@ -1946,24 +1942,24 @@ export default function App() {
               </div>
 
               <div>
-                <h3 className="text-xs font-mono uppercase tracking-widest text-violet-400 mb-3">
+                <h3 className="text-xs font-mono font-semibold uppercase tracking-widest text-[#182B49] mb-3">
                   Selected Technical Projects ({PORTFOLIO_DATA.projects.length})
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {PORTFOLIO_DATA.projects.map((p) => (
-                    <div key={p.id} className="p-3.5 rounded-xl bg-white/5 border border-white/5">
+                    <div key={p.id} className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
                       <div className="flex items-center justify-between gap-2">
-                        <h4 className="font-bold text-white text-sm">{p.title}</h4>
+                        <h4 className="font-bold text-[#182B49] text-sm">{p.title}</h4>
                         {p.inProgress && (
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300">
+                          <span className="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-[#F07845]/15 text-[#C2410C]">
                             Active
                           </span>
                         )}
                       </div>
-                      <p className="text-[11px] font-mono text-cyan-300 mt-0.5">
+                      <p className="text-[11px] font-mono text-[#3867F5] mt-0.5">
                         {p.tech.join(" • ")}
                       </p>
-                      <p className="text-xs text-slate-300 mt-1.5">{p.shortDesc}</p>
+                      <p className="text-xs text-[#334155] mt-1.5">{p.shortDesc}</p>
                     </div>
                   ))}
                 </div>
