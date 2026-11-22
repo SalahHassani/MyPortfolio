@@ -25,6 +25,7 @@ import CvModal from './components/common/CvModal';
 import Footer from './components/layout/Footer';
 
 const SECTION_IDS = ["about", "stack", "profile-visualizations", "projects", "experience", "interests", "contact"];
+const REVEAL_SECTION_IDS = ["stack", "profile-visualizations", "projects", "experience", "interests", "contact"];
 
 export default function App() {
   const [activeTechTab, setActiveTechTab] = useState("All");
@@ -96,8 +97,59 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const elements = REVEAL_SECTION_IDS
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!elements.length) return;
+
+    if (prefersReducedMotion || typeof IntersectionObserver === "undefined") {
+      elements.forEach((el) => {
+        el.classList.add("reveal-section");
+        el.setAttribute("data-reveal", "visible");
+      });
+      return;
+    }
+
+    elements.forEach((el) => {
+      el.classList.add("reveal-section");
+      const rect = el.getBoundingClientRect();
+      const alreadyInView = rect.top < window.innerHeight * 0.92;
+      el.setAttribute("data-reveal", alreadyInView ? "visible" : "pending");
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.setAttribute("data-reveal", "visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.08
+      }
+    );
+
+    elements.forEach((el) => {
+      if (el.getAttribute("data-reveal") === "pending") {
+        observer.observe(el);
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#FFFFFF] text-[#182B49] selection:bg-[#3867F5] selection:text-white">
+    <div className="min-h-screen overflow-x-clip bg-[#FFFFFF] text-[#182B49] selection:bg-[#3867F5] selection:text-white">
       <Navbar
         personal={PERSONAL_INFO}
         profilePicSrc={PROFILE_PIC_SRC}

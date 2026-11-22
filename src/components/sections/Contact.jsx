@@ -93,16 +93,17 @@ export default function Contact({
             </div>
 
             <div className="surface-card rounded-2xl p-5 space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
+              <div className="flex items-center justify-between gap-2">
+                <div className="min-w-0">
                   <p className="text-xs font-mono text-[#64748B]">University / Direct Email</p>
-                  <p className="text-sm font-mono font-medium text-[#182B49] mt-0.5">
+                  <p className="text-sm font-mono font-medium text-[#182B49] mt-0.5 break-all">
                     {personal.email}
                   </p>
                 </div>
                 <button
+                  type="button"
                   onClick={onCopyEmail}
-                  className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#3867F5] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                  className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#3867F5] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
                   aria-label="Copy Email Address"
                 >
                   {copiedEmail ? <Check className="w-4 h-4 text-[#16A34A]" /> : <Copy className="w-4 h-4" />}
@@ -114,7 +115,7 @@ export default function Contact({
                   <p className="text-xs font-mono text-[#64748B]">Phone (Berlin, Germany)</p>
                   <a
                     href="tel:+4915206762522"
-                    className="text-sm font-mono font-medium text-[#182B49] hover:text-[#3867F5] transition-colors mt-0.5 block"
+                    className="text-sm font-mono font-medium text-[#182B49] hover:text-[#3867F5] transition-colors mt-0.5 block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] rounded-sm"
                   >
                     {personal.phone}
                   </a>
@@ -127,7 +128,7 @@ export default function Contact({
                   href={personal.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-xs font-mono font-medium text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-xs font-mono font-medium text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>
@@ -136,14 +137,15 @@ export default function Contact({
                   href={personal.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#3867F5] text-xs font-mono font-medium text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#3867F5] text-xs font-mono font-medium text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
                 >
-                  <Linkedin className="w-4 h-4 text-[#3867F5] group-hover:text-white" />
+                  <Linkedin className="w-4 h-4 text-[#3867F5]" />
                   <span>LinkedIn</span>
                 </a>
                 <button
+                  type="button"
                   onClick={onOpenCv}
-                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#182B49] hover:bg-[#3867F5] text-xs font-mono font-medium text-white transition-colors"
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-[#182B49] hover:bg-[#3867F5] text-xs font-mono font-medium text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
                 >
                   <FileText className="w-4 h-4 text-[#F07845]" />
                   <span>Open CV</span>
@@ -171,10 +173,11 @@ export default function Contact({
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                  <label htmlFor="contact-name" className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
                     Your Name *
                   </label>
                   <input
+                    id="contact-name"
                     type="text"
                     required
                     value={formData.name}
@@ -184,10 +187,11 @@ export default function Contact({
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                  <label htmlFor="contact-email" className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
                     Email Address *
                   </label>
                   <input
+                    id="contact-email"
                     type="email"
                     required
                     value={formData.email}
@@ -199,10 +203,11 @@ export default function Contact({
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                <label htmlFor="contact-subject" className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
                   Subject
                 </label>
                 <input
+                  id="contact-subject"
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
@@ -212,10 +217,11 @@ export default function Contact({
               </div>
 
               <div>
-                <label className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
+                <label htmlFor="contact-message" className="block text-xs font-mono font-medium text-[#182B49] mb-1.5">
                   Message *
                 </label>
                 <textarea
+                  id="contact-message"
                   rows={4}
                   required
                   value={formData.message}
@@ -228,7 +234,7 @@ export default function Contact({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3.5 px-6 rounded-xl font-semibold text-sm bg-[#3867F5] hover:bg-[#2954D8] text-white shadow-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
+                className="w-full py-3.5 px-6 rounded-xl font-semibold text-sm bg-[#3867F5] hover:bg-[#2954D8] text-white shadow-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
               >
                 {isSubmitting ? (
                   <>
@@ -253,7 +259,8 @@ export default function Contact({
                     <button
                       type="button"
                       onClick={() => setApiResponseToast(null)}
-                      className="text-[#15803D] hover:text-[#182B49]"
+                      aria-label="Dismiss message status"
+                      className="text-[#15803D] hover:text-[#182B49] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] rounded-sm"
                     >
                       <X className="w-4 h-4" />
                     </button>
