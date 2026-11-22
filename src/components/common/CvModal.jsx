@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { FileText, Printer, X } from 'lucide-react';
 
 export default function CvModal({
@@ -9,11 +9,21 @@ export default function CvModal({
   languages,
   projects
 }) {
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+    closeButtonRef.current?.focus();
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   return (
     <div
       onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="cv-modal-title"
       className="fixed inset-0 z-50 bg-[#182B49]/65 backdrop-blur-xs flex items-center justify-center p-4"
     >
       <div
@@ -22,22 +32,28 @@ export default function CvModal({
         className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl max-w-4xl w-full p-6 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto text-[#182B49]"
       >
         <div className="flex items-center justify-between gap-4 pb-5 mb-6 border-b border-[#E2E8F0]">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold text-[#182B49]">
+          <div
+            id="cv-modal-title"
+            className="flex items-center gap-2 text-xs font-mono font-semibold text-[#182B49]"
+          >
             <FileText className="w-4 h-4 text-[#3867F5]" />
             <span>Curriculum Vitae — Salah Uddin Hassani</span>
           </div>
           <div className="flex items-center gap-2">
             <button
+              type="button"
               onClick={() => window.print()}
-              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-mono font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
             >
               <Printer className="w-3.5 h-3.5" />
               <span>Print / Save PDF</span>
             </button>
             <button
+              ref={closeButtonRef}
+              type="button"
               onClick={onClose}
               aria-label="Close CV modal"
-              className="p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors"
+              className="p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#182B49] text-[#182B49] hover:text-white border border-[#E2E8F0] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
             >
               <X className="w-5 h-5" />
             </button>
@@ -50,7 +66,7 @@ export default function CvModal({
               SALAH UDDIN HASSANI
             </h2>
             <p className="text-sm font-mono font-medium text-[#3867F5] mt-1">
-              M.Sc. Data Science Student | AI &amp; Machine Learning | Full-Stack Software Engineering
+              M.Sc. Data Science Student | AI &amp; Machine Learning | Full-Stack Software Engineer
             </p>
             <div className="flex flex-wrap gap-x-5 gap-y-1.5 text-xs font-mono text-[#475569] mt-3">
               <span>Berlin, Germany</span>

@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { X, Star, Sparkle, Globe, Github } from 'lucide-react';
 
 export default function ProjectModal({ project, onClose }) {
+  const closeButtonRef = useRef(null);
+
+  useEffect(() => {
+    if (!project) return;
+    closeButtonRef.current?.focus();
+  }, [project]);
+
   if (!project) return null;
 
   return (
@@ -17,6 +24,7 @@ export default function ProjectModal({ project, onClose }) {
         className="bg-[#FFFFFF] border border-[#E2E8F0] rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-[#182B49]"
       >
         <button
+          ref={closeButtonRef}
           type="button"
           onClick={onClose}
           aria-label="Close project details modal"
@@ -38,7 +46,7 @@ export default function ProjectModal({ project, onClose }) {
                 </span>
               )}
               {project.featured && (
-                <span className="inline-flex items-center gap-1 text-xs font-mono font-medium px-2.5 py-1 rounded bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25">
+                <span className="inline-flex items-center gap-1 text-xs font-mono font-medium px-2.5 py-0.5 rounded bg-[#3867F5]/10 text-[#3867F5] border border-[#3867F5]/25">
                   <Star className="w-3 h-3" />
                   Featured
                 </span>
@@ -122,7 +130,7 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#3867F5] hover:bg-[#2954D8] text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
               >
                 <Globe className="w-4 h-4" />
                 <span>Open Live Application</span>
@@ -133,7 +141,7 @@ export default function ProjectModal({ project, onClose }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#182B49] hover:bg-[#223B63] text-white transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#182B49] hover:bg-[#223B63] text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
               >
                 <Github className="w-4 h-4" />
                 <span>View GitHub Repository</span>
@@ -149,7 +157,7 @@ export default function ProjectModal({ project, onClose }) {
             <button
               type="button"
               onClick={onClose}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#182B49] border border-[#CBD5E1] transition-colors ml-auto"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#182B49] border border-[#CBD5E1] transition-colors ml-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
             >
               <span>Close</span>
             </button>
