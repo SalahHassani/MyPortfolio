@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import {
   Terminal,
   Cpu,
@@ -413,13 +413,28 @@ const PORTFOLIO_DATA = {
   ]
 };
 
+const NAV_ITEMS = [
+  { label: "About", id: "about" },
+  { label: "Skills", id: "stack" },
+  { label: `Projects (${PORTFOLIO_DATA.projects.length})`, id: "projects" },
+  { label: "Experience & Education", id: "experience" },
+  { label: "Research & Languages", id: "interests" },
+  { label: "Contact", id: "contact" }
+];
+
 // ============================================================================
-// MAIN APPLICATION COMPONENT — EXPERIMENT 01: VISUAL FOUNDATION
+// MAIN APPLICATION COMPONENT — EXPERIMENT 02: NAVIGATION & PAGE ORIENTATION
 // ============================================================================
 export default function App() {
   // Navigation & Mobile Drawer State
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const headerRef = useRef(null);
+  const manualScrollLockRef = useRef(false);
+  const manualScrollTimeoutRef = useRef(null);
 
   // Typing Subtitle Animation State
   const [roleIndex, setRoleIndex] = useState(0);
@@ -456,11 +471,93 @@ export default function App() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [imgError, setImgError] = useState(false);
 
-  // Handle Navbar Shadow & Border on Scroll
+  // Scroll Progress & Sticky Navbar State (rAF-throttled)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 16);
+    let rafId = null;
+
+    const updateScrollState = () => {
+      rafId = null;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+      setScrolled(scrollTop > 16);
+
+      const docHeight =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      if (docHeight <= 0) {
+        setScrollProgress(0);
+      } else {
+        const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+        setScrollProgress(pct);
+      }
+
+      if (!manualScrollLockRef.current && scrollTop < 80) {
+        setActiveSection("about");
+      }
+    };
+
+    const handleScroll = () => {
+      if (rafId === null) {
+        rafId = window.requestAnimationFrame(updateScrollState);
+      }
+    };
+
+    updateScrollState();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      if (rafId !== null) window.cancelAnimationFrame(rafId);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  // Active Section Indicator via IntersectionObserver
+  useEffect(() => {
+    const sectionIds = NAV_ITEMS.map((item) => item.id);
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (!elements.length || typeof IntersectionObserver === "undefined") return;
+
+    const visibleRatios = new Map();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          visibleRatios.set(
+            entry.target.id,
+            entry.isIntersecting ? entry.intersectionRatio : 0
+          );
+        });
+
+        if (manualScrollLockRef.current) return;
+
+        let bestId = null;
+        let bestRatio = 0;
+
+        sectionIds.forEach((id) => {
+          const ratio = visibleRatios.get(id) || 0;
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestId = id;
+          }
+        });
+
+        if (bestId) {
+          setActiveSection(bestId);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-15% 0px -55% 0px",
+        threshold: [0, 0.1, 0.25, 0.5, 0.75]
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   // Typewriter Effect for Dynamic Subtitle
@@ -484,10 +581,11 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [displayedRole, isDeleting, roleIndex]);
 
-  // Close Modals on Escape Key
+  // Close Modals & Mobile Menu on Escape Key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
+        setMobileMenuOpen(false);
         setSelectedProject(null);
         setCvModalOpen(false);
       }
@@ -496,14 +594,58 @@ export default function App() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  // Smooth Section Scroll
-  const scrollToSection = (sectionId) => {
+  // Close Mobile Menu When Clicking Outside Header
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleOutsideClick = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick, { passive: true });
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, [mobileMenuOpen]);
+
+  // Cleanup manual scroll lock timer on unmount
+  useEffect(() => {
+    return () => {
+      if (manualScrollTimeoutRef.current) {
+        window.clearTimeout(manualScrollTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Smooth Section Scroll with Fixed Header Offset & Active State Update
+  const scrollToSection = useCallback((sectionId) => {
     setMobileMenuOpen(false);
+    setActiveSection(sectionId);
+
+    manualScrollLockRef.current = true;
+    if (manualScrollTimeoutRef.current) {
+      window.clearTimeout(manualScrollTimeoutRef.current);
+    }
+    manualScrollTimeoutRef.current = window.setTimeout(() => {
+      manualScrollLockRef.current = false;
+    }, 750);
+
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const headerHeight = headerRef.current ? headerRef.current.getBoundingClientRect().height : 72;
+      const targetTop =
+        el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset || 0) - headerHeight - 8;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: "smooth"
+      });
     }
-  };
+  }, []);
 
   // Toggle Timeline Details
   const toggleTimelineItem = (id) => {
@@ -648,19 +790,32 @@ export default function App() {
       `}</style>
 
       {/* =====================================================================
-          1. STICKY CLEAN HEADER NAVIGATION
+          1. STICKY CLEAN HEADER NAVIGATION & SCROLL PROGRESS INDICATOR
       ===================================================================== */}
       <header
+        ref={headerRef}
         className={`fixed top-0 inset-x-0 z-40 transition-all duration-200 ${
           scrolled
-            ? "bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E2E8F0] py-3 shadow-sm"
-            : "bg-[#FFFFFF] border-b border-transparent py-4"
+            ? "bg-[#FFFFFF]/95 backdrop-blur-md border-b border-[#E2E8F0] shadow-sm"
+            : "bg-[#FFFFFF] border-b border-[#E2E8F0]/70"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        {/* Top Viewport Scroll Progress Bar */}
+        <div
+          aria-hidden="true"
+          className="w-full h-[3px] bg-[#F1F5F9]"
+        >
+          <div
+            className="h-full bg-[#3867F5] transition-[width] duration-75 ease-out"
+            style={{ width: `${scrollProgress}%` }}
+          />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           <button
+            type="button"
             onClick={() => scrollToSection("about")}
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] rounded-lg"
+            className="flex items-center gap-2.5 group shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] rounded-lg"
           >
             <div className="w-9 h-9 rounded-lg bg-[#182B49] p-[1.5px] overflow-hidden shrink-0">
               {!imgError ? (
@@ -682,38 +837,53 @@ export default function App() {
             </span>
           </button>
 
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#334155]">
-            {[
-              { label: "About", id: "about" },
-              { label: "Skills", id: "stack" },
-              { label: `Projects (${PORTFOLIO_DATA.projects.length})`, id: "projects" },
-              { label: "Experience & Education", id: "experience" },
-              { label: "Research & Languages", id: "interests" },
-              { label: "Contact", id: "contact" }
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="hover:text-[#3867F5] transition-colors cursor-pointer focus:outline-none focus-visible:text-[#3867F5]"
-              >
-                {item.label}
-              </button>
-            ))}
+          <nav
+            aria-label="Primary sections"
+            className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium text-[#334155]"
+          >
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`relative py-1.5 whitespace-nowrap transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] rounded-sm ${
+                    isActive
+                      ? "text-[#3867F5] font-semibold"
+                      : "text-[#334155] hover:text-[#182B49]"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  <span
+                    aria-hidden="true"
+                    className={`block h-[2px] rounded-full bg-[#3867F5] transition-all duration-200 ${
+                      isActive ? "w-full opacity-100 mt-0.5" : "w-0 opacity-0 mt-0.5"
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5 shrink-0">
             <button
+              type="button"
               onClick={() => setCvModalOpen(true)}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-mono font-medium bg-[#182B49] hover:bg-[#3867F5] text-white transition-colors"
+              className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-lg text-xs font-mono font-medium bg-[#182B49] hover:bg-[#3867F5] text-white transition-colors whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
             >
-              <FileText className="w-3.5 h-3.5" />
+              <FileText className="w-3.5 h-3.5 text-[#F07845]" />
               <span>View / Print CV</span>
             </button>
 
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle Menu"
-              className="md:hidden p-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#182B49] hover:border-[#3867F5]"
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav-drawer"
+              className="lg:hidden p-2 rounded-lg bg-[#F8FAFC] hover:bg-[#F1F5F9] border border-[#E2E8F0] text-[#182B49] hover:border-[#3867F5] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5]"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -721,34 +891,33 @@ export default function App() {
         </div>
 
         {mobileMenuOpen && (
-          <div className="md:hidden bg-[#FFFFFF] border-b border-[#E2E8F0] px-4 pt-3 pb-6 space-y-1.5 shadow-lg">
-            {[
-              { label: "About", id: "about" },
-              { label: "Technical Skills", id: "stack" },
-              { label: `Projects (${PORTFOLIO_DATA.projects.length})`, id: "projects" },
-              { label: "Experience & Education", id: "experience" },
-              { label: "Research & Languages", id: "interests" },
-              { label: "Contact", id: "contact" }
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-3 py-2.5 rounded-lg text-[#182B49] hover:bg-[#F8FAFC] hover:text-[#3867F5] font-medium text-sm"
-              >
-                {item.label}
-              </button>
-            ))}
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                setCvModalOpen(true);
-              }}
-              className="flex items-center justify-center gap-2 w-full mt-3 px-4 py-3 rounded-lg text-sm font-mono font-medium bg-[#3867F5] text-white"
-            >
-              <FileText className="w-4 h-4" />
-              <span>Open Printable CV</span>
-            </button>
-          </div>
+          <nav
+            id="mobile-nav-drawer"
+            aria-label="Mobile sections"
+            className="lg:hidden bg-[#FFFFFF] border-t border-[#E2E8F0] px-4 sm:px-6 pt-3 pb-5 space-y-1 shadow-md max-h-[calc(100vh-4.25rem)] overflow-y-auto"
+          >
+            {NAV_ITEMS.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => scrollToSection(item.id)}
+                  aria-current={isActive ? "location" : undefined}
+                  className={`flex items-center justify-between w-full text-left px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3867F5] ${
+                    isActive
+                      ? "bg-[#3867F5]/10 text-[#3867F5] font-semibold"
+                      : "text-[#182B49] hover:bg-[#F8FAFC] hover:text-[#3867F5]"
+                  }`}
+                >
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#3867F5]" />
+                  )}
+                </button>
+              );
+            })}
+          </nav>
         )}
       </header>
 
