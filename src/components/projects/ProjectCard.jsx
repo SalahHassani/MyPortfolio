@@ -156,7 +156,9 @@ export default function ProjectCard({
             <Layers className="w-3.5 h-3.5 text-[#3867F5] shrink-0" />
             <span className="truncate">{project.metrics}</span>
           </span>
-          <span className="shrink-0 text-[#94A3B8]">SPEC • NO PREVIEW IMG</span>
+          <span className="shrink-0 text-[#94A3B8]">
+            {project.liveUrl ? "LIVE SITE" : "SPEC • NO PREVIEW IMG"}
+          </span>
         </div>
 
         <div className="p-6 pb-4">

@@ -3,7 +3,7 @@ export const PROJECTS = [
     id: "human-ai-decision-platform",
     title: "Human-AI Decision Experiment Platform",
     subtitle: "Full-Stack Experiment Platform | Real-Time WebSockets & PostgreSQL",
-    category: "Generative AI",
+    category: "Full-Stack & AI",
     featured: true,
     inProgress: false,
     shortDesc: "Interactive multi-round experiment platform for studying human and AI group decision-making, featuring real-time WebSocket discussions, voting phases, and persistent session tracking.",
@@ -23,7 +23,7 @@ export const PROJECTS = [
     id: "human-ai-interaction-lab",
     title: "Human AI Interaction Lab",
     subtitle: "Full-Stack Web Application | Interactive AI Interface",
-    category: "Generative AI",
+    category: "Frontend & Web",
     featured: true,
     inProgress: false,
     shortDesc: "Advanced web application exploring human-AI interaction dynamics, featuring modern UI components and responsive workflows.",
@@ -122,7 +122,7 @@ export const PROJECTS = [
     id: "diffusion-from-scratch",
     title: "Diffusion Model Implementation",
     subtitle: "Generative AI | Deep Learning",
-    category: "AI & Deep Learning",
+    category: "Generative AI",
     featured: false,
     inProgress: false,
     shortDesc: "From-scratch PyTorch and NumPy implementation exploring forward noise schedules, reverse denoising dynamics, and probabilistic image generation.",
@@ -193,6 +193,26 @@ export const PROJECTS = [
       "Applied clean software engineering practices for maintainable interactive applications"
     ],
     metrics: "2 Complete Games • OOP & State Architecture"
+  },
+  {
+    id: "atlantic-budapest",
+    title: "Atlantic Budapest",
+    subtitle: "Business Administration & Courier Onboarding Platform | React, Vite & Tailwind CSS",
+    category: "Frontend & Web",
+    featured: false,
+    inProgress: false,
+    shortDesc: "Responsive multi-page corporate web application for a Budapest business administration and courier onboarding consultancy covering Hungarian GTR registration, Wolt/foodora onboarding, HUF pricing packages, and validated enquiries.",
+    fullDesc: "Multi-page corporate web application built with React 19, Vite, and Tailwind CSS v4 (using HashRouter for static GitHub Pages hosting) for Atlantic Budapest. Streamlines Hungarian sole proprietorship (GTR) registration guidance, Wolt and foodora courier onboarding assistance, itemized HUF service packages, and client enquiry forms validated with React Hook Form and Zod.",
+    tech: ["React", "Vite", "Tailwind CSS", "React Router", "React Hook Form", "Zod", "Lucide React", "GitHub Pages"],
+    githubUrl: "https://github.com/SalahHassani/atlantic-budapest",
+    liveUrl: "https://salahhassani.github.io/atlantic-budapest/",
+    architecture: [
+      "Structured multi-page navigation with React Router (HashRouter) for reliable static routing on GitHub Pages",
+      "Built itemized HUF pricing tiers and service package details covering GTR registration, Wolt/foodora courier onboarding, and ongoing administration",
+      "Implemented client contact and package enquiry workflows using React Hook Form with Zod schema validation",
+      "Styled responsive pages and interactive package detail modals using Tailwind CSS v4 and Lucide icons"
+    ],
+    metrics: "LIVE DEPLOYMENT • HUF Packages & Zod Validation"
   }
 ];
 
@@ -201,6 +221,9 @@ export const PROJECT_FILTERS = [
   "Featured",
   "AI & Deep Learning",
   "Generative AI",
+  "Full-Stack & AI",
+  "Frontend & Web",
   "Backend & Data",
   "Software Dev"
 ];
+
