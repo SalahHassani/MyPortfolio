@@ -213,17 +213,39 @@ export const PROJECTS = [
       "Styled responsive pages and interactive package detail modals using Tailwind CSS v4 and Lucide icons"
     ],
     metrics: "LIVE DEPLOYMENT • HUF Packages & Zod Validation"
-  }
+  },
+  {
+    id: "schengen-routes",
+    title: "Schengen Routes",
+    subtitle: "European Mobility & Visa Advisory Web Platform | Next.js, TypeScript & PostgreSQL",
+    category: "Full-Stack & Web",
+    featured: false,
+    inProgress: false,
+    shortDesc: "Full-stack European visa and mobility advisory platform featuring structured Schengen entry and residency guidance alongside an end-to-end validated client enquiry pipeline.",
+    fullDesc: "Full-stack web application built with Next.js 16 (App Router), React 19, TypeScript, and Tailwind CSS v4, backed by PostgreSQL and Prisma ORM v7 on Vercel. Guides remote workers, students, and relocating professionals through Schengen travel and European residency pathways while managing client consultations through an automated enquiry lifecycle.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "PostgreSQL", "Prisma ORM", "Docker", "Vercel"],
+    githubUrl: "https://github.com/SalahHassani/schengen-routes",
+    liveUrl: "https://schengen-routes.vercel.app",
+    architecture: [
+      "Architected a full-stack Next.js 16 App Router platform with TypeScript and Tailwind CSS v4 for mobile-first visa and relocation guidance",
+      "Built validated client- and server-side enquiry intake endpoints (/api/enquiries) with privacy acknowledgement checks and automated SNR reference ID generation",
+      "Designed relational PostgreSQL schemas via Prisma ORM v7 (@prisma/adapter-pg) supporting enquiry lifecycle states (NEW, IN_PROGRESS, RESPONDED, CLOSED, SPAM) and indexed triage",
+      "Configured Docker for local PostgreSQL development and automated CI/CD production deployment on Vercel"
+    ],
+    metrics: "LIVE DEPLOYMENT • Automated SNR Enquiry Tracking"
+  },
 ];
 
 export const PROJECT_FILTERS = [
   "All",
   "Featured",
-  "AI & Deep Learning",
+  "Software Dev",
   "Generative AI",
-  "Full-Stack & AI",
-  "Frontend & Web",
   "Backend & Data",
-  "Software Dev"
+  "Frontend & Web",
+  "Full-Stack & AI",
+  "Full-Stack & Web",
+  "AI & Deep Learning",
 ];
+
 
